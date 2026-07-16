@@ -1,0 +1,26 @@
+# NEXUS
+
+> NEXUS is the trust and compliance engine for India's craft economy: a status-aware
+> Merchant of Record that lets verified artisans sell handicraft, textiles, jewellery,
+> gems, naturals and craft experiences worldwide — with documented provenance, fair pay
+> (makers keep ~81%, settled in ~2 days), and full GST/export compliance carried by NEXUS.
+> AI-operated with a human-in-the-loop founder. Bilingual (English/Hindi).
+
+## What NEXUS is
+- A Merchant of Record for India's craft economy — artisans need no GST or company.
+- Covers every vertical: handicraft, textiles, jewellery, gems, naturals, experiences/tourism.
+- Provenance-first: GI tags, hallmarks and lab certificates verify authenticity.
+
+## For each audience
+- Artisans: sell globally, keep ~81%, paid to their own bank, no GST/company needed.
+- Buyers: authentic, provenance-tagged craft with buyer protection; meet the maker; visit where it's made.
+- Institutions (cooperatives, shops, NGOs, government): onboard and formalise artisans, source verified craft, deliver schemes to verified beneficiaries.
+
+## Key facts
+- Platform fee ~12%; never-in-loss guarantee; zero float (payments split at the gateway).
+- Connects artisans to government schemes: PM Vishwakarma, MUDRA, e-Shram, ODOP, GeM, ONDC, GI, Udyam, SFURTI, export incentives.
+- Sources makers from public GI registry, data.gov.in, ODOP and myScheme; every maker is consent-gated before selling.
+
+## Authenticity & trust
+- Every listing carries registry-verified provenance; high-value items require certificates.
+- No fabricated products, reviews or photos; honest-stage and consent-before-sale are hard invariants.

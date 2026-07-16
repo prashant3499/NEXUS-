@@ -1,0 +1,21 @@
+{
+  "name": "nexus-unified-core",
+  "version": "3.0.0",
+  "description": "Reconciled commerce core with UPI + card payments (Razorpay Route split-settlement), status-aware legal model, zero-drift slicer, HITL, self-improving cost engine, risk-stratified tourism. File-persisted, HTTP API, zero dependencies.",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "demo": "node demo.js",
+    "test": "node test-ui-parse.js && node test-button-bindings.js && node test-wire-completes.js && node test-views-render.js && node test-mirror-parity.js && node test-ai-tools.js && node test-chat-helpers.js && node test-provider-seams.js && node test-stream-consumer.js && node test.js && node test-selector.js && node test-payments.js && node test-engine.js && node test-wiring.js && node test-control.js && node test-hitl-loop.js && node test-config.js && node test-founder-insights.js && node test-gi.js && node test-tourism-intel.js && node test-subscription-promotion.js && node test-grievance.js && node test-doc-verification.js && node test-i18n.js && node test-unit-economics.js && node test-ad-generation.js && node test-gem-export-compliance.js && node test-operational-cost.js && node test-sourcing.js && node test-returns.js && node test-api-routes.js && node test-operations.js && node test-cooperative-split.js && node test-schemes.js && node test-seller-signup.js && node test-products.js && node test-agent-registry.js && node test-profit-guard.js && node test-scheduler-profit.js && node test-order-profit-guard.js && node test-orders.js && node test-layout-integrity.js && node test-deploy-agent.js && node test-auth.js && node test-order-payment.js && node test-platform-settings.js && node test-wire-integrity.js && node test-auto-source.js && node test-tourism-orders.js && node test-geo.js && node test-executive-team.js && node test-launch-orchestrator.js && node test-seller-consent.js && node test-platform-manifest.js && node test-support-assistant.js && node test-minor-guardian.js && node test-saas-metrics.js && node test-telecaller.js && node test-prospect-db.js && node test-founder-commands.js && node test-explainer.js && node test-watchdog.js && node test-fraud-detection.js && node test-ondc.js && node test-scheme-alignment.js && node test-ondc-conformance.js && node test-vertical-cost.js && node test-insurance.js && node test-seller-ads.js && node test-integrations.js && node test-charity-fund.js && node test-customer-sourcing.js && node test-compliance-registry.js && node test-beckn.js && node test-infra.js && node test-environment-vertical.js && node test-kyc-verification.js && node test-reviews.js && node test-async-feedback-partners.js && node test-self-audit.js && node test-healing-innovation.js && node test-agent-authority.js && node test-presentation-agent.js && node test-founder-console.js && node test-trade-catalog.js && node test-data-sources.js && node test-production-guard.js && node test-listing-assistant.js && node test-growth-agent.js && node test-ai-provider-router.js && node test-government-alignment.js && node test-government-liaison.js && node test-data-protection.js && node test-auto-correct.js && node test-founder-control-centre.js && node test-branding.js && node test-content-studio.js && node test-marketing-studio.js && node test-change-control.js && node test-daily-briefing.js && node test-pipeline-coherence.js && node test-insurance-connector.js",
+    "docker": "docker build -t nexus . && docker run -p 4100:4100 nexus"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "UNLICENSED",
+  "optionalDependencies": {
+    "pg": "^8.11.0",
+    "razorpay": "^2.9.0"
+  }
+}

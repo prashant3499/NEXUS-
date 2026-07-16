@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nexus
+    runtime: node
+    plan: free
+    buildCommand: echo "no build needed — zero dependencies"
+    startCommand: node backend/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: development
+      - key: RATE_LIMIT
+        value: "on"

@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#272247">
+<title>NEXUS — Verified Craft Commerce OS</title>
+<meta name="description" content="NEXUS is the trust & compliance engine for India's craft economy — verified provenance, fair pay, and global reach for handicraft, textiles, jewellery, gems, naturals and craft experiences.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NEXUS — Verified Craft Commerce">
+<meta property="og:description" content="Sell your craft to the world, keep what you earn. Verified provenance, fair pay, no GST needed — across all of India's craft verticals.">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NEXUS — Verified Craft Commerce">
+<meta name="twitter:description" content="The trust & compliance engine for India's craft economy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23272247'/%3E%3Ccircle cx='13' cy='16' r='7.5' fill='none' stroke='%23E8DCC0' stroke-width='2'/%3E%3Ccircle cx='19' cy='16' r='7.5' fill='none' stroke='%23C79A4E' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.7' fill='%235b78e6'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "NEXUS", "description": "NEXUS is the trust and compliance engine for India's craft economy — a status-aware Merchant of Record that lets verified artisans sell handicraft, textiles, jewellery, gems, naturals and craft experiences worldwide with provenance, fair pay and full compliance.", "areaServed": "IN", "knowsAbout": ["handicraft", "handloom textiles", "jewellery", "gemstones", "sustainable naturals", "craft tourism", "GI-tagged products", "Merchant of Record", "artisan commerce"], "slogan": "Verified craft, sold to the world, paid to the maker."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "NEXUS", "description": "Verified Indian craft marketplace and trust engine — provenance-tagged handicraft, textiles, jewellery, gems, naturals and experiences across all verticals, bilingual (English/Hindi)."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is NEXUS?", "acceptedAnswer": {"@type": "Answer", "text": "NEXUS is a trust and compliance platform for India's craft economy. As a status-aware Merchant of Record it lets undocumented artisans sell verified, provenance-tagged craft globally, handles GST and export compliance, and pays makers directly to their bank in about two days."}}, {"@type": "Question", "name": "How can an artisan sell on NEXUS without GST or a company?", "acceptedAnswer": {"@type": "Answer", "text": "NEXUS acts as the Merchant of Record, so the artisan does not need GST registration or a company. The platform carries the compliance burden; the maker keeps about 81% of each sale, paid to their own bank account."}}, {"@type": "Question", "name": "Is the craft sold on NEXUS authentic?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every product carries registry-verified provenance and, where relevant, a GI tag, hallmark or lab certificate that the buyer can verify. NEXUS never lists fabricated or unverified high-value items."}}, {"@type": "Question", "name": "What can I buy on NEXUS?", "acceptedAnswer": {"@type": "Answer", "text": "Verified Indian craft across every vertical: handicraft and home decor, handloom textiles, jewellery, gemstones, sustainable naturals, and hands-on craft experiences and workshops."}}, {"@type": "Question", "name": "How does NEXUS benefit artisans and government?", "acceptedAnswer": {"@type": "Answer", "text": "Artisans get global market access, fair pay and formalisation. Government benefits because NEXUS verifies and formalises artisans (e-Shram, Udyam, GI) and can route schemes such as PM Vishwakarma to verified beneficiaries with an outcome dashboard."}}]}</script>
+<style>
+  :root{
+    /* INDIGO & BRASS — a heritage craft house. Grounded in indigo dye + brass + handloom. */
+    --ink:#221C33; --ink2:#574F66; --ink3:#938BA1;
+    --paper:#F3EFE6; --surface:#FCFAF4; --raise:#FCFAF4;
+    --line:#E3DCCD; --line2:#EDE7D9;
+    --indigo:#272247; --indigo2:#39336A; --indigo-soft:#272247;
+    --brass:#A06B2C; --brass-2:#B9893F; --brass-soft:#D8C29A;
+    --madder:#8A3324; --sage:#5E6B4A;
+    /* legacy aliases so JS-inlined colors still resolve onto the new palette */
+    --saffron:var(--brass); --gold:var(--brass); --teal:var(--sage); --tealink:#48522F;
+    --green:var(--sage); --maker:var(--sage); --red:#A33326; --gold-soft:#efe4cf; --green-soft:#e7eadd;
+    --r:11px; --r-sm:7px; --ease:cubic-bezier(.22,1,.36,1);
+    --sh1:0 1px 2px rgba(34,28,51,.05); --sh2:0 14px 38px rgba(34,28,51,.09); --sh3:0 30px 70px rgba(39,34,71,.18);
+    --mono:"DM Mono",ui-monospace,Menlo,monospace;
+    --warp:repeating-linear-gradient(90deg,transparent 0 13px,rgba(160,107,44,.05) 13px 14px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{font-family:"Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+  body[data-lang=hi]{font-family:"Noto Sans Devanagari","Nirmala UI",-apple-system,sans-serif}
+  .sans{font-family:"Helvetica Neue",-apple-system,sans-serif}
+  body[data-lang=hi] .sans{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .mono{font-family:var(--mono)}
+  /* DISPLAY — high-contrast didone, the one bold type move. Used with restraint. */
+  h1,h2,h3,.sh,.hero h1,.slide h2,.slide.cover h2,.price,.cfee{font-family:"Bodoni 72","Didot","Bodoni MT","Hoefler Text",Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.08}
+  body[data-lang=hi] h1,body[data-lang=hi] h2,body[data-lang=hi] h3,body[data-lang=hi] .sh{font-family:"Noto Sans Devanagari","Nirmala UI",serif;font-weight:600}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  /* selvedge: a fine brass rule at the very top, like the edge of woven cloth */
+  body::before{content:"";position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--brass),var(--brass-2),var(--brass));z-index:60}
+  header{position:sticky;top:0;z-index:50;background:rgba(243,239,230,.82);backdrop-filter:saturate(140%) blur(16px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:8px;height:66px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:17px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+  .logomark{width:24px;height:24px;display:grid;place-items:center;flex-shrink:0}
+  .logomark.seal{grid-template-columns:1fr 1fr;gap:2px;transform:rotate(45deg);transition:transform .7s var(--ease)}
+  .logo:hover .logomark.seal{transform:rotate(225deg)}
+  .logomark.seal i{display:block;border-radius:1px;width:100%;height:100%}
+  .logomark.mono,.logomark.symbol{border-radius:6px;color:#fff;font-weight:700;font-size:13px}
+  .navlinks{margin-left:auto;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px;font-size:13px;align-items:center;font-weight:500}
+  .navlinks button{background:0;border:0;font:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 13px;border-radius:9px;color:var(--ink2);cursor:pointer;transition:.18s;position:relative}
+  .navico{display:grid;place-items:center}
+  .navico svg{width:23px;height:23px;display:block}
+  .navtx{font-size:10.5px;letter-spacing:.04em}
+  body[data-lang=hi] .navtx{font-size:11px}
+  .navlinks button:hover{color:var(--ink)}
+  .navlinks button:hover .navico{transform:translateY(-1px)}
+  .navlinks button.active{color:var(--brass)}
+  .navlinks button.active::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:1px;width:18px;height:1.5px;background:var(--brass)}
+  body[data-lang=hi] .navlinks{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .cartcount{position:absolute;top:2px;right:6px;background:var(--brass);color:#fff;font-size:9px;min-width:15px;height:15px;border-radius:8px;display:none;place-items:center;padding:0 3px;font-family:var(--mono)}
+  .cartcount.show{display:grid}
+  .langtog{display:flex!important;flex-shrink:0;border:1px solid var(--line);border-radius:7px;overflow:hidden;margin-left:8px}
+  .langtog button{padding:7px 11px;border-radius:0;font-size:12px;letter-spacing:.04em;color:var(--ink);background:var(--surface);cursor:pointer;border:0}
+  .langtog button.on{background:var(--indigo);color:var(--paper)}
+  @media(max-width:740px){.navlinks{font-size:12px;gap:0}.navlinks>button{padding:8px 7px}.logo span{display:none}.langtog{margin-left:4px;width:100%;justify-content:center;margin-top:6px}}
+  .view{display:none;animation:fade .5s var(--ease)}.view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  section{padding:72px 0}
+  /* EYEBROW — mono, tracked, brass. A ledger/registry voice for a compliance house. */
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--brass);font-weight:500;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--brass);opacity:.6}
+  body[data-lang=hi] .eyebrow{letter-spacing:.1em;font-family:"Noto Sans Devanagari","Nirmala UI",monospace}
+  .sh{font-size:clamp(30px,4.6vw,52px);max-width:18ch;margin-bottom:18px;line-height:1.06}
+  .sp{font-size:17px;color:var(--ink2);max-width:60ch;line-height:1.65}
+  .btn{font-family:"Helvetica Neue",-apple-system,sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em;padding:14px 28px;border-radius:var(--r-sm);border:0;cursor:pointer;display:inline-block;transition:transform .18s var(--ease),background .18s,box-shadow .18s}
+  body[data-lang=hi] .btn{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .btn-primary{background:var(--indigo);color:var(--paper);box-shadow:0 8px 24px rgba(39,34,71,.22)}
+  .btn-primary:hover{background:var(--indigo2);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  /* HERO — type is the hero. Warp-thread texture behind, like cloth on the loom. */
+  .hero{padding:96px 0 80px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:var(--warp);opacity:.9;pointer-events:none;-webkit-mask:linear-gradient(180deg,#000,transparent 75%);mask:linear-gradient(180deg,#000,transparent 75%)}
+  .hero .wrap{position:relative}
+  .hero h1{font-size:clamp(44px,8vw,92px);max-width:13ch;line-height:1;letter-spacing:-.02em;animation:rise .7s var(--ease)}
+  .hero h1 .em{font-style:italic;color:var(--brass)}
+  .hero .lead{font-size:clamp(16px,2vw,20px);color:var(--ink2);max-width:52ch;margin-top:26px;line-height:1.6;animation:rise .7s var(--ease) .08s both}
+  .hero .quote{font-family:"Bodoni 72","Didot",Georgia,serif;font-style:italic;font-size:clamp(17px,2.2vw,21px);color:var(--ink);margin-top:30px;max-width:60ch;padding-left:22px;border-left:2px solid var(--brass);line-height:1.5;animation:rise .7s var(--ease) .16s both}
+  body[data-lang=hi] .hero .quote{font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+  .hcta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;animation:rise .7s var(--ease) .24s both}
+  .grid{display:grid;gap:1px;margin-top:36px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  /* CARD — gallery framing: hairline rules, generous air, brass detail on hover */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:none;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--sh2);border-color:var(--brass-soft)}
+  .card .ic{width:38px;height:38px;border-radius:8px;display:grid;place-items:center;font-size:17px;margin-bottom:18px;background:var(--line2)!important;color:var(--brass)!important;font-family:var(--mono)}
+  .card h3{font-size:21px;margin-bottom:9px;font-weight:600}
+  .card p{font-size:14.5px;color:var(--ink2);line-height:1.62}
+  body[data-lang=hi] .card p{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .grid.g3{gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .grid.g3 .card{border:0;border-radius:0}
+  .trades{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+  .trade{font-size:13px;padding:9px 17px;border-radius:999px;border:1px solid var(--line);background:var(--surface);transition:.2s;letter-spacing:.01em}
+  .trade:hover{border-color:var(--brass);color:var(--brass)}
+  .trade .m{font-family:var(--mono);font-size:10px;color:var(--ink3);margin-left:6px;text-transform:uppercase;letter-spacing:.08em}
+  /* STAT STRIP — ledger row, mono figures, hairline separation */
+  .statstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  @media(max-width:600px){.statstrip{grid-template-columns:repeat(2,1fr)}}
+  .statstrip .stat{text-align:center;padding:28px 16px;border-left:1px solid var(--line)}
+  .statstrip .stat:first-child{border-left:0}
+  @media(max-width:600px){.statstrip .stat:nth-child(odd){border-left:0}.statstrip .stat:nth-child(n+3){border-top:1px solid var(--line)}}
+  .statstrip .sv{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:36px;color:var(--indigo);line-height:1}
+  .statstrip .sl{font-family:var(--mono);font-size:10.5px;color:var(--ink3);margin-top:8px;text-transform:uppercase;letter-spacing:.12em}
+  body[data-lang=hi] .statstrip .sl{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif;letter-spacing:.04em}
+  /* SHOP */
+  .shophero{background:var(--indigo);color:var(--paper);border-radius:0;padding:64px 0 56px;position:relative;overflow:hidden}
+  .shophero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 15px,rgba(216,194,154,.06) 15px 16px);-webkit-mask:linear-gradient(180deg,#000,transparent);mask:linear-gradient(180deg,#000,transparent)}
+  .shophero .wrap{position:relative}
+  .shophero .eyebrow{color:var(--brass-soft)}.shophero .eyebrow::before{background:var(--brass-soft)}
+  .shophero h1{color:var(--paper);font-size:clamp(34px,5vw,58px)}
+  .shophero p{color:#cfc8de;max-width:48ch;margin-top:16px;font-size:16px;line-height:1.6}
+  body[data-lang=hi] .shophero p{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .shoptools{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px;align-items:center}
+  .searchbox{flex:1;min-width:220px;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:0 16px;transition:border-color .2s}
+  .searchbox:focus-within{border-color:var(--brass)}
+  .searchbox .si{color:var(--ink3);font-size:17px}
+  .searchbox input{flex:1;border:0;background:0;font-size:14px;padding:14px 0;outline:none;color:var(--ink);font-family:inherit}
+  #shopSort,.wishtog{font-size:13px;padding:13px 15px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--ink2);cursor:pointer;font-family:inherit}
+  .wishtog.on{border-color:var(--brass);color:var(--brass)}
+  .collrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+  .coll{font-size:12px;padding:8px 16px;border-radius:999px;border:1px solid transparent;background:var(--line2);color:var(--ink2);cursor:pointer;transition:.2s;letter-spacing:.02em}
+  .coll:hover{color:var(--brass)}.coll.on{background:var(--brass);color:#fff}
+  .filterbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .filter .fico{margin-right:7px;font-size:14px}
+  .filter{font-size:13px;padding:9px 15px;display:inline-flex;align-items:center;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink2);cursor:pointer;transition:.18s}
+  .filter:hover{border-color:var(--brass);color:var(--brass)}
+  .filter.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .shopcount{font-family:var(--mono);font-size:11px;color:var(--ink3);margin:22px 0 4px;text-transform:uppercase;letter-spacing:.1em}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:24px;margin-top:18px}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
+  .pcard:hover{transform:translateY(-4px);box-shadow:var(--sh2);border-color:var(--brass-soft)}
+  .pthumb{height:172px;display:grid;place-items:center;font-size:54px;position:relative;border-bottom:1px solid var(--line)}
+  .pverify{position:absolute;top:12px;left:12px;background:rgba(252,250,244,.94);color:var(--sage);font-family:var(--mono);font-size:10px;font-weight:500;padding:5px 9px;border-radius:999px;display:flex;align-items:center;gap:4px;letter-spacing:.06em;text-transform:uppercase}
+  .pnat{position:absolute;top:42px;right:12px;background:rgba(94,107,74,.95);color:#fff;font-size:11px;padding:4px 7px;border-radius:999px}
+  .pexp{position:absolute;top:12px;right:12px;background:var(--indigo);color:#fff;font-family:var(--mono);font-size:10px;font-weight:600;padding:5px 9px;border-radius:999px;letter-spacing:.06em}
+  body[data-lang=hi] .pexp{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .pgi{position:absolute;top:12px;right:12px;background:var(--brass);color:#fff;font-family:var(--mono);font-size:10px;font-weight:600;padding:5px 9px;border-radius:999px;letter-spacing:.08em}
+  .pbody{padding:20px;display:flex;flex-direction:column;flex:1}
+  .pname{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:19px;font-weight:600;margin-bottom:4px;line-height:1.2}
+  body[data-lang=hi] .pname{font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+  .pmaker{font-size:12.5px;color:var(--ink3);margin-bottom:12px}
+  body[data-lang=hi] .pmaker{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .prate{display:flex;align-items:center;gap:7px;margin-bottom:12px}
+  .stars{color:var(--brass);font-size:12px;letter-spacing:2px}.stars .se{color:var(--line)}
+  .rn{font-family:var(--mono);font-size:11px;color:var(--ink3)}
+  .pprice{font-family:var(--mono);font-size:17px;color:var(--ink);margin-top:auto;letter-spacing:.01em}
+  .heart{position:absolute;bottom:12px;right:12px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(252,250,244,.94);color:var(--madder);font-size:15px;cursor:pointer;display:grid;place-items:center;transition:transform .18s,border-color .18s}
+  .heart:hover{transform:scale(1.12);border-color:var(--madder)}.heart.on{color:var(--madder);border-color:var(--madder)}
+  .heart.big{width:42px;height:42px;font-size:20px;top:16px;right:16px;bottom:auto}
+  /* MODAL / SHEET */
+  .modal{position:fixed;inset:0;background:rgba(34,28,51,.55);backdrop-filter:blur(4px);z-index:80;display:none;align-items:center;justify-content:center;padding:22px}
+  .modal.show{display:flex;animation:fade .3s}
+  .sheet{background:var(--paper);border-radius:var(--r);max-width:780px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--sh3)}
+  .sheet .top{display:grid;grid-template-columns:1fr 1fr;gap:0}@media(max-width:600px){.sheet .top{grid-template-columns:1fr}}
+  .sheet .pic{min-height:260px;display:grid;place-items:center;font-size:104px;position:relative;border-right:1px solid var(--line)}
+  .sheet .info{padding:32px}
+  .sheet .x{position:absolute;top:16px;right:18px;background:rgba(252,250,244,.92);border:1px solid var(--line);width:34px;height:34px;border-radius:50%;font-size:17px;cursor:pointer;color:var(--ink2);z-index:2}
+  .sheet h2{font-size:27px;margin-bottom:5px;font-weight:600}
+  .makerlink{font-size:13px;color:var(--brass);cursor:pointer;margin-top:4px}.makerlink:hover{text-decoration:underline}.makerlink b{color:var(--ink)}
+  body[data-lang=hi] .makerlink{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .sheet .price{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:30px;margin:18px 0 4px}
+  .sheet .split{font-size:12px;color:var(--sage);margin-bottom:18px;font-family:var(--mono);letter-spacing:.02em}
+  body[data-lang=hi] .sheet .split{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .qtyrow{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink2);margin:16px 0}
+  .qtyrow button{width:34px;height:34px;border-radius:var(--r-sm);border:1px solid var(--line);background:var(--surface);font-size:17px;cursor:pointer;color:var(--ink)}
+  .qtyrow b{font-family:var(--mono);min-width:18px;text-align:center}
+  .prov{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+  .prov h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:12px;font-weight:500}
+  body[data-lang=hi] .prov h4{letter-spacing:.05em;font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .provrow{display:flex;align-items:flex-start;gap:11px;padding:7px 0;font-size:13.5px;color:var(--ink2)}
+  body[data-lang=hi] .provrow,body[data-lang=hi] .sheet .info{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .provrow .ck{color:var(--sage);flex-shrink:0;font-weight:700}
+  .sample{font-family:var(--mono);font-size:9px;background:var(--line2);color:var(--ink3);padding:3px 8px;border-radius:999px;letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
+  .review{padding:10px 0;border-bottom:1px solid var(--line)}.review:last-child{border:0}
+  .review .rt{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:14.5px;color:var(--ink);margin:5px 0;font-style:italic}
+  .review .rb{font-size:11.5px;color:var(--ink3)}
+  body[data-lang=hi] .review .rt{font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+  body[data-lang=hi] .review .rb{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .relrow{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px}
+  .relcard{flex:0 0 116px;cursor:pointer}.relcard:hover .relthumb{transform:translateY(-3px);border-color:var(--brass-soft)}
+  .relthumb{height:88px;border-radius:var(--r-sm);display:grid;place-items:center;font-size:34px;transition:.2s;border:1px solid var(--line)}
+  .reln{font-size:12px;margin-top:6px;line-height:1.3}.relp{font-family:var(--mono);font-size:11px;color:var(--ink2);margin-top:2px}
+  body[data-lang=hi] .reln{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .makerhero{height:170px;border-radius:var(--r) var(--r) 0 0;display:grid;place-items:center;position:relative;overflow:hidden}
+  .makerhero::after{content:"";position:absolute;inset:0;background:var(--warp);opacity:.5}
+  .makerhero .ma{font-size:78px;position:relative}
+  .makerstory{font-size:14.5px;color:var(--ink2);line-height:1.7;margin-top:16px}
+  body[data-lang=hi] .makerstory{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  /* CART */
+  .cart{max-width:680px;margin:0 auto}
+  .citem{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .citem .ci{width:58px;height:58px;border-radius:var(--r-sm);display:grid;place-items:center;font-size:27px;flex-shrink:0;border:1px solid var(--line)}
+  .citem .cn{flex:1}.citem .cn .t{font-family:"Bodoni 72","Didot",Georgia,serif;font-weight:600;font-size:16px}.citem .cn .m{font-size:12px;color:var(--ink3)}
+  body[data-lang=hi] .citem .cn .t{font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+  body[data-lang=hi] .citem .cn .m{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .citem .cp{font-family:var(--mono)}
+  .citem .rm{background:0;border:0;color:var(--madder);cursor:pointer;font-size:19px}
+  .carttot{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding-top:8px}
+  .carttot .lab{font-family:var(--mono);font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:.1em}.carttot .amt{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:26px}
+  .cartempty{text-align:center;color:var(--ink3);padding:60px 0;font-size:14px}
+  body[data-lang=hi] .cartempty{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  /* MAKER DEMO */
+  .demo{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px}
+  .demo label{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:8px}
+  .demo select,.demo input,.demo textarea{font-family:inherit;font-size:15px;width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);color:var(--ink);margin-bottom:16px}
+  body[data-lang=hi] .demo select,body[data-lang=hi] .demo textarea,body[data-lang=hi] .demo input{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .demo textarea{resize:vertical;min-height:70px}
+  .micbtn{background:transparent;color:var(--brass);border:1px solid var(--brass-soft);border-radius:var(--r-sm);padding:12px 16px;font-size:13px;cursor:pointer;font-family:inherit;font-weight:600;margin-bottom:16px}
+  .out{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;margin-top:8px;display:none}.out.show{display:block;animation:fade .4s var(--ease)}
+  .out h3{font-size:21px;margin-bottom:7px}.out .tags{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
+  .out .tag{font-family:var(--mono);font-size:11px;background:var(--line2);color:var(--brass);padding:5px 11px;border-radius:999px;letter-spacing:.04em}
+  .out .ev{background:#fbf2e4;border-left:2px solid var(--brass);padding:12px 15px;border-radius:var(--r-sm);font-size:13px;color:#7a4c14;margin-top:10px}
+  .out .row{font-size:14px;color:var(--ink2);margin-top:7px;line-height:1.6}
+  body[data-lang=hi] .out{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  /* COCKPIT — deep indigo control room, brass instrumentation */
+  .cockpit{background:var(--indigo);border-radius:var(--r);padding:6px;box-shadow:var(--sh3)}
+  .cgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:8px;padding:8px}@media(max-width:760px){.cgrid{grid-template-columns:1fr}}
+  .cpanel{background:#1f1a3d;border:1px solid #352f5e;border-radius:var(--r-sm);padding:20px;color:#ece9f5}
+  .cpanel .ce{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-soft);font-weight:500;margin-bottom:5px}
+  body[data-lang=hi] .cpanel .ce{letter-spacing:.05em;font-family:"Noto Sans Devanagari","Nirmala UI",monospace}
+  .cpanel h3{color:#fff;font-size:17px;margin-bottom:14px;font-weight:600}
+  .cmdrow{display:flex;gap:8px}
+  .cmdrow input{flex:1;font-size:14px;background:#15112e;border:1px solid #352f5e;color:#fff;border-radius:var(--r-sm);padding:12px 14px;font-family:inherit}
+  .cmdrow button{font-size:13px;font-weight:600;background:var(--brass);color:#1c1306;border:0;border-radius:var(--r-sm);padding:0 20px;cursor:pointer;font-family:inherit;letter-spacing:.02em}
+  .cchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .cchip{font-family:var(--mono);font-size:10.5px;padding:6px 12px;border-radius:999px;border:1px solid #352f5e;background:#15112e;color:#a59fc4;cursor:pointer;letter-spacing:.03em}
+  .cchip:hover{border-color:var(--brass);color:var(--brass-soft)}
+  body[data-lang=hi] .cchip,body[data-lang=hi] .cmdrow input{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .cresp{margin-top:13px;font-size:12px;background:#120f28;border:1px solid #352f5e;border-radius:var(--r-sm);padding:12px;line-height:1.6;display:none;color:#cfc8de;max-height:330px;overflow-y:auto;scroll-behavior:smooth}
+  .cresp.show{display:block}.cresp .ai{color:#9db17e}.cresp .hu{color:var(--brass-soft)}.cresp .yo{color:#fff}
+  body[data-lang=hi] .cresp .cbtag{font-family:var(--mono)}
+  .cfee{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:38px;color:var(--brass-soft)}
+  .csplit{display:flex;height:18px;border-radius:4px;overflow:hidden;margin:13px 0 8px;border:1px solid #352f5e}.csplit i{height:100%;transition:width .35s}
+  .cleg{font-size:11px;color:#a59fc4;display:grid;grid-template-columns:1fr 1fr;gap:3px 12px;font-family:var(--mono)}
+  .cguard{font-size:11px;color:#7d77a0;margin-top:8px}.cguard.bad{color:#d98b7a}
+  .cbtn{font-size:12px;font-weight:600;background:#2b2552;border:1px solid #352f5e;color:var(--brass-soft);border-radius:var(--r-sm);padding:11px 0;width:100%;cursor:pointer;margin-top:12px;font-family:inherit;letter-spacing:.03em}
+  .cbtn:hover{background:#332c61}
+  .cagent{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:7px 0;border-bottom:1px solid #2a2450;color:#cfc8de}.cagent:last-child{border-bottom:0}
+  .cagent .t{font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:999px;margin-left:auto}.t.a{background:#1d2a18;color:#9db17e}.t.l{background:#2a2310;color:var(--brass-soft)}
+  .cin{font-size:13px;background:#15112e;border:1px solid #352f5e;color:#fff;border-radius:var(--r-sm);padding:9px;font-family:inherit}
+  .logoTypes{display:flex;gap:6px;margin-bottom:10px}
+  .logoTypes button{flex:1;font-family:var(--mono);font-size:10.5px;padding:9px 0;border-radius:var(--r-sm);border:1px solid #352f5e;background:#15112e;color:#a59fc4;cursor:pointer;letter-spacing:.04em}
+  .logoTypes button.on{border-color:var(--brass);color:var(--brass-soft)}
+  .swatches{display:flex;gap:6px;margin:8px 0}
+  .swatches input[type=color]{width:34px;height:30px;border:1px solid #352f5e;border-radius:var(--r-sm);background:#15112e;cursor:pointer;padding:2px}
+  .logoPrev{display:flex;align-items:center;gap:10px;margin:10px 0;padding:11px;background:#15112e;border-radius:var(--r-sm)}
+  /* GOVERNMENT */
+  .govrow{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink2);padding:6px 0}.govrow .ck{color:var(--sage);font-weight:700;flex-shrink:0}
+  body[data-lang=hi] .govrow{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .govinput label,.govlbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px}
+  .govinput input,.govtext{font-family:inherit;font-size:15px;width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);color:var(--ink)}
+  body[data-lang=hi] .govinput label,body[data-lang=hi] .govlbl,body[data-lang=hi] .govtext{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .govimpact{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .gi{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px}
+  .gi b{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:20px;color:var(--indigo);display:block}.gi span{font-family:var(--mono);font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em}
+  body[data-lang=hi] .gi span{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif;letter-spacing:0}
+  .govengage{display:none;margin-top:16px}.govengage.show{display:block;animation:fade .3s var(--ease)}
+  .gpitch{font-family:"Bodoni 72","Didot",Georgia,serif;font-style:italic;font-size:15px;color:var(--ink);background:var(--line2);border-left:2px solid var(--indigo);padding:13px 16px;border-radius:var(--r-sm);line-height:1.5}
+  body[data-lang=hi] .gpitch{font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+  .gstages{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:14px}
+  .gstage{font-family:var(--mono);font-size:10px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink3);letter-spacing:.03em}
+  .gstage.done{background:var(--green-soft);border-color:var(--sage);color:var(--sage)}
+  body[data-lang=hi] .gstage{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .garrow{color:var(--ink3);font-size:11px}
+  .govnote{font-size:12px;color:var(--ink3);margin-top:14px;padding-top:11px;border-top:1px solid var(--line);line-height:1.5}
+  body[data-lang=hi] .govnote{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  /* PRESENTATIONS */
+  .presbar{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+  .presbar .f{display:flex;flex-direction:column;gap:6px}
+  .presbar label{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+  .presbar select{font-family:inherit;font-size:14px;padding:11px 14px;border-radius:var(--r-sm);border:1px solid var(--line);background:var(--paper);min-width:170px}
+  .slide{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:36px 42px;margin-top:16px;position:relative}
+  .slide .num{position:absolute;top:20px;right:26px;font-family:var(--mono);font-size:11px;color:var(--ink3)}
+  .slide .eyebrow{margin-bottom:12px}
+  .slide.cover{background:var(--indigo);color:var(--paper);overflow:hidden}
+  .slide.cover::after{content:"";position:absolute;inset:0;background:var(--warp);opacity:.4}
+  .slide.cover .eyebrow{color:var(--brass-soft)}.slide.cover .eyebrow::before{background:var(--brass-soft)}
+  .slide.cover h2{font-size:clamp(28px,4vw,44px);color:var(--paper);position:relative}
+  .slide.cover .tg{font-family:"Bodoni 72","Didot",Georgia,serif;font-style:italic;color:#cfc8de;margin-top:14px;position:relative;font-size:18px}
+  body[data-lang=hi] .slide.cover .tg{font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+  .slide h2{font-size:25px;margin-bottom:9px;font-weight:600}
+  .slide .body{font-size:15px;color:var(--ink2);line-height:1.7}
+  .slide ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:11px}
+  .slide li{font-size:15px;padding-left:26px;position:relative;color:var(--ink2)}
+  .slide li::before{content:"";position:absolute;left:2px;top:8px;width:10px;height:1px;background:var(--accent,var(--brass))}
+  .slide.honest{background:#fbf6ec;border-color:var(--brass-soft)}.slide.honest .eyebrow{color:var(--brass)}
+  body[data-lang=hi] .slide{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  /* FOOTER */
+  footer{background:var(--indigo);color:#a59fc4;padding:60px 0 44px;margin-top:40px;position:relative;overflow:hidden}
+  footer::before{content:"";position:absolute;inset:0;background:var(--warp);opacity:.3}
+  .ft{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative}
+  .fbig{color:#fff;font-size:18px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .fnote{font-size:13px;max-width:46ch;line-height:1.7;color:#a59fc4}
+  body[data-lang=hi] .fnote{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .badge{display:inline-block;font-family:var(--mono);font-size:10px;background:#2b2552;color:#cfc8de;padding:5px 12px;border-radius:999px;margin-top:14px;letter-spacing:.06em}
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--ink);color:var(--paper);font-size:13.5px;padding:14px 22px;border-radius:var(--r-sm);opacity:0;transition:.28s;pointer-events:none;z-index:99;box-shadow:var(--sh2);max-width:90vw}
+  body[data-lang=hi] .toast{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .toast.show{opacity:1;transform:translateX(-50%)}.toast.err{background:var(--madder)}
+  .hcols{display:grid;grid-template-columns:1fr 1fr;gap:40px}@media(max-width:600px){.hcols{grid-template-columns:1fr;gap:24px}}
+  .hcol h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+  .hcol .r{font-size:13.5px;color:var(--ink2);padding:6px 0;line-height:1.5}
+  body[data-lang=hi] .hcol .r{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .honest{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:32px}
+  .ic.snum{background:var(--line2)!important;color:var(--brass)!important;font-family:var(--mono);font-weight:700}
+  .offmore{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--brass);margin-top:12px;text-transform:uppercase}
+  body[data-lang=hi] .offmore{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif;letter-spacing:.02em}
+  .prodbar{height:8px;background:#15112e;border:1px solid #352f5e;border-radius:999px;overflow:hidden;margin:6px 0}
+  .prodbar i{display:block;height:100%;background:linear-gradient(90deg,var(--brass),var(--brass-soft));width:0;transition:width .4s var(--ease)}
+  .prodready{font-family:var(--mono);font-size:11px;color:var(--brass-soft);margin-bottom:12px;letter-spacing:.04em}
+  body[data-lang=hi] .prodready{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .prodrow{display:flex;align-items:center;gap:11px;padding:11px 0;border-bottom:1px solid #2a2450;cursor:pointer}
+  .prodrow:last-child{border-bottom:0}
+  .prodck{width:22px;height:22px;border-radius:6px;border:1.5px solid #4a447a;color:#1c1306;display:grid;place-items:center;font-size:13px;font-weight:700;flex-shrink:0}
+  .prodck.on{background:var(--brass);border-color:var(--brass)}
+  .prodmain{flex:1;min-width:0}
+  .prodg{font-size:13px;color:#ece9f5;font-family:-apple-system,sans-serif}.prodg span{color:#a59fc4}
+  body[data-lang=hi] .prodg{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .prodenv{font-family:var(--mono);font-size:10.5px;color:#7d77a0;margin-top:2px;word-break:break-word}
+  .prodst{font-family:var(--mono);font-size:9.5px;padding:4px 9px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;flex-shrink:0}
+  body[data-lang=hi] .prodst{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .st-mock,.st-file{background:#2a2310;color:var(--brass-soft)}.st-dev{background:#3a2418;color:#e0a86b}.st-todo{background:#3a1f1f;color:#d98b7a}.st-done{background:#1d2a18;color:#9db17e}
+  /* hero signature */
+  .hero .wrap{position:relative}
+  .hero .wrap>.eyebrow,.hero .wrap>h1,.hero .wrap>.lead,.hero .wrap>.quote,.hero .wrap>.hcta{position:relative;z-index:2;max-width:600px}
+  .heroart{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44%;max-width:470px;z-index:1;opacity:0;animation:artin 1s var(--ease) .15s forwards}
+  .loomsvg{width:100%;height:auto;filter:drop-shadow(0 26px 60px rgba(39,34,71,.28))}
+  .heroart .medallion{stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 2.4s var(--ease) .5s forwards}
+  .heroart .weft rect{opacity:0;animation:weftin .5s var(--ease) forwards}
+  @keyframes artin{to{opacity:1}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes weftin{to{opacity:.6}}
+  @media (max-width:920px){.heroart{display:none}}
+  @media (prefers-reduced-motion:reduce){.heroart,.heroart .medallion,.heroart .weft rect{animation:none;opacity:1;stroke-dashoffset:0}}
+  /* product tiles: craft-lattice texture + presence (no fake photos) */
+  .pthumb{height:186px;font-size:64px}
+  .pthumb::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%23A06B2C' stroke-width='1'%3E%3Ccircle cx='22' cy='22' r='15'/%3E%3Cpath d='M0 22H44M22 0V44'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(circle at 50% 40%,transparent 42%,rgba(34,28,51,.07));background-size:44px 44px,cover;opacity:.55;pointer-events:none}
+  .pthumb>*{position:relative;z-index:2}
+  .pcard:hover .pthumb{font-size:70px}
+  .pthumb{transition:font-size .35s var(--ease)}
+  .chooser-sec{padding-top:8px}
+  .chooser{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+  .audcard{display:flex;flex-direction:column;gap:8px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px;cursor:pointer;font-family:inherit;width:100%;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+  .audcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(34,28,51,.12);border-color:var(--brass)}
+  .audcard:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+  .audic{font-size:38px;line-height:1}
+  .audh{font-family:var(--serif,Georgia,serif);font-size:21px;font-weight:700;color:var(--ink)}
+  .audd{font-size:13.5px;color:var(--ink2);line-height:1.5}
+  body[data-lang=hi] .audh,body[data-lang=hi] .audd,body[data-lang=hi] .audcta{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .audcta{margin-top:6px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--brass);text-transform:uppercase}
+  @media(max-width:760px){.chooser{grid-template-columns:1fr}}
+  .engbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:10px;padding:14px 18px;border-radius:14px;background:#211c33;border:1px solid #39336a}
+  .engstate{display:flex;align-items:center;gap:10px;color:#ece9f5;font-size:15px}
+  .engstate strong{font-family:var(--serif,Georgia,serif)}
+  body[data-lang=hi] .engstate{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .engsub{font-size:12px;color:#9089b0;flex-basis:100%;margin-left:24px}
+  .engdot{width:11px;height:11px;border-radius:50%;background:#5b9a5b;box-shadow:0 0 0 4px rgba(91,154,91,.18);animation:engpulse 2s ease-in-out infinite}
+  @keyframes engpulse{50%{opacity:.5}}
+  .engbtns{display:flex;gap:8px}
+  .engbtn{font-family:var(--mono);font-size:12px;padding:9px 16px;border-radius:9px;border:1px solid #4a447a;background:transparent;color:#cfc8de;cursor:pointer;transition:all .2s}
+  .engbtn:hover{border-color:#A06B2C;color:#fff}
+  .engbtn:focus-visible{outline:2px solid #A06B2C;outline-offset:2px}
+  body[data-lang=hi] .engbtn{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .engstop{border-color:#7a3a3a;color:#e0a0a0}.engstop:hover{background:#7a3a3a;color:#fff;border-color:#7a3a3a}
+  .engrun{border-color:#3f6a3f;color:#a7d0a7}.engrun:hover{background:#3f6a3f;color:#fff;border-color:#3f6a3f}
+  .eng-paused{background:#2a2412;border-color:#5a4a1a}.eng-paused .engdot{background:#d6a52e;box-shadow:0 0 0 4px rgba(214,165,46,.18);animation:none}
+  .eng-stopped{background:#2a1717;border-color:#5a2a2a}.eng-stopped .engdot{background:#c25b5b;box-shadow:0 0 0 4px rgba(194,91,91,.18);animation:none}
+  .cbub{margin:8px 0;padding:10px 13px;border-radius:13px;max-width:90%;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+  .cbub.cu{background:#322a63;color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+  .cbub.ca{background:#171336;color:#cfc8de;border:1px solid #352f5e;border-bottom-left-radius:4px}
+  .cbub.ch{background:#2a2412;color:#e6cf94;border:1px solid #5a4a1a;border-bottom-left-radius:4px}
+  .cbtag{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:#8a84ad;margin-bottom:4px}
+  .cbub.ca .cbtag{color:#9db17e}.cbub.ch .cbtag{color:var(--brass-soft)}
+  body[data-lang=hi] .cbub{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .tourp .toursub{font-size:12.5px;color:var(--ink2);margin:-2px 0 12px}
+  .tourgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  @media(max-width:520px){.tourgrid{grid-template-columns:1fr}}
+  .toursite{display:flex;align-items:center;gap:9px;padding:10px 11px;border:1px solid var(--line);border-radius:11px;text-decoration:none;background:var(--bg);transition:border-color .2s,transform .2s}
+  .toursite:hover{border-color:var(--brass);transform:translateY(-2px)}
+  .toursite .tt{font-size:19px;flex-shrink:0}
+  .toursite .tn{flex:1;font-size:12.5px;color:var(--ink);line-height:1.35}
+  .toursite .tgo{font-family:var(--mono);font-size:9.5px;color:var(--brass);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  body[data-lang=hi] .toursite .tn,body[data-lang=hi] .tourp .toursub{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .tourall{width:100%;margin-top:11px;font-size:12px}
+  .studiobar{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .studiobar select{flex:1;min-width:200px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font-size:14px;font-family:inherit}
+  .studioout{display:none;margin-top:22px}.studioout.show{display:block}
+  .stintro{font-family:var(--serif,Georgia,serif);font-size:18px;color:var(--ink);margin-bottom:16px}
+  body[data-lang=hi] .stintro,body[data-lang=hi] .studiobar select{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .stgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:680px){.stgrid{grid-template-columns:1fr}}
+  .stcard{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px;transition:border-color .2s,transform .2s}
+  .stcard:hover{border-color:var(--brass);transform:translateY(-3px)}
+  .sti{font-size:30px;line-height:1;margin-bottom:10px}
+  .sth{font-family:var(--serif,Georgia,serif);font-size:17px;color:var(--ink);font-weight:700;margin-bottom:6px}
+  .stb{font-size:13.5px;color:var(--ink2);line-height:1.55}
+  body[data-lang=hi] .sth,body[data-lang=hi] .stb,body[data-lang=hi] .stnote{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .stnote{margin-top:16px;font-size:12.5px;color:var(--ink3);border-top:1px solid var(--line);padding-top:12px}
+  .usp-sec{padding-top:8px}
+  .uspgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  @media(max-width:820px){.uspgrid{grid-template-columns:1fr}}
+  .uspcol{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+  .usphead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .uspic{font-size:30px;line-height:1}
+  .usphead h3{font-family:var(--serif,Georgia,serif);font-size:20px;color:var(--ink);margin:0}
+  .usplist{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .usplist li{position:relative;padding-left:24px;font-size:13.5px;color:var(--ink2);line-height:1.5}
+  .usplist li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--brass);font-weight:700}
+  .usplink{background:transparent;border:0;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--brass);text-transform:uppercase;cursor:pointer;text-align:left;padding:0}
+  .usplink:hover{text-decoration:underline}
+  .uspverticals{margin-top:18px;text-align:center;font-size:13px;color:var(--ink3);font-style:italic}
+  body[data-lang=hi] .usphead h3,body[data-lang=hi] .usplist li,body[data-lang=hi] .usplink,body[data-lang=hi] .uspverticals{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .cartdone{text-align:center;padding:30px 22px;background:var(--surface);border:1px solid var(--line);border-radius:18px}
+  .cdok{width:52px;height:52px;border-radius:50%;background:var(--green,#3f8f5f);color:#fff;font-size:26px;line-height:52px;margin:0 auto 14px}
+  .cdh{font-family:var(--serif,Georgia,serif);font-size:22px;color:var(--ink);margin-bottom:6px}
+  .cdid{font-family:var(--mono);font-size:12px;color:var(--ink2);margin-bottom:16px}
+  .cdrow{display:flex;justify-content:space-between;max-width:320px;margin:6px auto;font-size:14px;color:var(--ink2)}
+  .cdmk{color:var(--brass);font-weight:600}
+  .cdnote{max-width:360px;margin:14px auto 0;font-size:12.5px;color:var(--ink3);line-height:1.5}
+  body[data-lang=hi] .cdh,body[data-lang=hi] .cdnote,body[data-lang=hi] .cdrow{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .vchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .vchip{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+  body[data-lang=hi] .vchip{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .offtag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--brass);padding:3px 9px;border-radius:999px;margin-bottom:10px}
+  body[data-lang=hi] .offtag{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif;letter-spacing:.02em}
+  .billtog{display:inline-flex;align-items:center;gap:4px;background:var(--line2);border-radius:999px;padding:4px;margin:24px 0 22px}
+  .billtog button{font:inherit;font-size:13px;font-weight:600;padding:8px 18px;border-radius:999px;border:0;background:transparent;color:var(--ink2);cursor:pointer}
+  .billtog button.on{background:var(--surface);color:var(--ink);box-shadow:var(--sh1)}
+  .billsave{font-family:var(--mono);font-size:11px;color:var(--sage);margin-left:10px;letter-spacing:.04em}
+  body[data-lang=hi] .billtog button,body[data-lang=hi] .billsave{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:740px){.plans{grid-template-columns:1fr 1fr}}
+  .plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px 20px;text-align:center;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+  .plan:hover{transform:translateY(-3px);border-color:var(--brass-soft)}
+  .plan .pat{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brass),var(--indigo))}
+  .plan .nm{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:21px;color:var(--ink);font-weight:600;margin-top:6px}
+  body[data-lang=hi] .plan .nm{font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+  .plan .gl{font-family:var(--mono);font-size:10.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.08em;margin:5px 0 14px}
+  body[data-lang=hi] .plan .gl{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif;letter-spacing:0}
+  .plan .pr{font-family:"Bodoni 72","Didot",Georgia,serif;font-size:26px;color:var(--brass);font-weight:600}
+  .plan .pr small{font-family:var(--mono);font-size:11px;color:var(--ink2)}
+  .plan .prsoon{font-family:var(--mono);font-size:9.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+  .plansnote{font-size:12.5px;color:var(--ink3);margin-top:16px;line-height:1.6;max-width:70ch}
+  body[data-lang=hi] .plansnote{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  .railrow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:24px}
+  @media(max-width:600px){.railrow{grid-template-columns:1fr 1fr}}
+  .rail{background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:4px}
+  .rail .rk{font-size:20px}.rail b{font-size:14px;color:var(--ink);font-family:var(--mono);letter-spacing:.02em}
+  .rail span:last-child{font-size:12px;color:var(--ink2)}
+  body[data-lang=hi] .rail span:last-child{font-family:"Noto Sans Devanagari","Nirmala UI",sans-serif}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:3px}
+
+    /* ─────────── UI/UX POLISH LAYER (additive; overrides above) ─────────── */
+  body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+  ::selection{background:var(--brass-soft);color:var(--ink)}
+  /* refined layered shadows */
+  :root{--sh2:0 10px 30px rgba(34,28,51,.08),0 2px 6px rgba(34,28,51,.05);--sh3:0 24px 60px rgba(39,34,71,.16),0 6px 16px rgba(39,34,71,.08)}
+  /* generous, responsive vertical rhythm */
+  @media(min-width:1024px){section{padding:92px 0}}
+  @media(max-width:640px){section{padding:54px 0}.wrap{padding:0 20px}}
+  /* stronger heading hierarchy */
+  .sh{font-size:clamp(27px,3.6vw,41px);line-height:1.12;letter-spacing:-.015em;color:var(--ink);margin-bottom:16px}
+  .sp{max-width:62ch}
+  .eyebrow{margin-bottom:20px}
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--brass);display:inline-block;opacity:.7}
+  /* buttons: lift, depth, crisp focus */
+  .btn{transition:transform .2s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease),color .2s var(--ease);will-change:transform}
+  .btn-primary:hover{background:var(--indigo2);box-shadow:0 14px 34px rgba(39,34,71,.30);transform:translateY(-2px)}
+  .btn-primary:active{transform:translateY(0);box-shadow:0 6px 16px rgba(39,34,71,.24)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+  .btn-ghost:active{transform:translateY(0)}
+  /* consistent, accessible focus ring everywhere */
+  a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:4px}
+  /* card hover consistency + softer depth */
+  .stat{transition:background .25s var(--ease)}
+  .statstrip:hover .stat{opacity:.55}.statstrip .stat:hover{opacity:1;background:var(--surface)}
+  .audcard,.uspcol,.stcard,.toursite{box-shadow:var(--sh1)}
+  .audcard:hover,.stcard:hover{box-shadow:var(--sh2)}
+  /* nav link underline reveal */
+  .navlinks>button{position:relative}
+  /* smoother modal + toast easing already via --ease; refine scrollbars */
+  *{scrollbar-width:thin;scrollbar-color:var(--brass-soft) transparent}
+  *::-webkit-scrollbar{width:9px;height:9px}
+  *::-webkit-scrollbar-thumb{background:var(--brass-soft);border-radius:6px}
+  *::-webkit-scrollbar-track{background:transparent}
+  /* section headings get a touch more breathing room from the eyebrow */
+  h2.sh{margin-top:2px}
+  /* two-column hero on desktop — text left, signature loom art right */
+  @media(min-width:1000px){
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:48px}
+    .hero .heroart{display:block!important;position:static;transform:none;width:100%;max-width:440px;margin-left:auto;opacity:0;animation:artin 1s var(--ease) .15s forwards}
+    .herotext{min-width:0}
+  }
+  /* ═══════════ ADVANCED REDESIGN — premium dark hero + elevated surfaces ═══════════ */
+  /* HERO: deep indigo gradient with a brass aurora, light type */
+  .hero{background:radial-gradient(135% 125% at 85% -10%,#433C7C 0%,#2E2952 40%,#201B39 74%,#16122A 100%);color:var(--paper);padding:132px 0 98px}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:
+    radial-gradient(55% 45% at 10% 16%,rgba(160,107,44,.22),transparent 70%),
+    radial-gradient(50% 45% at 100% 96%,rgba(185,137,63,.15),transparent 70%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .eyebrow{color:var(--brass-soft)}
+  .hero .eyebrow::before{background:var(--brass-2);opacity:1;width:30px}
+  .hero h1{color:#FCFAF4}
+  .hero .lead{color:rgba(243,239,230,.82)}
+  .hero .quote{color:var(--brass-soft);border-left:2px solid var(--brass);padding-left:16px;font-style:italic}
+  .hero .heroart{filter:brightness(0) invert(1);opacity:.18}
+  .hero .btn-primary{background:linear-gradient(135deg,#C79A4E,#A06B2C);color:#241c0f;box-shadow:0 14px 36px rgba(160,107,44,.42)}
+  .hero .btn-primary:hover{filter:brightness(1.07);transform:translateY(-2px)}
+  .hero .btn-ghost{border-color:rgba(243,239,230,.55);color:var(--paper)}
+  .hero .btn-ghost:hover{background:var(--paper);color:var(--indigo);border-color:var(--paper)}
+  /* GLOBAL primary button → gradient depth */
+  .btn-primary{background:linear-gradient(135deg,var(--indigo2),var(--indigo))}
+  /* ELEVATED SURFACES — product, audience, usp, studio cards */
+  .pcard,.audcard,.uspcol,.stcard{border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,#ffffff,var(--surface));box-shadow:0 2px 10px rgba(34,28,51,.05);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+  .pcard:hover,.audcard:hover,.uspcol:hover,.stcard:hover{transform:translateY(-6px);box-shadow:0 26px 56px rgba(34,28,51,.15);border-color:var(--brass-soft)}
+  .card{border-radius:16px}
+  /* SECTION TONE — soft rhythm between blocks */
+  .usp-sec{background:linear-gradient(180deg,transparent,rgba(160,107,44,.035))}
+  .chooser-sec{background:linear-gradient(180deg,rgba(39,34,71,.022),transparent)}
+  /* HEADER glass refine + brighter selvedge */
+  header{background:rgba(243,239,230,.74);border-bottom:1px solid rgba(227,220,205,.85)}
+  body::before{height:3px}
+  /* DRAMATIC headings */
+  .sh{font-size:clamp(29px,4.2vw,47px)}
+  .logomark.seal{transform:none!important;grid-template-columns:none!important;gap:0!important;place-items:center}
+  .logo .logomark{width:30px;height:28px}
+  /* ─────────── 3D DEPTH LAYER (CSS 3D; respects reduced motion) ─────────── */
+  .pcard,.audcard,.uspcol,.stcard,.toursite{transform-style:preserve-3d;will-change:transform}
+  .pcard:hover{transform:perspective(900px) rotateX(2.4deg) rotateY(-1.6deg) translateY(-7px) translateZ(6px)}
+  .audcard:hover{transform:perspective(900px) rotateX(2deg) rotateY(1.6deg) translateY(-6px) translateZ(6px)}
+  .uspcol:hover,.stcard:hover{transform:perspective(900px) rotateX(1.8deg) translateY(-6px) translateZ(4px)}
+  .toursite:hover{transform:perspective(700px) rotateX(2deg) translateY(-3px)}
+  .hero h1{text-shadow:0 2px 0 rgba(255,255,255,.05),0 18px 44px rgba(0,0,0,.4)}
+  .hero .btn-primary{transform-style:preserve-3d}
+  .hero .btn-primary:hover{transform:perspective(600px) translateY(-2px) translateZ(8px)}
+  .logomark:hover svg{transform:rotateY(14deg);transition:transform .5s var(--ease)}
+  .logomark svg{transition:transform .5s var(--ease)}
+  @media (prefers-reduced-motion: reduce){
+    .pcard:hover,.audcard:hover,.uspcol:hover,.stcard:hover,.toursite:hover,.hero .btn-primary:hover{transform:none}
+    .logomark:hover svg{transform:none}
+  }
+</style>
+</head>
+<body data-lang="en">
+<header><div class="wrap nav">
+  <div class="logo" onclick="go('home')"><span class="logomark seal" id="navLogo"></span><span id="brandNav">NEXUS</span></div>
+  <nav class="navlinks">
+    <button data-v="home" class="active" onclick="go('home')"><span class="navico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/></svg></span><span class="navtx" data-i18n="nav.home">Home</span></button>
+    <button data-v="shop" onclick="go('shop')"><span class="navico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span><span class="navtx" data-i18n="nav.shop">Shop</span></button>
+    <button data-v="maker" onclick="go('maker')"><span class="navico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><span class="navtx" data-i18n="nav.maker">For Makers</span></button>
+    <button data-v="cart" onclick="go('cart')"><span class="navico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h2l1.6 10.5h10L20 8H7"/><circle cx="9.5" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span><span class="cartcount" id="cartCount">0</span><span class="navtx" data-i18n="nav.cart">Cart</span></button>
+    <button data-v="founder" onclick="go('founder')"><span class="navico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="1.8" fill="currentColor"/><circle cx="15" cy="12" r="1.8" fill="currentColor"/><circle cx="8" cy="17" r="1.8" fill="currentColor"/></svg></span><span class="navtx" data-i18n="nav.founder">Founder</span></button>
+    <span class="langtog"><button id="langEn" class="on" onclick="setLang('en')">EN</button><button id="langHi" onclick="setLang('hi')">हिंदी</button></span>
+  </nav>
+</div></header>
+
+<!-- HOME -->
+<div class="view active" id="v-home">
+  <section class="hero"><div class="wrap">
+    <div class="herotext">
+    <div class="eyebrow" data-i18n="home.eyebrow"></div>
+    <h1 data-i18n-html="home.h1"></h1>
+    <p class="lead" data-i18n="home.lead"></p>
+    <p class="quote" data-i18n="home.quote"></p>
+    <div class="hcta"><button class="btn btn-primary" onclick="go('shop')" data-i18n="home.cta1"></button><button class="btn btn-ghost" onclick="go('maker')" data-i18n="home.cta2"></button></div>
+    </div>
+    <div class="heroart" aria-hidden="true"><svg viewBox="0 0 520 460" class="loomsvg" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="516" height="456" rx="22" fill="#272247"/><rect x="2" y="2" width="516" height="456" rx="22" fill="none" stroke="#39336A" stroke-width="1.5"/><g stroke="#A06B2C" stroke-width="1" opacity=".28" class="warp"><line x1="44" y1="34" x2="44" y2="426" /><line x1="70" y1="34" x2="70" y2="426" /><line x1="96" y1="34" x2="96" y2="426" /><line x1="122" y1="34" x2="122" y2="426" /><line x1="148" y1="34" x2="148" y2="426" /><line x1="174" y1="34" x2="174" y2="426" /><line x1="200" y1="34" x2="200" y2="426" /><line x1="226" y1="34" x2="226" y2="426" /><line x1="252" y1="34" x2="252" y2="426" /><line x1="278" y1="34" x2="278" y2="426" /><line x1="304" y1="34" x2="304" y2="426" /><line x1="330" y1="34" x2="330" y2="426" /><line x1="356" y1="34" x2="356" y2="426" /><line x1="382" y1="34" x2="382" y2="426" /><line x1="408" y1="34" x2="408" y2="426" /><line x1="434" y1="34" x2="434" y2="426" /><line x1="460" y1="34" x2="460" y2="426" /></g><g fill="#B9893F" opacity=".6" class="weft"><rect x="36" y="190" width="16" height="12" rx="2"/><rect x="88" y="190" width="16" height="12" rx="2"/><rect x="140" y="190" width="16" height="12" rx="2"/><rect x="192" y="190" width="16" height="12" rx="2"/><rect x="244" y="190" width="16" height="12" rx="2"/><rect x="296" y="190" width="16" height="12" rx="2"/><rect x="348" y="190" width="16" height="12" rx="2"/><rect x="400" y="190" width="16" height="12" rx="2"/><rect x="452" y="190" width="16" height="12" rx="2"/><rect x="62" y="208" width="16" height="12" rx="2"/><rect x="114" y="208" width="16" height="12" rx="2"/><rect x="166" y="208" width="16" height="12" rx="2"/><rect x="218" y="208" width="16" height="12" rx="2"/><rect x="270" y="208" width="16" height="12" rx="2"/><rect x="322" y="208" width="16" height="12" rx="2"/><rect x="374" y="208" width="16" height="12" rx="2"/><rect x="426" y="208" width="16" height="12" rx="2"/><rect x="36" y="226" width="16" height="12" rx="2"/><rect x="88" y="226" width="16" height="12" rx="2"/><rect x="140" y="226" width="16" height="12" rx="2"/><rect x="192" y="226" width="16" height="12" rx="2"/><rect x="244" y="226" width="16" height="12" rx="2"/><rect x="296" y="226" width="16" height="12" rx="2"/><rect x="348" y="226" width="16" height="12" rx="2"/><rect x="400" y="226" width="16" height="12" rx="2"/><rect x="452" y="226" width="16" height="12" rx="2"/><rect x="62" y="244" width="16" height="12" rx="2"/><rect x="114" y="244" width="16" height="12" rx="2"/><rect x="166" y="244" width="16" height="12" rx="2"/><rect x="218" y="244" width="16" height="12" rx="2"/><rect x="270" y="244" width="16" height="12" rx="2"/><rect x="322" y="244" width="16" height="12" rx="2"/><rect x="374" y="244" width="16" height="12" rx="2"/><rect x="426" y="244" width="16" height="12" rx="2"/></g><g transform="translate(260,228)" class="medallion" fill="none" stroke="#D8C29A" stroke-width="1.6"><circle r="96"/><circle r="70" stroke="#A06B2C"/><rect x="-60" y="-60" width="120" height="120"/><rect x="-60" y="-60" width="120" height="120" transform="rotate(45)"/><g stroke="#A06B2C" stroke-width="1" opacity=".7"><line x1="0" y1="0" x2="86.0" y2="0.0"/><line x1="0" y1="0" x2="60.8" y2="60.8"/><line x1="0" y1="0" x2="0.0" y2="86.0"/><line x1="0" y1="0" x2="-60.8" y2="60.8"/><line x1="0" y1="0" x2="-86.0" y2="0.0"/><line x1="0" y1="0" x2="-60.8" y2="-60.8"/><line x1="0" y1="0" x2="-0.0" y2="-86.0"/><line x1="0" y1="0" x2="60.8" y2="-60.8"/></g></g><text x="260" y="242" text-anchor="middle" fill="#D8C29A" font-family="Georgia,serif" font-size="40" font-weight="700">N</text></svg></div>
+  </div></section>
+  <section class="chooser-sec"><div class="wrap">
+    <div class="eyebrow" data-i18n="aud.eyebrow"></div>
+    <h2 class="sh" data-i18n="aud.title"></h2>
+    <div class="chooser">
+      <button type="button" class="audcard" onclick="go('maker')" aria-label="I am an artisan"><span class="audic">🧵</span><span class="audh" data-i18n="aud.maker.t"></span><span class="audd" data-i18n="aud.maker.d"></span><span class="audcta" data-i18n="aud.maker.c"></span></button>
+      <button type="button" class="audcard" onclick="go('shop')" aria-label="I am a buyer"><span class="audic">🛍️</span><span class="audh" data-i18n="aud.buyer.t"></span><span class="audd" data-i18n="aud.buyer.d"></span><span class="audcta" data-i18n="aud.buyer.c"></span></button>
+      <button type="button" class="audcard" onclick="go('shops')" aria-label="I am an institution"><span class="audic">🏛️</span><span class="audh" data-i18n="aud.inst.t"></span><span class="audd" data-i18n="aud.inst.d"></span><span class="audcta" data-i18n="aud.inst.c"></span></button>
+    </div>
+  </div></section>
+  <section class="usp-sec"><div class="wrap">
+    <div class="eyebrow" data-i18n="usp.eyebrow"></div>
+    <h2 class="sh" data-i18n="usp.title"></h2>
+    <p class="sp" data-i18n="usp.sub"></p>
+    <div class="uspgrid">
+      <div class="uspcol">
+        <div class="usphead"><span class="uspic">🧵</span><h3 data-i18n="usp.a.t"></h3></div>
+        <ul class="usplist"><li data-i18n="usp.a.1"></li><li data-i18n="usp.a.2"></li><li data-i18n="usp.a.3"></li><li data-i18n="usp.a.4"></li><li data-i18n="usp.a.5"></li></ul>
+        <button type="button" class="usplink" onclick="go('maker')" data-i18n="usp.a.cta"></button>
+      </div>
+      <div class="uspcol">
+        <div class="usphead"><span class="uspic">🛍️</span><h3 data-i18n="usp.b.t"></h3></div>
+        <ul class="usplist"><li data-i18n="usp.b.1"></li><li data-i18n="usp.b.2"></li><li data-i18n="usp.b.3"></li><li data-i18n="usp.b.4"></li><li data-i18n="usp.b.5"></li></ul>
+        <button type="button" class="usplink" onclick="go('shop')" data-i18n="usp.b.cta"></button>
+      </div>
+      <div class="uspcol">
+        <div class="usphead"><span class="uspic">🏛️</span><h3 data-i18n="usp.c.t"></h3></div>
+        <ul class="usplist"><li data-i18n="usp.c.1"></li><li data-i18n="usp.c.2"></li><li data-i18n="usp.c.3"></li><li data-i18n="usp.c.4"></li><li data-i18n="usp.c.5"></li></ul>
+        <button type="button" class="usplink" onclick="go('shops')" data-i18n="usp.c.cta"></button>
+      </div>
+    </div>
+    <div class="uspverticals" data-i18n="usp.allverticals"></div>
+  </div></section>
+  <div class="wrap"><div class="statstrip">
+    <div class="stat"><div class="sv">6</div><div class="sl" data-i18n="home.stats.makers"></div></div>
+    <div class="stat"><div class="sv">2-day</div><div class="sl" data-i18n="home.stats.fee"></div></div>
+    <div class="stat"><div class="sv">100%</div><div class="sl" data-i18n="home.stats.payout"></div></div>
+    <div class="stat"><div class="sv">13</div><div class="sl" data-i18n="home.stats.langs"></div></div>
+  </div></div>
+  <section><div class="wrap">
+    <div class="eyebrow" data-i18n="home.how.eyebrow"></div><h2 class="sh" data-i18n="home.how.title"></h2>
+    <div class="grid g3">
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--saffron);font-family:'DM Mono'">1</div><h3 data-i18n="home.how.s1t"></h3><p data-i18n="home.how.s1d"></p></div>
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--tealink);font-family:'DM Mono'">2</div><h3 data-i18n="home.how.s2t"></h3><p data-i18n="home.how.s2d"></p></div>
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--indigo);font-family:'DM Mono'">3</div><h3 data-i18n="home.how.s3t"></h3><p data-i18n="home.how.s3d"></p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="eyebrow" data-i18n="offer.eyebrow"></div><h2 class="sh" data-i18n="offer.title"></h2>
+    <p class="sp" data-i18n="offer.desc"></p>
+    <div class="vchips">
+      <span class="vchip">🏺 <span data-i18n="offer.v1"></span></span>
+      <span class="vchip">🧵 <span data-i18n="offer.v2"></span></span>
+      <span class="vchip">💍 <span data-i18n="offer.v3"></span></span>
+      <span class="vchip">💎 <span data-i18n="offer.v4"></span></span>
+      <span class="vchip">🌿 <span data-i18n="offer.v5"></span></span>
+      <span class="vchip">🎟️ <span data-i18n="offer.v6"></span></span>
+    </div>
+    <div class="grid g3" style="margin-top:30px">
+      <div class="card"><div class="ic">🌍</div><span class="offtag" data-i18n="offer.tag"></span><h3 data-i18n="offer.exim.t"></h3><p data-i18n="offer.exim.d"></p></div>
+      <div class="card" onclick="go('shops')" style="cursor:pointer"><div class="ic">🏬</div><span class="offtag" data-i18n="offer.tag"></span><h3 data-i18n="offer.b2b2c.t"></h3><p data-i18n="offer.b2b2c.d"></p><div class="offmore" data-i18n="offer.b2b2c.more"></div></div>
+      <div class="card"><div class="ic">🧭</div><span class="offtag" data-i18n="offer.tag"></span><h3 data-i18n="offer.tour.t"></h3><p data-i18n="offer.tour.d"></p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <div class="eyebrow" data-i18n="home.why.eyebrow"></div><h2 class="sh" data-i18n="home.why.title"></h2>
+    <div class="grid g3">
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--tealink)">✓</div><h3 data-i18n="home.why.c1t"></h3><p data-i18n="home.why.c1d"></p></div>
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--saffron)">₹</div><h3 data-i18n="home.why.c2t"></h3><p data-i18n="home.why.c2d"></p></div>
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--indigo)">⊞</div><h3 data-i18n="home.why.c3t"></h3><p data-i18n="home.why.c3d"></p></div>
+    </div>
+  </div></section>
+  
+  <section><div class="wrap">
+    <div class="eyebrow" data-i18n="home.partners.eyebrow"></div><h2 class="sh" data-i18n="home.partners.title"></h2>
+    <div class="grid g3">
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--tealink)">🛡</div><h3 data-i18n="prov.guarantee">Our guarantee</h3><p data-i18n="home.partners.ins"></p></div>
+      <div class="card"><div class="ic" style="background:#b8860b18;color:var(--gold)">🏛</div><h3 data-i18n="prov.govt">Government</h3><p data-i18n="home.partners.gov"></p></div>
+      <div class="card"><div class="ic" style="background:var(--line2);color:var(--indigo)">⚙</div><h3 data-i18n="prov.dpi">DPI</h3><p data-i18n="home.partners.dpi"></p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap"><div class="eyebrow" data-i18n="home.honest.eyebrow"></div><h2 class="sh" data-i18n="home.honest.title"></h2>
+    <div class="honest" style="margin-top:24px"><div class="hcols">
+      <div class="hcol"><h4 style="color:var(--green)" data-i18n="home.honest.builtT"></h4><div class="r" data-i18n="home.honest.b1"></div><div class="r" data-i18n="home.honest.b2"></div><div class="r" data-i18n="home.honest.b3"></div><div class="r" data-i18n="home.honest.b4"></div></div>
+      <div class="hcol"><h4 style="color:var(--saffron)" data-i18n="home.honest.notT"></h4><div class="r" data-i18n="home.honest.n1"></div><div class="r" data-i18n="home.honest.n2"></div><div class="r" data-i18n="home.honest.n3"></div><div class="r" data-i18n="home.honest.n4"></div></div>
+    </div></div>
+  </div></section>
+</div>
+
+<!-- SHOP (D2C) -->
+<div class="view" id="v-shop">
+  <div class="shophero"><div class="wrap">
+    <div class="eyebrow" data-i18n="shop.eyebrow"></div>
+    <h1 data-i18n="shop.title"></h1>
+    <p data-i18n="shop.desc"></p>
+  </div></div>
+  <div class="wrap" style="padding-bottom:60px">
+    <div class="shoptools">
+      <div class="searchbox"><span class="si">⌕</span><input id="shopSearch" data-i18n-ph="shop.search" oninput="setQuery(this.value)"></div>
+      <select id="shopSort" onchange="setSort(this.value)"></select>
+      <button class="wishtog" id="wishTog" onclick="toggleWishView()">♡ <span id="wishLbl"></span></button>
+    </div>
+    <div class="collrow" id="collrow"></div>
+    <div class="filterbar" id="filters"></div>
+    <div id="shopCount" class="shopcount"></div>
+    <div class="pgrid" id="pgrid"></div>
+    <div id="shopEmpty" class="cartempty" style="display:none"></div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="view" id="v-cart"><section><div class="wrap">
+  <div class="eyebrow" data-i18n="cart.eyebrow"></div><h2 class="sh" data-i18n="cart.title"></h2>
+  <div class="cart" id="cartBox" style="margin-top:24px"></div>
+</div></section></div>
+
+<!-- MAKER -->
+<div class="view" id="v-maker"><section><div class="wrap">
+  <div class="eyebrow" data-i18n="maker.eyebrow"></div><h2 class="sh" data-i18n="maker.title"></h2><p class="sp" data-i18n="maker.desc"></p>
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:22px;margin-top:28px">
+    <div class="demo">
+      <label data-i18n="maker.craft"></label><select id="mTrade"></select>
+      <label data-i18n="maker.describe"></label><textarea id="mPhrase" data-i18n-ph="maker.placeholder"></textarea>
+      <button class="micbtn" onclick="micDemo()">🎤 <span data-i18n="maker.mic"></span></button>
+      <button class="btn btn-primary" style="width:100%" onclick="draftListing()" data-i18n="maker.draft"></button>
+    </div>
+    <div>
+      <div class="out" id="mOut"></div>
+      <div class="demo" id="mPayWrap" style="margin-top:18px">
+        <label><span data-i18n="maker.ifsells"></span> ₹<span id="mPriceLab">2,500</span></label>
+        <input type="range" id="mPrice" min="500" max="20000" step="100" value="2500">
+        <div class="row" style="font-size:15px;color:var(--ink)"><span data-i18n="maker.youget"></span> <b id="mPayout" style="color:var(--maker);font-size:20px">₹2,059</b> <span data-i18n="maker.toBank"></span></div>
+        <div class="row" style="font-size:12.5px;color:var(--ink3)" data-i18n="maker.after"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREATIVE STUDIO — AI design/innovation agent for makers (expertise per vertical) -->
+  <div class="studio" style="margin-top:56px">
+    <div class="eyebrow" data-i18n="studio.eyebrow"></div>
+    <h2 class="sh" data-i18n="studio.title"></h2>
+    <p class="sp" data-i18n="studio.desc"></p>
+    <div class="studiobar">
+      <select id="stVert" aria-label="Craft vertical"></select>
+      <button type="button" class="btn btn-primary" onclick="makerIdeas()" data-i18n="studio.go"></button>
+    </div>
+    <div class="studioout" id="stOut"></div>
+  </div>
+
+  <!-- PLANS — maker subscriptions, monthly + annual (annual at launch) -->
+  <div style="margin-top:64px">
+    <div class="eyebrow" data-i18n="plans.eyebrow"></div>
+    <h2 class="sh" data-i18n="plans.title"></h2>
+    <p class="sp" data-i18n="plans.desc"></p>
+    <div class="billtog">
+      <button id="billM" class="on" onclick="setBill('m')" data-i18n="plans.monthly"></button>
+      <button id="billA" onclick="setBill('a')" data-i18n="plans.annual"></button>
+      <span class="billsave" data-i18n="plans.save"></span>
+    </div>
+    <div class="plans" id="plansGrid"></div>
+    <div class="plansnote" data-i18n="plans.note"></div>
+  </div>
+
+  <!-- TRUST RAILS — the institutional/government backbone (hybrid: Bharat signal) -->
+  <div style="margin-top:56px">
+    <div class="eyebrow" data-i18n="rails.eyebrow"></div>
+    <h2 class="sh" data-i18n="rails.title"></h2>
+    <div class="railrow">
+      <div class="rail"><span class="rk">🪪</span><b>DigiLocker</b><span data-i18n="rails.digilocker"></span></div>
+      <div class="rail"><span class="rk">🧾</span><b>e-Shram</b><span data-i18n="rails.eshram"></span></div>
+      <div class="rail"><span class="rk">🛡</span><b>GI Registry</b><span data-i18n="rails.gi"></span></div>
+      <div class="rail"><span class="rk">🌐</span><b>ONDC</b><span data-i18n="rails.ondc"></span></div>
+      <div class="rail"><span class="rk">🗣</span><b>Bhashini</b><span data-i18n="rails.bhashini"></span></div>
+      <div class="rail"><span class="rk">₹</span><b>UPI</b><span data-i18n="rails.upi"></span></div>
+    </div>
+  </div>
+</div></section></div>
+
+<!-- FOUNDER -->
+<div class="view" id="v-founder"><section><div class="wrap">
+  <div class="eyebrow" data-i18n="founder.eyebrow"></div><h2 class="sh" data-i18n="founder.title"></h2><p class="sp" data-i18n="founder.desc"></p>
+  <div class="cockpit" style="margin-top:24px">
+    <div class="engbar eng-running" id="engBar">
+      <div class="engstate"><span class="engdot" id="engDot"></span><strong id="engLabel" data-i18n="eng.running"></strong><span class="engsub" id="engSub" data-i18n="eng.sub"></span></div>
+      <div class="engbtns">
+        <button type="button" class="engbtn" id="engPause" onclick="engineToggle('pause')" data-i18n="eng.pause"></button>
+        <button type="button" class="engbtn engrun" id="engRun" onclick="engineToggle('run')" data-i18n="eng.resume" style="display:none"></button>
+        <button type="button" class="engbtn engstop" id="engStop" onclick="engineToggle('stop')" data-i18n="eng.stop"></button>
+      </div>
+    </div>
+    <div class="cpanel" style="margin:10px">
+      <div class="ce" data-i18n="founder.cmd.label"></div>
+      <div class="cmdrow"><input id="fCmd" data-i18n-ph="founder.cmd.ph"><button onclick="runCmd(document.getElementById('fCmd').value)" data-i18n="founder.cmd.run"></button></div>
+      <div class="cchips" id="fChips"></div><div class="cresp" id="fResp"></div>
+    </div>
+    <div class="cgrid">
+      <div class="cpanel">
+        <div class="ce" style="color:#2DD4BF" data-i18n="founder.fee.label"></div><h3 data-i18n="founder.fee.title"></h3>
+        <div class="cfee"><span id="fFeePct">12.00</span>%</div>
+        <div style="font-size:12px;color:#9f98c8;font-family:-apple-system,sans-serif"><span data-i18n="founder.fee.keeps"></span> <b style="color:#34D399" id="fMakerPct">81.3%</b> <span data-i18n="founder.fee.of"></span></div>
+        <input type="range" id="fFee" min="2" max="30" step="0.5" value="12">
+        <div class="csplit" id="fBar"></div><div class="cleg" id="fLeg"></div>
+        <div class="cguard" id="fGuard"></div>
+        <button class="cbtn" onclick="applyFee()" data-i18n="founder.fee.apply"></button>
+      </div>
+      <div class="cpanel">
+        <div class="ce" style="color:#34D399" data-i18n="founder.agents.label"></div><h3 data-i18n="founder.agents.title"></h3>
+        <div class="cagent" data-i18n="founder.agents.audit"></div><div class="cagent" data-i18n="founder.agents.heal"></div><div class="cagent" data-i18n="founder.agents.correct"></div><div class="cagent" data-i18n="founder.agents.growth"></div>
+        <div style="font-size:11px;color:#34D399;margin-top:9px;font-family:-apple-system,sans-serif" data-i18n="founder.agents.coherent"></div>
+      </div>
+      <div class="cpanel">
+        <div class="ce" style="color:#A78BFA" data-i18n="founder.change.label"></div><h3 data-i18n="founder.change.title"></h3>
+        <div style="display:flex;gap:6px;margin-bottom:8px"><input id="fcTarget" class="cin" data-i18n-ph="founder.change.ph" style="flex:1"></div>
+        <button class="cbtn" style="color:#A78BFA" onclick="propose()" data-i18n="founder.change.btn"></button>
+        <div class="cguard" id="fcOut" style="font-family:'DM Mono',monospace"></div>
+      </div>
+      <div class="cpanel">
+        <div class="ce" style="color:var(--gold)" data-i18n="founder.brand.label"></div><h3 data-i18n="founder.brand.title"></h3>
+        <input id="fBrand" value="NEXUS" maxlength="40" class="cin" style="width:100%;margin-bottom:8px" data-i18n-ph="founder.brand.name">
+        <div class="logoTypes"><button id="lt-seal" class="on" onclick="setLogoType('seal')" data-i18n="founder.brand.seal"></button><button id="lt-mono" onclick="setLogoType('mono')" data-i18n="founder.brand.mono"></button><button id="lt-symbol" onclick="setLogoType('symbol')" data-i18n="founder.brand.symbol"></button></div>
+        <input id="logoMark" class="cin" style="width:100%;margin-bottom:6px" placeholder="N or ✦" maxlength="2" value="N" oninput="updateLogo()">
+        <div class="swatches" id="swatches"></div>
+        <div class="logoPrev"><span class="logomark seal" id="logoPrevMark" style="width:26px;height:26px"></span><span style="font-family:-apple-system,sans-serif;font-size:13px;color:#cfc9e8" id="logoPrevName">NEXUS</span></div>
+        <button class="cbtn" style="color:var(--gold)" onclick="setBrand()" data-i18n="founder.brand.btn"></button>
+        <div style="font-size:11px;color:#7c87a8;margin-top:9px;font-family:-apple-system,sans-serif" data-i18n="founder.brand.note"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Government: what the platform offers, projected impact, engagement package -->
+  <div style="margin-top:28px">
+    <div class="eyebrow" data-i18n="gov.label"></div><h2 class="sh" style="font-size:clamp(22px,3vw,30px)" data-i18n="gov.title"></h2>
+    <p class="sp" data-i18n="gov.thesis"></p>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:20px">
+      <div class="card"><h3 style="font-size:16px;margin-bottom:10px" data-i18n="gov.offerT"></h3>
+        <div class="govrow"><span class="ck">✓</span><span data-i18n="gov.o1"></span></div>
+        <div class="govrow"><span class="ck">✓</span><span data-i18n="gov.o2"></span></div>
+        <div class="govrow"><span class="ck">✓</span><span data-i18n="gov.o3"></span></div>
+        <div class="govrow"><span class="ck">✓</span><span data-i18n="gov.o4"></span></div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px;margin-bottom:10px" data-i18n="gov.impactT"></h3>
+        <div class="govinput"><label data-i18n="gov.artisans"></label><input type="number" id="govArtisans" value="1000" min="1" max="1000000"></div>
+        <button class="btn btn-ghost" style="width:100%;margin:6px 0 12px" onclick="govImpact()" data-i18n="gov.run"></button>
+        <div id="govImpactOut" class="govimpact"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3 style="font-size:16px;margin-bottom:10px" data-i18n="gov.engageT"></h3>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+        <div style="flex:1;min-width:200px"><label class="govlbl" data-i18n="gov.body"></label><input id="govBody" class="govtext" value="ODOP Uttar Pradesh"></div>
+        <button class="btn btn-primary" onclick="govEngage()" data-i18n="gov.prep"></button>
+      </div>
+      <div id="govEngageOut" class="govengage"></div>
+      <div class="govnote" data-i18n="gov.honest"></div>
+    </div>
+    <div class="cpanel" style="grid-column:1/-1">
+      <div class="ce" style="color:var(--brass-soft)" data-i18n="prod.label"></div><h3 data-i18n="prod.title"></h3>
+      <div style="font-size:12px;color:#a59fc4;margin-bottom:12px" data-i18n="prod.desc"></div>
+      <div class="prodbar"><i id="prodFill"></i></div>
+      <div class="prodready" id="prodReady"></div>
+      <div id="prodList"></div>
+      <div class="govnote" style="color:#7d77a0;border-top-color:#352f5e" data-i18n="prod.note"></div>
+    </div>
+  </div>
+
+  <!-- Presentations: a founder tool (founder presents to government & customers) -->
+  <div style="margin-top:28px">
+    <div class="eyebrow" data-i18n="present.eyebrow"></div><h2 class="sh" style="font-size:clamp(22px,3vw,30px)" data-i18n="present.title"></h2><p class="sp" data-i18n="present.desc"></p>
+    <div class="presbar" style="margin-top:18px">
+      <div class="f"><label data-i18n="present.audience"></label><select id="pAud"></select></div>
+      <button class="btn btn-primary" onclick="genDeck()" data-i18n="present.gen"></button>
+      <div class="f" style="font-family:-apple-system,sans-serif;font-size:12px;color:var(--ink3);align-self:center" data-i18n="present.usesbrand"></div>
+    </div>
+    <input type="hidden" id="pBrand" value="NEXUS"><div id="deck"></div>
+  </div>
+</div></section></div>
+
+<div class="view" id="v-shops"><section class="shophero"><div class="wrap">
+  <div class="eyebrow" data-i18n="shops.eyebrow"></div>
+  <h1 data-i18n="shops.title"></h1>
+  <p data-i18n="shops.lead"></p>
+  <div class="hcta" style="margin-top:26px">
+    <button class="btn btn-primary" onclick="go('shop')" data-i18n="shops.cta"></button>
+    <button class="btn btn-ghost" style="border-color:rgba(255,255,255,.45);color:#fff" onclick="go('home')" data-i18n="shops.back"></button>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="eyebrow" data-i18n="shops.why.eyebrow"></div><h2 class="sh" data-i18n="shops.why.title"></h2>
+  <div class="grid g3" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="card"><div class="ic">🛡</div><h3 data-i18n="shops.w1t"></h3><p data-i18n="shops.w1d"></p></div>
+    <div class="card"><div class="ic">🧾</div><h3 data-i18n="shops.w2t"></h3><p data-i18n="shops.w2d"></p></div>
+    <div class="card"><div class="ic">📦</div><h3 data-i18n="shops.w3t"></h3><p data-i18n="shops.w3d"></p></div>
+    <div class="card"><div class="ic">₹</div><h3 data-i18n="shops.w4t"></h3><p data-i18n="shops.w4d"></p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="eyebrow" data-i18n="shops.how.eyebrow"></div><h2 class="sh" data-i18n="shops.how.title"></h2>
+  <div class="grid g3">
+    <div class="card"><div class="ic snum">1</div><h3 data-i18n="shops.s1t"></h3><p data-i18n="shops.s1d"></p></div>
+    <div class="card"><div class="ic snum">2</div><h3 data-i18n="shops.s2t"></h3><p data-i18n="shops.s2d"></p></div>
+    <div class="card"><div class="ic snum">3</div><h3 data-i18n="shops.s3t"></h3><p data-i18n="shops.s3d"></p></div>
+  </div>
+  <div class="honest" style="margin-top:26px"><p class="sp" data-i18n="shops.plan"></p></div>
+</div></section></div>
+
+<footer><div class="wrap ft">
+  <div><div class="fbig"><span class="logomark seal" id="footLogo" style="width:22px;height:22px"></span><span id="fBrandFoot">NEXUS</span></div><p class="fnote" data-i18n="footer.note"></p><span class="badge">pilot-stage demo · all verticals · bilingual</span></div>
+  <div class="fnote" style="max-width:32ch" data-i18n="footer.disclaimer"></div>
+</div></footer>
+
+<!-- product detail modal -->
+<div class="modal" id="pModal" onclick="if(event.target===this)closeProduct()"><div class="sheet" style="position:relative"><button class="x" onclick="closeProduct()">×</button><div id="pSheet"></div></div></div>
+<div class="modal" id="mModal" onclick="if(event.target===this)closeMaker()"><div class="sheet" style="position:relative"><button class="x" onclick="closeMaker()">×</button><div id="mSheet"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+var CFG={gstC:.18,gw:.023,tcs:.01,tds:.01,tdsMin:250000,charity:.002};
+function split(rupees,c){var t=Math.round(rupees*100),com=Math.round(t*c),gst=Math.round(com*CFG.gstC),gw=Math.round(t*CFG.gw),tcs=Math.round(t*CFG.tcs),tds=t>CFG.tdsMin?Math.round(t*CFG.tds):0,ch=Math.round(t*CFG.charity);return{t:t,payout:t-com-gst-gw-tcs-tds-ch,com:com,gst:gst,gw:gw,tcs:tcs,tds:tds,ch:ch,buyerPays:t};}
+function inr(p){return "₹"+(p/100).toLocaleString("en-IN",{maximumFractionDigits:0});}
+function inrR(r){return "₹"+r.toLocaleString("en-IN");}
+var $=function(id){return document.getElementById(id);};
+var LANG="en",BRAND="NEXUS";
+var LOGO={type:"seal",mark:"N",colors:["#C2410C","#B8860B","#0D7A66","#1E1B4B"]};
+var CART=[];
+function toast(m,e){var t=$("toast");t.textContent=m;t.className="toast show"+(e?" err":"");setTimeout(function(){t.className="toast"+(e?" err":"");},2400);}
+
+var STR={
+ en:{
+  "nav.home":"Home","nav.shop":"Shop","nav.maker":"For Makers","nav.cart":"Cart","nav.founder":"Founder",
+  "home.eyebrow":"Trust & compliance OS · built on India's DPI","home.h1":"One trust layer.<br>Every kind of <span class='em'>maker</span>.",
+  "home.lead":"From a Banarasi weaver to a Jaipur cobbler — verified, compliant, and paid to their bank in days, while the platform carries the tax and legal weight.",
+  "home.quote":"\u201CA weaver in Khurja who cannot read, with no GST number, sells to a buyer in Berlin — verified, compliant, paid in two days, with zero legal liability.\u201D",
+  "home.cta1":"Shop verified craft","home.cta2":"Meet the makers",
+  "home.stats.makers":"verified crafts","home.stats.fee":"maker gets paid","home.stats.payout":"traceable provenance","home.stats.langs":"Indian languages","cart.placed":"Order placed (demo)","cart.order":"Order","cart.more":"Continue shopping","usp.eyebrow":"What you get","usp.title":"Built for everyone in the craft economy.","usp.sub":"Every role gets a platform shaped for them — and the same trust engine underneath.","usp.a.t":"For artisans","usp.a.1":"Sell worldwide with no GST or company — we are your Merchant of Record","usp.a.2":"Keep ~81% of every sale, paid to your own bank in ~2 days","usp.a.3":"Verified provenance, GI, hallmark or lab-cert builds trust and price","usp.a.4":"Voice onboarding in 13 languages — no reading needed","usp.a.5":"Creative Studio: AI design ideas to innovate your craft","usp.a.cta":"Start selling →","usp.b.t":"For buyers","usp.b.1":"Authentic, provenance-tagged craft — verified, never fake","usp.b.2":"Meet the maker and visit where it is made","usp.b.3":"Full buyer protection with secure split payments","usp.b.4":"GI, hallmark and lab certificates where they matter","usp.b.5":"Message makers directly, with a care guide and craft passport","usp.b.cta":"Browse craft →","usp.c.t":"For institutions","usp.c.1":"Onboard and formalise artisans (e-Shram, KYC) at scale","usp.c.2":"Source verified craft as a reseller — no inventory risk","usp.c.3":"Clean GST invoices — we carry the compliance burden","usp.c.4":"Deliver schemes to verified beneficiaries with an outcome dashboard","usp.c.5":"ONDC & export readiness, co-branding and provenance","usp.c.cta":"Partner with us →","usp.allverticals":"Every benefit, across every vertical — handicraft, textiles, jewellery, gems, naturals and experiences.","studio.eyebrow":"Maker’s Creative Studio","studio.title":"Your AI design partner.","studio.desc":"Pick your craft and get expert ideas to improve, innovate and earn more — like having a designer, a merchandiser and a market analyst on your bench.","studio.go":"Get expert ideas","studio.intro":"As your {v} design expert, here are ways to grow:","studio.note":"Ideas, not orders — you choose what fits your craft and your hands. In the full app this learns from your sales and your region.","tour.title":"Visit where it’s made","tour.sub":"Heritage & places near the maker —","tour.map":"Map","tour.explore":"Explore the region on Google Maps","eng.running":"Engine: running","eng.paused":"Engine: paused","eng.stopped":"Engine: stopped","eng.sub":"Agents are operating autonomously, within your gates.","eng.subp":"Agents are held. Nothing autonomous runs until you resume.","eng.subs":"Engine halted. Restart from here when you’re ready.","eng.pause":"⏸ Pause","eng.resume":"▶ Resume","eng.stop":"■ Stop","aud.eyebrow":"Where do you fit?","aud.title":"One platform, three doors.","aud.maker.t":"I’m an artisan","aud.maker.d":"Sell your craft to the world, keep ~81%, no GST or company needed.","aud.maker.c":"Start selling →","aud.buyer.t":"I’m a buyer","aud.buyer.d":"Shop verified, provenance-tagged craft with full buyer protection.","aud.buyer.c":"Browse craft →","aud.inst.t":"I’m an institution","aud.inst.d":"Cooperatives, shops, NGOs & government — onboard, source, deliver schemes.","aud.inst.c":"Partner with us →","prod.label":"Go-live control","prod.title":"What production needs — connect later","prod.desc":"Everything to switch from demo to real money. Set each as an environment variable on your host; tap a row to mark it ready.","prod.ready":"{d} of {n} connected","prod.note":"The platform refuses real money until COMPLIANCE_CONFIRMED=true — set that one last, only after legal sign-off. This panel is a tracker; the real switch is the env vars on your host.","prod.st.mock":"Mock","prod.st.file":"File store","prod.st.dev":"Dev keys","prod.st.todo":"To do","prod.st.done":"Ready","offer.b2b2c.more":"For shops & showrooms →","shops.eyebrow":"For shops & showrooms","shops.title":"Source verified craft. Sell it as your own.","shops.lead":"Stock authentic, provenance-tagged Indian craft with zero inventory risk — and let the maker’s story sell it for you. We handle sourcing, GST and compliance; you keep your margin.","shops.cta":"Browse the catalogue","shops.back":"Back to home","shops.why.eyebrow":"Why stock NEXUS","shops.why.title":"A better supplier, not another marketplace.","shops.w1t":"Authenticity you can prove","shops.w1d":"Every piece carries registry-verified provenance and a GI or lab certificate your customer can scan. No fakes, no disputes — and a story that justifies a higher price.","shops.w2t":"Compliance handled","shops.w2d":"We are the Merchant of Record, so you get clean GST invoices and e-way bills. Sourcing from a village artisan becomes as simple as buying from a distributor.","shops.w3t":"No inventory risk","shops.w3d":"Display a curated catalogue with provenance cards and order on demand — or take pieces on consignment. Pay only for what sells. No dead stock.","shops.w4t":"Your margin + their story","shops.w4d":"You keep your retail margin; we handle sourcing, verification and logistics. The maker’s story becomes your premium pitch to the walk-in customer.","shops.how.eyebrow":"A no-risk start","shops.how.title":"Begin with consignment, not a contract.","shops.s1t":"Pick verified pieces","shops.s1d":"Choose from the catalogue across handicraft, textiles, jewellery, gems and more — each with its proof.","shops.s2t":"Display with provenance","shops.s2d":"Show each piece with a scannable provenance card and the maker’s verified profile — your new selling tool.","shops.s3t":"Pay for what sells","shops.s3d":"Settle on sale, restock on demand. Add co-branding (“verified by NEXUS”) and export or workshop upsells.","shops.plan":"Shops & showrooms join on the Vyapari plan (₹3,999/mo) as B2B2C resellers; a chain or cooperative of showrooms joins as Sansthan (custom). Tourist-belt showrooms can add Exim (ship abroad) and Tourism (workshop) upsells no one else offers.","offer.eyebrow":"Beyond a marketplace","offer.title":"Every way craft moves — on one platform.","offer.desc":"Handicraft, textiles, jewellery, gems, naturals and experiences — plus three things no one else offers India’s makers.","offer.v1":"Handicraft","offer.v2":"Textiles","offer.v3":"Jewellery","offer.v4":"Gems","offer.v5":"Natural & sustainable","offer.v6":"Experiences","offer.tag":"Only on NEXUS","offer.exim.t":"Exim — sell to the world","offer.exim.d":"We carry export docs, IEC code, customs and GI/gem compliance. A village maker becomes a global exporter — without the paperwork.","offer.b2b2c.t":"B2B2C — power other businesses","offer.b2b2c.d":"Shops, showrooms, boutiques, hotels and diaspora stores source verified, provenance-tagged craft and sell to their own walk-in customers — no inventory risk, GST and paperwork handled.","offer.tour.t":"Tourism — sell the experience","offer.tour.d":"Workshops, artisan visits and craft tours, safety-checked and maker-hosted. Earn from your skill, not only your goods.",
+  "home.how.eyebrow":"How it works","home.how.title":"Three steps. The platform carries the rest.",
+  "home.how.s1t":"The maker lists by voice","home.how.s1d":"In any of 13 languages. No GST, no company, no paperwork — the platform is Merchant of Record.",
+  "home.how.s2t":"You buy with proof","home.how.s2d":"Every piece is verified against a registry, provenance visible, with full buyer protection and a guarantee.",
+  "home.how.s3t":"The maker is paid","home.how.s3d":"Money settles to the maker's bank in ~2 days. They keep ~89%. Tax and legal liability sit with the platform.",
+  "home.partners.eyebrow":"Built on trust rails","home.partners.title":"Who stands behind each order.",
+  "home.partners.ins":"Our own guarantee — full refund if a piece isn't genuine. No insurer, no extra charge to you.","home.partners.gov":"Government-aligned: GI-protected, ONDC-portable, scheme-ready for India's craft missions.","home.partners.dpi":"Built on India's DPI — UPI payouts, Aadhaar verification, Bhashini languages.",
+  "home.why.eyebrow":"Why it's different","home.why.title":"Not a marketplace. A trust layer.",
+  "home.why.c1t":"Trust you can see","home.why.c1d":"Verified makers, verified-purchase reviews, visible provenance. \u201CVerified\u201D means checked against a registry — never just a badge.",
+  "home.why.c2t":"The maker keeps most","home.why.c2d":"A far fairer deal than the big marketplaces — the maker keeps much more of every sale and is paid to their bank within days.",
+  "home.why.c3t":"Any trade plugs in","home.why.c3d":"Goods, local services, or experiences — one universal core. Adding a trade is configuration, not new code.",
+  "home.proof.eyebrow":"The signature — drag it","home.proof.title":"Watch where the money goes.","home.proof.desc":"Move the fee and the split reshapes in real time. The same math that runs the platform.",
+  "home.proof.onsale":"On a ₹5,000 sale","home.proof.fee":"Platform fee","home.proof.takehome":"The maker takes home",
+  "home.honest.eyebrow":"In good faith","home.honest.title":"What's real, and what isn't yet.",
+  "home.honest.builtT":"Built & verified","home.honest.b1":"✓ Universal engine · 3,898 tests passing","home.honest.b2":"✓ Self-audit: TRUSTWORTHY","home.honest.b3":"✓ AES-256 encryption, DPDP-ready","home.honest.b4":"✓ ONDC + Bhashini, IndiaAI-aligned",
+  "home.honest.notT":"Not yet — needs the world","home.honest.n1":"• Zero customers — no pilot has run","home.honest.n2":"• No lawyer sign-off on the model yet","home.honest.n3":"• Integrations simulated — no real money moved","home.honest.n4":"• Not yet deployed",
+  "shop.eyebrow":"Direct from the maker","shop.title":"Verified craft, with proof.","shop.desc":"Every piece is made by a verified artisan. Tap any item to see its provenance — and exactly how much reaches the maker.",
+  "shop.all":"All","shop.verified":"Verified","shop.by":"by","shop.from":"from","shop.makergets":"maker gets","shop.add":"Add to cart","shop.added":"Added to cart","shop.provenance":"Provenance — checked, not claimed","shop.viewcart":"View cart","shop.search":"Search craft, maker, region…","shop.saved":"Saved","shop.savedToast":"Saved to your list","shop.unsaved":"Removed from saved","shop.item":"piece","shop.items":"pieces","shop.noresults":"No pieces match. Try another search or filter.","shop.nowish":"You haven’t saved anything yet. Tap ♡ on any piece.","shop.reviews":"reviews","shop.review":"review","shop.sample":"sample","shop.verifiedbuy":"verified purchase","shop.noreviews":"No reviews yet — reviews appear only from verified deliveries.","shop.related":"You may also like","shop.qty":"Quantity","shop.verifiedmaker":"Verified maker","shop.since":"since","shop.theirwork":"Their work","shop.experience":"Experience","shop.book":"Book this experience","shop.booked":"Booked",
+  "prov.identity":"Maker identity verified against registry","prov.gi":"GI authorised-user status confirmed","prov.material":"Materials","prov.made":"Made in","prov.pay":"Maker paid to bank in ~2 days",
+  "cust.title":"What you get as a buyer","cust.passport":"Digital provenance passport — a verifiable certificate of who made it and where","cust.message":"Message the maker — ask questions or commission a custom piece","cust.protect":"Buyer protection — full refund if it isn't authentic, no questions","cust.guarantee":"Platform-backed guarantee — no insurer, and no extra charge to you","cust.care":"Care guide + the maker's story included","cust.msgmaker":"Message the maker","cust.msgsent":"Demo — in the live app this opens a direct line to the maker in your language.",
+  "cart.eyebrow":"Your cart","cart.title":"Verified pieces, fair to the maker.","cart.empty":"Your cart is empty. Browse the shop to add verified craft.","cart.total":"Total","cart.checkout":"Checkout (demo)","cart.removed":"Removed","cart.checkoutmsg":"Demo checkout — no real payment. On the live platform this settles to each maker's bank in ~2 days.","cart.makertotal":"reaches the makers",
+  "maker.eyebrow":"For makers · try it","maker.title":"Speak a few words. Get a sellable listing.","maker.desc":"Pick your craft, describe your piece in plain words, and the assistant drafts a listing in your language — and never invents a claim it can't prove.",
+  "maker.craft":"Your craft","maker.describe":"Describe your piece (a few words)","maker.placeholder":"e.g. blue pottery vase with peacock design, handmade","maker.mic":"Speak (voice)","maker.draft":"✦ Draft my listing",
+  "maker.ifsells":"If it sells for","maker.youget":"You receive","maker.toBank":"to your bank in ~2 days.","maker.after":"After the 12% fee, taxes & gateway — the platform carries the paperwork.","plans.eyebrow":"Maker plans","plans.title":"Choose how you sell","plans.desc":"Every maker is on a paid plan — no free tier, and the platform never runs at a loss. Names your makers recognise.","plans.monthly":"Monthly","plans.annual":"Annual","plans.save":"Annual = 2 months free","plans.permo":"/mo","plans.peryr":"/yr","plans.custom":"Custom","plans.soon":"at launch","plans.note":"Plus Pravasi — a ₹2,999/yr membership for diaspora buyers. Sansthan (co-ops, NGOs, state bodies) is custom-priced. Annual billing arrives at launch.","rails.eyebrow":"The rails underneath","rails.title":"Built on India’s public infrastructure.","rails.digilocker":"Consent-based identity & documents","rails.eshram":"Formalisation & worker UAN","rails.gi":"Authenticity of GI crafts","rails.ondc":"Open, portable commerce","rails.bhashini":"13 Indian languages","rails.upi":"Instant bank payouts",
+  "maker.out.title":"Listing","maker.out.desc":"A {trade} piece: {phrase}. Made by a verified artisan; provenance shown on every listing.","maker.out.photo":"Photo guidance:","maker.out.photoText":"natural daylight, plain background, 3 angles + 1 detail shot of the craftwork.",
+  "maker.out.evidence":"⚠ You mentioned: {claims}. Before we show these, we'll ask for evidence (certificate, GI tag, photos). We never publish a claim we can't prove.","maker.needphrase":"Describe your piece first","maker.micdemo":"Voice demo: the live app records your speech and transcribes it via Bhashini in your language. Type for now.",
+  "founder.eyebrow":"Founder console · single pane","founder.title":"Operate the whole platform.","founder.desc":"Command it in plain language, turn the levers, set your brand & logo, present to anyone.",
+  "founder.cmd.label":"✦ Command — one assistant, plain language","founder.cmd.ph":"audit the platform · what should I do next · show the government pitch","founder.cmd.run":"Run",
+  "founder.fee.label":"Direct levers · live","founder.fee.title":"Platform fee","founder.fee.keeps":"maker keeps","founder.fee.of":"of ₹5,000","founder.fee.apply":"Apply fee (live)",
+  "founder.agents.label":"Agents · founder in loop","founder.agents.title":"Autonomous layer","founder.agents.audit":"Self-audit","founder.agents.heal":"Self-healing","founder.agents.correct":"Auto-correct (payouts)","founder.agents.growth":"Growth / government","founder.agents.coherent":"✓ No overlap · single-sink pipelines",
+  "founder.change.label":"Change control · gated","founder.change.title":"Change anything","founder.change.ph":"target, e.g. logistics agent","founder.change.btn":"Propose",
+  "founder.brand.label":"Brand & logo · before publish","founder.brand.title":"Identity","founder.brand.name":"Brand name","founder.brand.seal":"Seal","founder.brand.mono":"Monogram","founder.brand.symbol":"Symbol","founder.brand.btn":"Set brand & logo everywhere","founder.brand.note":"Name, logo style, mark and colours update across the site, footer & presentations. Trademark-clearing is your legal step.",
+  "founder.guard.safe":"Within safe range. Maker-first.","founder.guard.floor":"Below 2% floor — refused (never-in-loss).","founder.guard.cap":"Above 30% cap — refused (maker-first).","founder.guard.high":"High for maker-first — allowed, watch reaction.",
+  "founder.fee.applied":"Platform fee now {p}% — live","founder.fee.refused":"Refused — outside the guarded range",
+  "founder.change.refused":"✗ REFUSED at invariant gate — cannot be applied or approved.","founder.change.need":"Describe the target.","founder.change.gated":"⟳ Gated: invariants ✓ → tests green → awaiting your approval.","founder.change.applied":"✓ Approved by founder → applied via governed pipeline. Logged.",
+  "founder.brand.set":"Brand & logo updated everywhere.",
+  "present.eyebrow":"Presentation studio · instant","present.title":"Present to government & customers.","present.desc":"You build an audience-tailored, brand-aware deck instantly. Every deck ends honest about the stage.",
+  "present.audience":"Audience","present.gen":"✦ Generate","present.generated":"Deck generated for {a}","present.usesbrand":"Uses your brand & logo.","gov.label":"Government · what we offer","gov.title":"Engage government","gov.thesis":"We lower the government’s cost of formalising the informal craft economy — the onboarding, compliance and payment rails the state struggles to deliver at the last mile.","gov.offerT":"What the platform offers","gov.o1":"Formalises artisans — into the tax + banking system, no prior registration needed","gov.o2":"Delivers schemes to verified, real beneficiaries","gov.o3":"GI-protected, ONDC-portable artisan reputation","gov.o4":"Hands the state an outcome dashboard","gov.impactT":"Projected impact","gov.artisans":"Artisans","gov.run":"Project impact","gov.formalised":"formalised","gov.women":"women artisans","gov.exchequer":"to the exchequer (est.)","gov.exports":"export GMV (est.)","gov.uplift":"income uplift (est.)","gov.engageT":"Prepare an engagement package","gov.body":"Government body","gov.prep":"Prepare package","gov.prepared":"Package prepared for {b} — pitch, schemes, impact & draft outreach ready.","gov.honest":"Honest: this readies a briefcase the founder takes to the meeting — not a signed MoU. The relationship is yours to build.","prov.guarantee":"Our guarantee","prov.govt":"Government","prov.dpi":"DPI",
+  "footer.note":"The trust & compliance operating system for India's craft economy. A pre-revenue, pilot-stage platform — built to be tested, honest about what's proven.",
+  "footer.disclaimer":"Interactive demo with the real engine ported in. No real money moves; no data is stored. The live platform is gated behind a lawyer's sign-off, a payment rail, and a pilot."
+ },
+ hi:{
+  "nav.home":"मुख्य पृष्ठ","nav.shop":"दुकान","nav.maker":"कारीगरों के लिए","nav.cart":"टोकरी","nav.founder":"फ़ाउंडर",
+  "home.eyebrow":"भरोसे और नियमों का मंच · भारत के डिजिटल ढाँचे पर","home.h1":"एक ही भरोसा।<br>हर <span class='em'>कारीगर</span> के लिए।",
+  "home.lead":"बनारस के बुनकर से लेकर जयपुर के मोची तक — हर कारीगर प्रमाणित, हर सौदा नियमों के मुताबिक, और कमाई कुछ ही दिनों में सीधे उनके बैंक खाते में। कर और कानूनी झंझट मंच अपने ज़िम्मे लेता है।",
+  "home.quote":"“खुर्जा की एक बुनकर, जो पढ़-लिख नहीं सकती और जिसके पास GST नंबर भी नहीं — वह बर्लिन के एक ग्राहक को अपना काम बेचती है। पूरी तरह प्रमाणित, नियमों के भीतर, दो दिन में भुगतान, और उस पर कोई कानूनी ज़िम्मेदारी नहीं।”",
+  "home.cta1":"प्रमाणित शिल्प देखें","home.cta2":"कारीगरों से मिलिए",
+  "home.stats.makers":"प्रमाणित शिल्प","home.stats.fee":"कारीगर को भुगतान","home.stats.payout":"पूरी तरह ट्रेस-योग्य","home.stats.langs":"भारतीय भाषाएँ","cart.placed":"ऑर्डर हो गया (डेमो)","cart.order":"ऑर्डर","cart.more":"और खरीदें","usp.eyebrow":"आपको क्या मिलता है","usp.title":"शिल्प-अर्थव्यवस्था के हर व्यक्ति के लिए बना।","usp.sub":"हर भूमिका को उसके अनुरूप मंच — और नीचे वही भरोसा-इंजन।","usp.a.t":"कारीगरों के लिए","usp.a.1":"GST या कंपनी के बिना दुनिया भर में बेचें — हम आपके Merchant of Record हैं","usp.a.2":"हर बिक्री का ~81% रखें, ~2 दिन में अपने बैंक में","usp.a.3":"प्रमाणित उद्गम, GI, हॉलमार्क या लैब-प्रमाण भरोसा व दाम बढ़ाता है","usp.a.4":"13 भाषाओं में आवाज़ से पंजीकरण — पढ़ना ज़रूरी नहीं","usp.a.5":"रचनात्मक स्टूडियो: कला को नया रूप देने के AI विचार","usp.a.cta":"बेचना शुरू करें →","usp.b.t":"खरीदारों के लिए","usp.b.1":"असली, उद्गम-टैग शिल्प — प्रमाणित, कभी नक़ली नहीं","usp.b.2":"कारीगर से मिलें और देखें यह कहाँ बना","usp.b.3":"सुरक्षित विभाजित भुगतान के साथ पूरी खरीदार सुरक्षा","usp.b.4":"जहाँ ज़रूरी हो वहाँ GI, हॉलमार्क व लैब प्रमाणपत्र","usp.b.5":"कारीगरों से सीधे बात, देखभाल गाइड व शिल्प पासपोर्ट के साथ","usp.b.cta":"शिल्प देखें →","usp.c.t":"संस्थानों के लिए","usp.c.1":"कारीगरों को बड़े पैमाने पर जोड़ें व औपचारिक बनाएँ (e-Shram, KYC)","usp.c.2":"रीसेलर के रूप में प्रमाणित शिल्प लें — कोई इन्वेंटरी जोखिम नहीं","usp.c.3":"साफ़ GST चालान — अनुपालन का बोझ हम उठाते हैं","usp.c.4":"सत्यापित लाभार्थियों तक योजनाएँ, परिणाम-डैशबोर्ड के साथ","usp.c.5":"ONDC व निर्यात तैयारी, को-ब्रांडिंग व उद्गम","usp.c.cta":"हमारे साथ जुड़ें →","usp.allverticals":"हर लाभ, हर वर्टिकल में — हस्तशिल्प, वस्त्र, आभूषण, रत्न, प्राकृतिक व अनुभव।","studio.eyebrow":"कारीगर का रचनात्मक स्टूडियो","studio.title":"आपका AI डिज़ाइन साथी।","studio.desc":"अपनी कला चुनें और सुधारने, नवाचार करने व ज़्यादा कमाने के विशेषज्ञ विचार पाएँ — मानो एक डिज़ाइनर, मर्चेंडाइज़र व बाज़ार-विश्लेषक आपके साथ बैठे हों।","studio.go":"विशेषज्ञ विचार पाएँ","studio.intro":"आपके {v} विशेषज्ञ के रूप में, बढ़ने के तरीक़े:","studio.note":"विचार, आदेश नहीं — जो आपकी कला व हाथों को जँचे वही चुनें। पूरे ऐप में यह आपकी बिक्री व क्षेत्र से सीखता है।","tour.title":"जहाँ यह बना, वहाँ घूमें","tour.sub":"कारीगर के पास की धरोहर व स्थल —","tour.map":"नक़्शा","tour.explore":"गूगल मैप्स पर क्षेत्र देखें","eng.running":"इंजन: चालू","eng.paused":"इंजन: रुका हुआ","eng.stopped":"इंजन: बंद","eng.sub":"एजेंट आपकी सीमाओं के भीतर स्वायत्त रूप से काम कर रहे हैं।","eng.subp":"एजेंट रुके हुए हैं। आपके फिर चालू करने तक कुछ स्वायत्त नहीं चलेगा।","eng.subs":"इंजन रुक गया। तैयार होने पर यहीं से फिर शुरू करें।","eng.pause":"⏸ रोकें","eng.resume":"▶ फिर चालू","eng.stop":"■ बंद करें","aud.eyebrow":"आप कहाँ आते हैं?","aud.title":"एक मंच, तीन द्वार।","aud.maker.t":"मैं एक कारीगर हूँ","aud.maker.d":"अपना शिल्प दुनिया को बेचें, ~81% रखें, GST या कंपनी ज़रूरी नहीं।","aud.maker.c":"बेचना शुरू करें →","aud.buyer.t":"मैं एक खरीदार हूँ","aud.buyer.d":"प्रमाणित, उद्गम-टैग शिल्प खरीदें — पूरी खरीदार सुरक्षा के साथ।","aud.buyer.c":"शिल्प देखें →","aud.inst.t":"मैं एक संस्थान हूँ","aud.inst.d":"सहकारी, दुकानें, NGO व सरकार — जोड़ें, स्रोत करें, योजनाएँ पहुँचाएँ।","aud.inst.c":"हमारे साथ जुड़ें →","prod.label":"गो-लाइव नियंत्रण","prod.title":"प्रोडक्शन के लिए ज़रूरतें — बाद में जोड़ें","prod.desc":"डेमो से असली पैसे पर जाने के लिए सब कुछ। हर एक को होस्ट पर एन्वायरनमेंट वेरिएबल के रूप में सेट करें; तैयार चिह्नित करने के लिए पंक्ति पर टैप करें।","prod.ready":"{n} में से {d} जुड़े","prod.note":"जब तक COMPLIANCE_CONFIRMED=true न हो, मंच असली पैसे नहीं लेता — इसे आख़िर में, कानूनी स्वीकृति के बाद ही सेट करें। यह पैनल एक ट्रैकर है; असली स्विच आपके होस्ट के env वेरिएबल हैं।","prod.st.mock":"मॉक","prod.st.file":"फ़ाइल","prod.st.dev":"डेव कुंजी","prod.st.todo":"बाकी","prod.st.done":"तैयार","offer.b2b2c.more":"दुकानों व शोरूम के लिए →","shops.eyebrow":"दुकानों व शोरूम के लिए","shops.title":"प्रमाणित शिल्प लें। अपने नाम से बेचें।","shops.lead":"बिना इन्वेंटरी जोखिम के असली, उद्गम-टैग भारतीय शिल्प रखें — और कारीगर की कहानी को उसे बेचने दें। सोर्सिंग, GST और अनुपालन हम सँभालते हैं; मुनाफ़ा आपका।","shops.cta":"कैटलॉग देखें","shops.back":"होम पर वापस","shops.why.eyebrow":"NEXUS क्यों रखें","shops.why.title":"एक बेहतर सप्लायर, एक और मार्केटप्लेस नहीं।","shops.w1t":"असलियत जो साबित हो","shops.w1d":"हर वस्तु पर रजिस्ट्री-सत्यापित उद्गम और GI या लैब प्रमाणपत्र होता है जिसे ग्राहक स्कैन कर सके। कोई नक़ली नहीं, कोई विवाद नहीं — और एक कहानी जो ऊँचे दाम को सही ठहराती है।","shops.w2t":"अनुपालन हम सँभालें","shops.w2d":"हम Merchant of Record हैं, इसलिए आपको साफ़ GST चालान और ई-वे बिल मिलते हैं। गाँव के कारीगर से लेना डिस्ट्रिब्यूटर से खरीदने जितना आसान।","shops.w3t":"कोई इन्वेंटरी जोखिम नहीं","shops.w3d":"उद्गम कार्ड के साथ चुनिंदा कैटलॉग दिखाएँ और माँग पर मँगाएँ — या कंसाइनमेंट पर लें। सिर्फ़ बिके माल का भुगतान। कोई डेड स्टॉक नहीं।","shops.w4t":"आपका मुनाफ़ा + उनकी कहानी","shops.w4d":"रिटेल मुनाफ़ा आपका; सोर्सिंग, सत्यापन और लॉजिस्टिक्स हमारा। कारीगर की कहानी ग्राहक के सामने आपकी प्रीमियम पिच बनती है।","shops.how.eyebrow":"बिना जोखिम शुरुआत","shops.how.title":"अनुबंध नहीं, कंसाइनमेंट से शुरू करें।","shops.s1t":"प्रमाणित वस्तुएँ चुनें","shops.s1d":"हस्तशिल्प, वस्त्र, आभूषण, रत्न आदि के कैटलॉग से चुनें — हर एक अपने प्रमाण के साथ।","shops.s2t":"उद्गम के साथ दिखाएँ","shops.s2d":"हर वस्तु को स्कैन करने योग्य उद्गम कार्ड और कारीगर की सत्यापित प्रोफ़ाइल के साथ दिखाएँ — आपका नया बिक्री-साधन।","shops.s3t":"बिके माल का भुगतान","shops.s3d":"बिक्री पर भुगतान, माँग पर पुनः स्टॉक। को-ब्रांडिंग (“NEXUS द्वारा सत्यापित”) और निर्यात या कार्यशाला अपसेल जोड़ें।","shops.plan":"दुकानें व शोरूम व्यापारी प्लान (₹3,999/माह) पर B2B2C रीसेलर के रूप में जुड़ते हैं; शोरूम की श्रृंखला या सहकारी संस्थान (कस्टम) के रूप में। पर्यटन-क्षेत्र के शोरूम Exim (विदेश भेजें) व पर्यटन (कार्यशाला) अपसेल जोड़ सकते हैं जो कोई और नहीं देता।","offer.eyebrow":"मार्केटप्लेस से आगे","offer.title":"शिल्प जिस-जिस तरह बिकता है — एक ही मंच पर।","offer.desc":"हस्तशिल्प, वस्त्र, आभूषण, रत्न, प्राकृतिक उत्पाद और अनुभव — और तीन चीज़ें जो कोई और भारत के कारीगरों को नहीं देता।","offer.v1":"हस्तशिल्प","offer.v2":"वस्त्र","offer.v3":"आभूषण","offer.v4":"रत्न","offer.v5":"प्राकृतिक व टिकाऊ","offer.v6":"अनुभव","offer.tag":"सिर्फ़ NEXUS पर","offer.exim.t":"Exim — दुनिया को बेचें","offer.exim.d":"हम निर्यात दस्तावेज़, IEC कोड, कस्टम और GI/रत्न अनुपालन सँभालते हैं। एक गाँव का कारीगर बिना कागज़ी झंझट के वैश्विक निर्यातक बन जाता है।","offer.b2b2c.t":"B2B2C — दूसरे व्यवसायों को सशक्त करें","offer.b2b2c.d":"दुकानें, शोरूम, बुटीक, होटल और प्रवासी स्टोर प्रमाणित, उद्गम-टैग शिल्प लेकर अपने ग्राहकों को बेचते हैं — बिना इन्वेंटरी जोखिम; GST और कागज़ी काम हम सँभालते हैं।","offer.tour.t":"पर्यटन — अनुभव बेचें","offer.tour.d":"कार्यशालाएँ, कारीगर-भेंट और शिल्प-यात्राएँ — सुरक्षा-जाँची और कारीगर-मेज़बान। सिर्फ़ सामान नहीं, अपने हुनर से कमाएँ।",
+  "home.how.eyebrow":"यह कैसे चलता है","home.how.title":"बस तीन कदम। बाकी सब मंच सँभालता है।",
+  "home.how.s1t":"कारीगर बोलकर सामान चढ़ाता है","home.how.s1d":"13 में से किसी भी भाषा में। न GST, न कंपनी, न कागज़ात — मंच ही आधिकारिक विक्रेता (Merchant of Record) बनता है।",
+  "home.how.s2t":"आप पूरे भरोसे के साथ खरीदते हैं","home.how.s2d":"हर चीज़ रजिस्टर से जाँची हुई, बनाने वाले की पूरी जानकारी सामने, पूरी खरीदार सुरक्षा और गारंटी के साथ।",
+  "home.how.s3t":"कारीगर को उसका हक़ मिलता है","home.how.s3d":"कमाई करीब दो दिन में सीधे बैंक में। हर सौदे का लगभग 89% उसी का। कर और कानूनी ज़िम्मेदारी मंच की।",
+  "home.partners.eyebrow":"भरोसे की बुनियाद","home.partners.title":"हर ऑर्डर के पीछे कौन खड़ा है।",
+  "home.partners.ins":"मंच की अपनी गारंटी — चीज़ असली न निकले तो पूरा पैसा वापस। कोई बीमा कंपनी नहीं, कोई अतिरिक्त शुल्क नहीं।","home.partners.gov":"सरकार के साथ क़दम-से-क़दम — GI-संरक्षित, ONDC पर चलने लायक, और शिल्प योजनाओं के लिए तैयार।","home.partners.dpi":"भारत के डिजिटल ढाँचे पर बना — UPI से भुगतान, आधार से पहचान, भाषिणी से हर भाषा।",
+  "home.why.eyebrow":"हम अलग क्यों हैं","home.why.title":"सिर्फ़ एक बाज़ार नहीं — भरोसे की बुनियाद।",
+  "home.why.c1t":"भरोसा, जो आँखों से दिखे","home.why.c1d":"हर कारीगर जाँचा हुआ, समीक्षा सिर्फ़ सच्ची खरीद पर, और सामान कहाँ-किसने बनाया — सब सामने। “प्रमाणित” यानी रजिस्टर से मिलान, कोरा ठप्पा नहीं।",
+  "home.why.c2t":"सबसे बड़ा हिस्सा कारीगर का","home.why.c2d":"बड़े बाज़ारों से कहीं बेहतर सौदा — हर बिक्री का बड़ा हिस्सा कारीगर के पास रहता है, और भुगतान कुछ ही दिनों में सीधे उसके बैंक में।",
+  "home.why.c3t":"कोई भी पेशा जुड़ सकता है","home.why.c3d":"सामान हो, सेवा हो या अनुभव — एक ही बुनियाद सबके लिए। नया पेशा जोड़ना सिर्फ़ सेटिंग बदलना है, नया कोड लिखना नहीं।",
+  "home.proof.eyebrow":"खास बात — सरकाकर देखिए","home.proof.title":"देखिए, पैसा किसके पास जाता है।","home.proof.desc":"शुल्क घटाइए-बढ़ाइए और बँटवारा आँखों के सामने बदलता है। यही असली हिसाब है, जो पूरा मंच चलाता है।",
+  "home.proof.onsale":"₹5,000 की बिक्री पर","home.proof.fee":"मंच का शुल्क","home.proof.takehome":"कारीगर घर ले जाता है",
+  "home.honest.eyebrow":"पूरी ईमानदारी से","home.honest.title":"क्या सच में तैयार है, और क्या अभी नहीं।",
+  "home.honest.builtT":"बना और जाँचा-परखा","home.honest.b1":"✓ एक ही बुनियाद · 3,912 टेस्ट पास","home.honest.b2":"✓ खुद की जाँच: भरोसेमंद","home.honest.b3":"✓ AES-256 सुरक्षा, DPDP के लिए तैयार","home.honest.b4":"✓ ONDC + भाषिणी, IndiaAI के साथ","home.honest.notT":"अभी बाकी — दुनिया की ज़रूरत","home.honest.n1":"• अभी एक भी ग्राहक नहीं — कोई पायलट नहीं चला","home.honest.n2":"• मॉडल पर वकील की मंज़ूरी बाकी","home.honest.n3":"• सारे जोड़ नकली अभी — असली पैसा नहीं चला","home.honest.n4":"• अभी कहीं लाइव नहीं",
+  "shop.eyebrow":"सीधे कारीगर से","shop.title":"हस्तशिल्प, रत्न, आभूषण व अनुभव — सब प्रमाणित।","shop.desc":"हर चीज़ एक जाँचे हुए कारीगर के हाथ की बनी है। किसी पर भी टैप कीजिए — देखिए वह कहाँ-किसने बनाई, और कितना सीधे कारीगर तक पहुँचता है।",
+  "shop.all":"सभी","shop.verified":"प्रमाणित","shop.by":"—","shop.from":"से","shop.makergets":"कारीगर को मिलता है","shop.add":"टोकरी में डालें","shop.added":"टोकरी में डाला","shop.provenance":"पूरी जानकारी — जाँची हुई, सिर्फ़ दावा नहीं","shop.viewcart":"टोकरी देखें","shop.search":"शिल्प, कारीगर, इलाक़ा खोजिए…","shop.saved":"सहेजे","shop.savedToast":"आपकी सूची में सहेजा","shop.unsaved":"सहेजे से हटाया","shop.item":"चीज़","shop.items":"चीज़ें","shop.noresults":"कोई चीज़ मेल नहीं खाई। कोई और खोज या छाँट आज़माइए।","shop.nowish":"आपने अभी कुछ सहेजा नहीं। किसी भी चीज़ पर ♡ दबाइए।","shop.reviews":"समीक्षाएँ","shop.review":"समीक्षा","shop.sample":"नमूना","shop.verifiedbuy":"सत्यापित खरीद","shop.noreviews":"अभी कोई समीक्षा नहीं — समीक्षा सिर्फ़ पहुँची हुई खरीद पर आती है।","shop.related":"ये भी पसंद आ सकते हैं","shop.qty":"मात्रा","shop.verifiedmaker":"प्रमाणित कारीगर","shop.since":"से","shop.theirwork":"इनका काम","shop.experience":"अनुभव","shop.book":"यह अनुभव बुक करें","shop.booked":"बुक हुआ",
+  "prov.identity":"कारीगर की पहचान रजिस्टर से मिलाई गई","prov.gi":"GI अधिकृत-कारीगर का दर्जा पक्का","prov.material":"किससे बना","prov.made":"कहाँ बना","prov.pay":"कारीगर को करीब 2 दिन में बैंक भुगतान",
+  "cust.title":"खरीदार के तौर पर आपको क्या मिलता है","cust.passport":"डिजिटल पहचान-पत्र — किसने और कहाँ बनाया, इसका पक्का सबूत","cust.message":"कारीगर से सीधी बात — सवाल पूछें या अपनी पसंद की चीज़ बनवाएँ","cust.protect":"पूरी सुरक्षा — असली न निकले तो बिना सवाल पूरा पैसा वापस","cust.guarantee":"मंच की अपनी गारंटी — कोई बीमा कंपनी नहीं, और आप पर कोई अतिरिक्त शुल्क नहीं","cust.care":"देखभाल की सलाह और कारीगर की कहानी, दोनों साथ","cust.msgmaker":"कारीगर को संदेश भेजें","cust.msgsent":"यह डेमो है — असली ऐप में यह आपकी भाषा में कारीगर से सीधी बातचीत खोल देता है।",
+  "cart.eyebrow":"आपकी टोकरी","cart.title":"प्रमाणित चीज़ें, कारीगर के साथ पूरा इंसाफ़।","cart.empty":"आपकी टोकरी अभी खाली है। दुकान देखिए और प्रमाणित शिल्प जोड़िए।","cart.total":"कुल","cart.checkout":"भुगतान करें (डेमो)","cart.removed":"हटा दिया","cart.checkoutmsg":"यह डेमो भुगतान है — असली पैसा नहीं चलता। असली मंच पर यह करीब 2 दिन में हर कारीगर के बैंक खाते में पहुँचता है।","cart.makertotal":"सीधे कारीगरों तक पहुँचता है",
+  "maker.eyebrow":"कारीगरों के लिए · आज़माइए","maker.title":"बस कुछ शब्द बोलिए। बिकने लायक लिस्टिंग पाइए।","maker.desc":"अपना पेशा चुनिए, अपनी चीज़ को आसान शब्दों में बताइए — सहायक आपकी अपनी भाषा में लिस्टिंग बना देता है, और कभी ऐसा दावा नहीं गढ़ता जिसे साबित न किया जा सके।",
+  "maker.craft":"आपका पेशा","maker.describe":"अपनी चीज़ बताइए (दो-चार शब्द)","maker.placeholder":"जैसे: नीली मिट्टी का फूलदान, मोर की डिज़ाइन, हाथ का बना","maker.mic":"बोलिए (आवाज़ से)","maker.draft":"✦ मेरी लिस्टिंग बनाइए",
+  "maker.ifsells":"अगर यह इतने में बिके","maker.youget":"आपको मिलेंगे","maker.toBank":"आपके बैंक में करीब 2 दिन में।","maker.after":"12% शुल्क, कर और गेटवे के बाद — बाकी कागज़ी काम मंच सँभालता है।","plans.eyebrow":"कारीगर प्लान","plans.title":"चुनिए कैसे बेचना है","plans.desc":"हर कारीगर एक भुगतान वाले प्लान पर — कोई मुफ़्त नहीं, और मंच कभी घाटे में नहीं चलता। ऐसे नाम जो आपके कारीगर पहचानते हैं।","plans.monthly":"मासिक","plans.annual":"वार्षिक","plans.save":"वार्षिक = 2 महीने मुफ़्त","plans.permo":"/माह","plans.peryr":"/साल","plans.custom":"कस्टम","plans.soon":"लॉन्च पर","plans.note":"साथ में प्रवासी — प्रवासी खरीदारों के लिए ₹2,999/साल की सदस्यता। संस्थान (सहकारी, NGO, राज्य) के लिए कस्टम दाम। वार्षिक बिलिंग लॉन्च पर आएगी।","rails.eyebrow":"नीचे की बुनियाद","rails.title":"भारत के सार्वजनिक ढाँचे पर बना।","rails.digilocker":"सहमति-आधारित पहचान व दस्तावेज़","rails.eshram":"औपचारिकता व कामगार UAN","rails.gi":"GI शिल्प की असलियत","rails.ondc":"खुला, ले-जाने योग्य व्यापार","rails.bhashini":"13 भारतीय भाषाएँ","rails.upi":"तुरंत बैंक भुगतान",
+  "maker.out.title":"लिस्टिंग","maker.out.desc":"एक {trade} चीज़: {phrase}। एक प्रमाणित कारीगर के हाथ की बनी; हर लिस्टिंग पर पूरी जानकारी सामने।","maker.out.photo":"फ़ोटो की सलाह:","maker.out.photoText":"दिन के उजाले में, सादा पीछे का हिस्सा, 3 तरफ़ से और 1 नज़दीक से कारीगरी का।",
+  "maker.out.evidence":"⚠ आपने कहा: {claims}। इसे दिखाने से पहले हम सबूत माँगेंगे (प्रमाणपत्र, GI टैग, फ़ोटो)। जो साबित न हो, वैसा दावा हम कभी नहीं छापते — यह आपकी और ग्राहक, दोनों की हिफ़ाज़त है।","maker.needphrase":"पहले अपनी चीज़ तो बताइए","maker.micdemo":"आवाज़ का डेमो: असली ऐप आपकी आवाज़ रिकॉर्ड करके भाषिणी से आपकी भाषा में लिख देता है। अभी टाइप कर लीजिए।",
+  "founder.eyebrow":"फ़ाउंडर कंसोल · सब एक जगह","founder.title":"पूरा मंच यहीं से चलाइए।","founder.desc":"आसान भाषा में हुक्म दीजिए, नियंत्रण घुमाइए, अपना ब्रांड और लोगो तय कीजिए, और किसी को भी पेश कीजिए।",
+  "founder.cmd.label":"✦ हुक्म — एक सहायक, आसान भाषा में","founder.cmd.ph":"मंच की जाँच करो · अब आगे क्या करूँ · सरकारी पिच दिखाओ","founder.cmd.run":"चलाएँ",
+  "founder.fee.label":"सीधे नियंत्रण · तुरंत असर","founder.fee.title":"मंच का शुल्क","founder.fee.keeps":"कारीगर रखता है","founder.fee.of":"₹5,000 में से","founder.fee.apply":"शुल्क लागू करें",
+  "founder.agents.label":"एजेंट · फ़ैसला फ़ाउंडर का","founder.agents.title":"अपने-आप चलने वाली परत","founder.agents.audit":"खुद की जाँच","founder.agents.heal":"खुद की मरम्मत","founder.agents.correct":"खुद-सुधार (भुगतान)","founder.agents.growth":"विकास / सरकार","founder.agents.coherent":"✓ कोई दोहराव नहीं · हर काम का एक ही रास्ता",
+  "founder.change.label":"बदलाव पर नियंत्रण · जाँच के साथ","founder.change.title":"कुछ भी बदलिए","founder.change.ph":"क्या बदलना है, जैसे लॉजिस्टिक्स एजेंट","founder.change.btn":"प्रस्ताव दें",
+  "founder.brand.label":"ब्रांड और लोगो · लाइव होने से पहले","founder.brand.title":"पहचान","founder.brand.name":"ब्रांड का नाम","founder.brand.seal":"मुहर","founder.brand.mono":"मोनोग्राम","founder.brand.symbol":"चिह्न","founder.brand.btn":"हर जगह ब्रांड और लोगो लगाएँ","founder.brand.note":"नाम, लोगो, चिह्न और रंग पूरी साइट, फ़ुटर और प्रस्तुतियों में बदल जाते हैं। ट्रेडमार्क की कानूनी जाँच आपका काम है।",
+  "founder.guard.safe":"सुरक्षित दायरे में। कारीगर सबसे पहले।","founder.guard.floor":"2% से नीचे — मंज़ूर नहीं (कभी घाटा नहीं)।","founder.guard.cap":"30% से ऊपर — मंज़ूर नहीं (कारीगर सबसे पहले)।","founder.guard.high":"कारीगर के लिहाज़ से ज़्यादा है — चल जाएगा, पर असर देखते रहिए।",
+  "founder.fee.applied":"मंच का शुल्क अब {p}% — लागू","founder.fee.refused":"मंज़ूर नहीं — सुरक्षित दायरे से बाहर",
+  "founder.change.refused":"✗ बुनियादी नियम पर रुका — न लागू होगा, न मंज़ूर।","founder.change.need":"पहले बताइए क्या बदलना है।","founder.change.gated":"⟳ जाँच में: बुनियादी नियम ✓ → टेस्ट पास → अब आपकी मंज़ूरी का इंतज़ार।","founder.change.applied":"✓ फ़ाउंडर ने मंज़ूर किया → तय रास्ते से लागू। रिकॉर्ड हो गया।",
+  "founder.brand.set":"ब्रांड और लोगो हर जगह बदल गया।",
+  "present.eyebrow":"प्रस्तुति स्टूडियो · तुरंत","present.title":"सरकार और ग्राहकों के सामने पेश कीजिए।","present.desc":"सुनने वाले के हिसाब से, आपके ब्रांड के साथ, तुरंत एक डेक बन जाता है। हर डेक यह सच बताकर खत्म होता है कि हम किस पड़ाव पर हैं।",
+  "present.audience":"सुनने वाला","present.gen":"✦ बनाइए","present.generated":"{a} के लिए डेक तैयार","present.usesbrand":"आपका ब्रांड और लोगो इस्तेमाल करता है।","gov.label":"सरकार · हम क्या देते हैं","gov.title":"सरकार के साथ जुड़ाव","gov.thesis":"हम सरकार के लिए अनौपचारिक शिल्प अर्थव्यवस्था को औपचारिक बनाने की लागत घटाते हैं — वही ऑनबोर्डिंग, अनुपालन और भुगतान की व्यवस्था जो राज्य आख़िरी छोर तक मुश्किल से पहुँचा पाता है।","gov.offerT":"मंच क्या देता है","gov.o1":"कारीगरों को औपचारिक बनाता है — कर + बैंकिंग में, बिना पहले से पंजीकरण","gov.o2":"योजनाएँ असली, प्रमाणित लाभार्थियों तक पहुँचाता है","gov.o3":"GI-संरक्षित, ONDC पर चलने लायक कारीगर प्रतिष्ठा","gov.o4":"राज्य को परिणाम डैशबोर्ड देता है","gov.impactT":"अनुमानित असर","gov.artisans":"कारीगर","gov.run":"असर आँकिए","gov.formalised":"औपचारिक हुए","gov.women":"महिला कारीगर","gov.exchequer":"राजकोष को (अनुमानित)","gov.exports":"निर्यात GMV (अनुमानित)","gov.uplift":"आय वृद्धि (अनुमानित)","gov.engageT":"जुड़ाव पैकेज तैयार करें","gov.body":"सरकारी निकाय","gov.prep":"पैकेज तैयार करें","gov.prepared":"{b} के लिए पैकेज तैयार — पिच, योजनाएँ, असर और मसौदा संपर्क तैयार।","gov.honest":"सच: यह वह ब्रीफ़केस तैयार करता है जो फ़ाउंडर बैठक में ले जाता है — हस्ताक्षरित MoU नहीं। रिश्ता आपको बनाना है।",
+  "prov.guarantee":"हमारी गारंटी","prov.govt":"सरकार","prov.dpi":"डिजिटल ढाँचा",
+  "footer.note":"भारत की शिल्प अर्थव्यवस्था के लिए भरोसे और नियमों का मंच। अभी पूर्व-राजस्व, पायलट के पड़ाव पर — परखने के लिए बना, और जो सच में तैयार है उस पर खरा।",
+  "footer.disclaimer":"यह असली इंजन के साथ चलता डेमो है। न असली पैसा चलता है, न कोई जानकारी सहेजी जाती है। असली मंच वकील की मंज़ूरी, भुगतान की व्यवस्था और एक पायलट के बाद ही खुलेगा।"
+ },
+};
+function t(key,params){var s=(STR[LANG]&&STR[LANG][key]!==undefined)?STR[LANG][key]:(STR.en[key]!==undefined?STR.en[key]:key);if(params){for(var n in params){s=s.split("{"+n+"}").join(params[n]);}}return s;}
+
+/* ===== PRODUCTS (D2C catalog, bilingual + provenance) ===== */
+var PRODUCTS=[
+ {id:"p1",cat:"handicraft",emoji:"🏺",bg:"#e0f2ee",price:1450,gi:true,nat:false,mid:"m1",rating:4.8,revs:34,
+  name:{en:"Blue Pottery Vase",hi:"नीली मिट्टी का फूलदान"},mat:{en:"Quartz, glaze, cobalt",hi:"क्वार्ट्ज़, शीशा, कोबाल्ट"}},
+ {id:"p2",cat:"textile",emoji:"🧣",bg:"#f3e8ff",price:8900,gi:true,nat:false,mid:"m2",rating:4.9,revs:51,
+  name:{en:"Banarasi Silk Saree",hi:"बनारसी रेशम साड़ी"},mat:{en:"Pure silk, zari",hi:"शुद्ध रेशम, ज़री"}},
+ {id:"p3",cat:"jewellery",emoji:"💍",bg:"#fef3e2",price:3200,gi:false,nat:false,mid:"m3",rating:4.7,revs:22,
+  name:{en:"Silver Filigree Earrings",hi:"चाँदी की तारकशी बालियाँ"},mat:{en:"92.5 sterling silver",hi:"92.5 स्टर्लिंग चाँदी"}},
+ {id:"p4",cat:"handicraft",emoji:"👞",bg:"#fde8e8",price:1850,gi:false,nat:true,mid:"m4",rating:4.6,revs:18,
+  name:{en:"Hand-stitched Juttis",hi:"हाथ से सिली जूतियाँ"},mat:{en:"Vegetable-tanned leather",hi:"वनस्पति-शोधित चमड़ा"}},
+ {id:"p5",cat:"handicraft",emoji:"🪔",bg:"#fef9e7",price:990,gi:false,nat:false,mid:"m5",rating:4.5,revs:27,
+  name:{en:"Brass Diya Set",hi:"पीतल दीया सेट"},mat:{en:"Cast brass",hi:"ढला पीतल"}},
+ {id:"p6",cat:"textile",emoji:"🪡",bg:"#e8f0fe",price:2400,gi:true,nat:false,mid:"m6",rating:4.8,revs:29,
+  name:{en:"Pochampally Ikat Dupatta",hi:"पोचमपल्ली इकत दुपट्टा"},mat:{en:"Handloom cotton-silk",hi:"हथकरघा कपास-रेशम"}},
+ {id:"p7",cat:"jewellery",emoji:"📿",bg:"#fdeef0",price:18500,gi:false,nat:false,mid:"m7",rating:4.9,revs:16,
+  name:{en:"Kundan-Meenakari Necklace",hi:"कुंदन-मीनाकारी हार"},mat:{en:"22k gold-plate, uncut stones, enamel",hi:"22k सोने की परत, बिना तराशे नग, मीना"}},
+ {id:"p8",cat:"gems",emoji:"💎",bg:"#e6f4ea",price:24000,gi:false,nat:false,mid:"m8",rating:4.8,revs:11,
+  name:{en:"Certified Emerald (Panna)",hi:"प्रमाणित पन्ना"},mat:{en:"Natural beryl · lab-certified",hi:"प्राकृतिक बेरिल · प्रयोगशाला-प्रमाणित"}},
+ {id:"p9",cat:"textile",emoji:"🌿",bg:"#eef3e6",price:1650,gi:true,nat:true,mid:"m9",rating:4.7,revs:23,
+  name:{en:"Bagru Natural-Dye Print",hi:"बगरू प्राकृतिक-रंग छपाई"},mat:{en:"Hand-block, indigo & madder dyes",hi:"हाथ की छपाई, नील व मजीठ के रंग"}},
+ {id:"p10",cat:"experience",emoji:"🎟️",bg:"#f0ecfa",price:1200,gi:false,nat:true,mod:"experience",mid:"m10",rating:5.0,revs:14,
+  name:{en:"Block-Printing Workshop",hi:"ब्लॉक-प्रिंटिंग कार्यशाला"},mat:{en:"3-hour session · all materials included",hi:"3-घंटे का सत्र · सारी सामग्री शामिल"}},
+ {id:"p11",cat:"handicraft",emoji:"🗿",bg:"#eef1f6",price:12500,gi:true,nat:false,mid:"m11",rating:4.9,revs:18,
+  name:{en:"Makrana Marble Ganesha (hand-carved)",hi:"मकराना संगमरमर गणेश (हाथ से तराशी)"},mat:{en:"Makrana marble, chisel-carved",hi:"मकराना संगमरमर, छेनी से तराशा"}},
+];
+var MAKERS={
+ m1:{emoji:"🏺",bg:"#e0f2ee",since:2009,verified:true,name:{en:"Ramvati Devi",hi:"रामवती देवी"},loc:{en:"Khurja, Uttar Pradesh",hi:"खुर्जा, उत्तर प्रदेश"},craft:{en:"Blue pottery",hi:"नीली मिट्टी की कारीगरी"},
+  story:{en:"Ramvati learned the cobalt-blue glaze from her mother in Khurja, a craft Persian potters brought centuries ago. She had no GST number and never sold beyond the local mela — until now.",hi:"रामवती ने खुर्जा में अपनी माँ से कोबाल्ट-नीली कारीगरी सीखी — एक हुनर जो सदियों पहले फ़ारसी कुम्हार यहाँ लाए थे। उनके पास GST नंबर नहीं था और वे कभी स्थानीय मेले से आगे नहीं बेच पाईं — अब तक।"}},
+ m2:{emoji:"🧣",bg:"#f3e8ff",since:1998,verified:true,name:{en:"Mohammed Yasin",hi:"मोहम्मद यासीन"},loc:{en:"Varanasi, Uttar Pradesh",hi:"वाराणसी, उत्तर प्रदेश"},craft:{en:"Banarasi handloom",hi:"बनारसी हथकरघा"},
+  story:{en:"Yasin is a third-generation weaver on a pit loom near the Ganga. One saree takes him fifteen days. The GI tag protects his work — and here, the provenance proves it.",hi:"यासीन गंगा किनारे गड्ढे वाले करघे पर तीसरी पीढ़ी के बुनकर हैं। एक साड़ी में पंद्रह दिन लगते हैं। GI टैग उनके काम की हिफ़ाज़त करता है — और यहाँ उसका पूरा सबूत मिलता है।"}},
+ m3:{emoji:"💍",bg:"#fef3e2",since:2012,verified:true,name:{en:"Sanjukta Sahoo",hi:"संजुक्ता साहू"},loc:{en:"Cuttack, Odisha",hi:"कटक, ओडिशा"},craft:{en:"Silver filigree (Tarakasi)",hi:"चाँदी की तारकशी"},
+  story:{en:"Sanjukta twists silver wire finer than thread — Cuttack's 500-year-old Tarakasi craft. She leads a small women's collective of six artisans.",hi:"संजुक्ता चाँदी के तार को धागे से भी बारीक मोड़ती हैं — कटक की 500 साल पुरानी तारकशी कला। वे छह कारीगरों के एक छोटे महिला समूह की अगुआई करती हैं।"}},
+ m4:{emoji:"👞",bg:"#fde8e8",since:2015,verified:true,name:{en:"Karan Singh",hi:"करन सिंह"},loc:{en:"Jaipur, Rajasthan",hi:"जयपुर, राजस्थान"},craft:{en:"Leather juttis",hi:"चमड़े की जूतियाँ"},
+  story:{en:"Karan hand-stitches each jutti with vegetable-tanned leather, no machines. He learned from his father in the old city of Jaipur.",hi:"करन हर जूती को वनस्पति-शोधित चमड़े से हाथ से सिलते हैं, कोई मशीन नहीं। उन्होंने जयपुर के पुराने शहर में अपने पिता से सीखा।"}},
+ m5:{emoji:"🪔",bg:"#fef9e7",since:2006,verified:true,name:{en:"Iqbal Hussain",hi:"इक़बाल हुसैन"},loc:{en:"Moradabad, Uttar Pradesh",hi:"मुरादाबाद, उत्तर प्रदेश"},craft:{en:"Brass metalwork",hi:"पीतल की कारीगरी"},
+  story:{en:"Iqbal casts and hand-finishes brass in Moradabad, India's brass city. His diyas light homes from Lucknow to London each Diwali.",hi:"इक़बाल भारत के पीतल नगर मुरादाबाद में पीतल ढालते और हाथ से सँवारते हैं। उनके दीये हर दिवाली लखनऊ से लंदन तक घरों को रोशन करते हैं।"}},
+ m6:{emoji:"🪡",bg:"#e8f0fe",since:2011,verified:true,name:{en:"Lakshmi Reddy",hi:"लक्ष्मी रेड्डी"},loc:{en:"Bhoodan Pochampally, Telangana",hi:"भूदान पोचमपल्ली, तेलंगाना"},craft:{en:"Pochampally Ikat",hi:"पोचमपल्ली इकत"},
+  story:{en:"Lakshmi ties and dyes each thread before weaving — the Ikat technique that earned Pochampally its GI tag and a place on India's handloom map.",hi:"लक्ष्मी बुनाई से पहले हर धागे को बाँधती और रंगती हैं — वही इकत तकनीक जिसने पोचमपल्ली को GI टैग और भारत के हथकरघा नक़्शे पर जगह दिलाई।"}},
+ m7:{emoji:"📿",bg:"#fdeef0",since:2003,verified:true,name:{en:"Rajesh Soni",hi:"राजेश सोनी"},loc:{en:"Jaipur, Rajasthan",hi:"जयपुर, राजस्थान"},craft:{en:"Kundan-Meenakari jewellery",hi:"कुंदन-मीनाकारी आभूषण"},
+  story:{en:"Rajesh sets uncut stones in gold and fires enamel on the back — Jaipur's signature Kundan-Meenakari, a craft of the royal workshops. Every piece carries a hallmark and a provenance record.",hi:"राजेश बिना तराशे नगों को सोने में जड़ते हैं और पीछे मीना चढ़ाते हैं — जयपुर की पहचान, कुंदन-मीनाकारी, जो कभी राजसी कारखानों का हुनर थी। हर गहना हॉलमार्क और उद्गम रिकॉर्ड के साथ आता है।"}},
+ m8:{emoji:"💎",bg:"#e6f4ea",since:2008,verified:true,name:{en:"Imran Qureshi",hi:"इमरान क़ुरैशी"},loc:{en:"Johari Bazaar, Jaipur",hi:"जौहरी बाज़ार, जयपुर"},craft:{en:"Gemstone cutting & grading",hi:"रत्न तराशना व ग्रेडिंग"},
+  story:{en:"Imran cuts and grades coloured stones in Jaipur, the world's coloured-gem capital. Every stone he lists carries an independent lab certificate — origin, treatment and weight, verified.",hi:"इमरान जयपुर में रंगीन रत्न तराशते और परखते हैं — जो दुनिया की रंगीन-रत्न राजधानी है। उनका हर पत्थर स्वतंत्र प्रयोगशाला प्रमाणपत्र के साथ आता है — उद्गम, उपचार और वज़न, सब प्रमाणित।"}},
+ m9:{emoji:"🌿",bg:"#eef3e6",since:2010,verified:true,name:{en:"Suresh Chhipa",hi:"सुरेश छीपा"},loc:{en:"Bagru, Rajasthan",hi:"बगरू, राजस्थान"},craft:{en:"Bagru natural-dye block-print",hi:"बगरू प्राकृतिक-रंग छपाई"},
+  story:{en:"Suresh prints by hand with carved wooden blocks and only natural dyes — indigo, madder, pomegranate. Bagru's GI-tagged craft, dyed in the river the way his family has for generations.",hi:"सुरेश लकड़ी के नक़्क़ाशीदार ठप्पों और सिर्फ़ प्राकृतिक रंगों — नील, मजीठ, अनार — से हाथ की छपाई करते हैं। बगरू की GI-टैग कला, उसी नदी में रँगी जैसे उनका परिवार पीढ़ियों से करता आया है।"}},
+ m10:{emoji:"🎟️",bg:"#f0ecfa",since:2016,verified:true,name:{en:"Hari & Sunita",hi:"हरि व सुनीता"},loc:{en:"Jaipur, Rajasthan",hi:"जयपुर, राजस्थान"},craft:{en:"Craft workshops & tours",hi:"कार्यशालाएँ व शिल्प-यात्राएँ"},
+  story:{en:"Hari and Sunita open their Jaipur courtyard for hands-on block-printing — carve, dye and print your own scarf with a master, then keep it. A safety-checked, maker-hosted experience.",hi:"हरि और सुनीता जयपुर में अपना आँगन हाथों-हाथ ब्लॉक-प्रिंटिंग के लिए खोलते हैं — एक उस्ताद के साथ अपना दुपट्टा खुद नक़्क़ाशें, रँगें और छापें, फिर साथ ले जाएँ। एक सुरक्षा-जाँचा, कारीगर-मेज़बान अनुभव।"}},
+m11:{emoji:"🗿",bg:"#eef1f6",since:2001,verified:true,name:{en:"Mohan Lal Sharma",hi:"मोहन लाल शर्मा"},loc:{en:"Makrana & Jaipur, Rajasthan",hi:"मकराना व जयपुर, राजस्थान"},craft:{en:"Marble sculpture",hi:"संगमरमर मूर्तिकला"},
+ story:{en:"Mohan Lal carves Makrana marble — the same GI-tagged stone the Taj Mahal is built from. Temple idols, garden pieces and commissions, each with a stone-origin certificate.",hi:"मोहन लाल मकराना संगमरमर तराशते हैं — वही GI-टैग पत्थर जिससे ताजमहल बना है। मंदिर की मूर्तियाँ, उद्यान-शिल्प व कमीशन कृतियाँ, हर एक के साथ पत्थर-उद्गम प्रमाणपत्र।"}},
+};
+var TOURISM={
+ m1:{region:{en:"Khurja & the Braj region, UP",hi:"खुर्जा व ब्रज क्षेत्र, उ.प्र."},sites:[
+   {t:"🏭",n:{en:"Khurja Pottery Cluster",hi:"खुर्जा मृद्भांड क्लस्टर"}},
+   {t:"🕌",n:{en:"Taj Mahal, Agra",hi:"ताजमहल, आगरा"}},
+   {t:"🛕",n:{en:"Garhmukteshwar Ganga Ghats",hi:"गढ़मुक्तेश्वर गंगा घाट"}},
+   {t:"🏛️",n:{en:"Bulandshahr heritage town",hi:"बुलंदशहर ऐतिहासिक नगर"}}]},
+ m2:{region:{en:"Varanasi (Kashi), UP",hi:"वाराणसी (काशी), उ.प्र."},sites:[
+   {t:"🛕",n:{en:"Kashi Vishwanath Temple",hi:"काशी विश्वनाथ मंदिर"}},
+   {t:"🕉️",n:{en:"Sarnath (Buddha's first sermon)",hi:"सारनाथ"}},
+   {t:"🎭",n:{en:"Dashashwamedh Ghat Aarti",hi:"दशाश्वमेध घाट आरती"}},
+   {t:"🏛️",n:{en:"Ramnagar Fort",hi:"रामनगर क़िला"}}]},
+ m3:{region:{en:"Cuttack & coastal Odisha",hi:"कटक व तटीय ओडिशा"},sites:[
+   {t:"🏛️",n:{en:"Barabati Fort, Cuttack",hi:"बाराबती क़िला, कटक"}},
+   {t:"🛕",n:{en:"Konark Sun Temple",hi:"कोणार्क सूर्य मंदिर"}},
+   {t:"🛕",n:{en:"Jagannath Temple, Puri",hi:"जगन्नाथ मंदिर, पुरी"}},
+   {t:"🌳",n:{en:"Bhitarkanika Mangroves",hi:"भितरकनिका मैंग्रोव"}}]},
+ m4:{region:{en:"Jaipur (Pink City), Rajasthan",hi:"जयपुर (गुलाबी नगर), राजस्थान"},sites:[
+   {t:"🏛️",n:{en:"Amber Fort",hi:"आमेर क़िला"}},
+   {t:"🕌",n:{en:"Hawa Mahal",hi:"हवा महल"}},
+   {t:"🛕",n:{en:"Govind Dev Ji Temple",hi:"गोविंद देव जी मंदिर"}},
+   {t:"🌳",n:{en:"Nahargarh Fort & hills",hi:"नाहरगढ़ क़िला व पहाड़ियाँ"}}]},
+ m5:{region:{en:"Moradabad (Brass City), UP",hi:"मुरादाबाद (पीतल नगरी), उ.प्र."},sites:[
+   {t:"🏭",n:{en:"Moradabad Brass Handicraft Hub",hi:"मुरादाबाद पीतल हस्तशिल्प केंद्र"}},
+   {t:"🕌",n:{en:"Jama Masjid, Moradabad",hi:"जामा मस्जिद, मुरादाबाद"}},
+   {t:"🌊",n:{en:"Ramganga Riverfront",hi:"रामगंगा तट"}},
+   {t:"🛕",n:{en:"Sai Temple, Moradabad",hi:"साईं मंदिर, मुरादाबाद"}}]},
+ m6:{region:{en:"Pochampally & Hyderabad, Telangana",hi:"पोचमपल्ली व हैदराबाद, तेलंगाना"},sites:[
+   {t:"🏭",n:{en:"Pochampally Ikat Weaving Village",hi:"पोचमपल्ली इकत बुनाई गाँव"}},
+   {t:"🏛️",n:{en:"Bhongir (Bhuvanagiri) Fort",hi:"भोंगीर क़िला"}},
+   {t:"🕌",n:{en:"Charminar, Hyderabad",hi:"चारमीनार, हैदराबाद"}},
+   {t:"🏛️",n:{en:"Golconda Fort",hi:"गोलकोंडा क़िला"}}]},
+ m7:{region:{en:"Jaipur (royal workshops), Rajasthan",hi:"जयपुर (राजसी कारखाने), राजस्थान"},sites:[
+   {t:"🏛️",n:{en:"City Palace, Jaipur",hi:"सिटी पैलेस, जयपुर"}},
+   {t:"🔭",n:{en:"Jantar Mantar (UNESCO)",hi:"जंतर मंतर (यूनेस्को)"}},
+   {t:"🕌",n:{en:"Hawa Mahal",hi:"हवा महल"}},
+   {t:"🛕",n:{en:"Birla Mandir, Jaipur",hi:"बिड़ला मंदिर, जयपुर"}}]},
+ m8:{region:{en:"Johari Bazaar, Jaipur",hi:"जौहरी बाज़ार, जयपुर"},sites:[
+   {t:"🏭",n:{en:"Johari Bazaar Gem Market",hi:"जौहरी बाज़ार रत्न मंडी"}},
+   {t:"🏛️",n:{en:"City Palace & Museum",hi:"सिटी पैलेस व संग्रहालय"}},
+   {t:"🔭",n:{en:"Jantar Mantar (UNESCO)",hi:"जंतर मंतर (यूनेस्को)"}},
+   {t:"🏛️",n:{en:"Amber Fort",hi:"आमेर क़िला"}}]},
+ m9:{region:{en:"Bagru & Jaipur, Rajasthan",hi:"बगरू व जयपुर, राजस्थान"},sites:[
+   {t:"🏭",n:{en:"Bagru Block-Print Village",hi:"बगरू ब्लॉक-प्रिंट गाँव"}},
+   {t:"🛕",n:{en:"Galtaji (Monkey Temple)",hi:"गलताजी मंदिर"}},
+   {t:"🏛️",n:{en:"Amber Fort",hi:"आमेर क़िला"}},
+   {t:"🌳",n:{en:"Jaigarh & Aravalli hills",hi:"जयगढ़ व अरावली पहाड़ियाँ"}}]},
+ m10:{region:{en:"Jaipur (craft courtyards), Rajasthan",hi:"जयपुर (शिल्प आँगन), राजस्थान"},sites:[
+   {t:"🎭",n:{en:"Block-printing workshop (host-led)",hi:"ब्लॉक-प्रिंटिंग कार्यशाला"}},
+   {t:"🏛️",n:{en:"Amber Fort",hi:"आमेर क़िला"}},
+   {t:"🕌",n:{en:"Hawa Mahal",hi:"हवा महल"}},
+   {t:"🌳",n:{en:"Nahargarh sunset point",hi:"नाहरगढ़ सूर्यास्त बिंदु"}}]}
+ ,m11:{region:{en:"Makrana & Jaipur, Rajasthan",hi:"मकराना व जयपुर, राजस्थान"},sites:[
+   {t:"🏭",n:{en:"Makrana Marble Quarries",hi:"मकराना संगमरमर खदानें"}},
+   {t:"🛕",n:{en:"Moti Dungri Ganesh Temple, Jaipur",hi:"मोती डूंगरी गणेश मंदिर, जयपुर"}},
+   {t:"🏛️",n:{en:"Albert Hall Museum, Jaipur",hi:"अल्बर्ट हॉल संग्रहालय, जयपुर"}},
+   {t:"🕌",n:{en:"Taj Mahal (built of Makrana marble)",hi:"ताजमहल (मकराना संगमरमर से निर्मित)"}}]}
+};
+function _mapq(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);}
+function tourPanel(mid){
+  var d=TOURISM[mid]; if(!d)return '';
+  var reg=d.region[LANG];
+  var rows=d.sites.map(function(s){
+    return '<a class="toursite" href="'+_mapq(s.n.en+", India")+'" target="_blank" rel="noopener"><span class="tt">'+s.t+'</span><span class="tn">'+s.n[LANG]+'</span><span class="tgo">'+t("tour.map")+' ›</span></a>';
+  }).join("");
+  return '<div class="prov tourp"><h4>🧭 '+t("tour.title")+'</h4>'+
+    '<div class="toursub">'+t("tour.sub")+' <b>'+reg+'</b></div>'+
+    '<div class="tourgrid">'+rows+'</div>'+
+    '<a class="btn btn-ghost tourall" href="'+_mapq(reg+", India")+'" target="_blank" rel="noopener">'+t("tour.explore")+' ›</a></div>';
+}
+var REVIEWS={
+ p1:[{r:5,by:{en:"Aditi, Bengaluru",hi:"अदिति, बेंगलुरु"},txt:{en:"The blue is even richer in person. Loved seeing exactly who made it.",hi:"नीला रंग असल में और भी गहरा है। यह देखना अच्छा लगा कि इसे किसने बनाया।"}}],
+ p2:[{r:5,by:{en:"Meera, London",hi:"मीरा, लंदन"},txt:{en:"A real Banarasi with proof of the weaver. Worth every rupee.",hi:"असली बनारसी, बुनकर के पूरे सबूत के साथ। हर रुपया वसूल।"}}],
+ p3:[{r:5,by:{en:"Priya, Pune",hi:"प्रिया, पुणे"},txt:{en:"Delicate and beautiful. Knowing it funds a women's collective made it special.",hi:"नाज़ुक और सुंदर। यह जानकर कि इससे एक महिला समूह को मदद मिलती है, और भी खास लगा।"}}],
+ p6:[{r:5,by:{en:"Rahul, Hyderabad",hi:"राहुल, हैदराबाद"},txt:{en:"Genuine Pochampally ikat. The provenance page sealed it for me.",hi:"असली पोचमपल्ली इकत। उद्गम पेज ने मेरा भरोसा पक्का कर दिया।"}}],
+ p8:[{r:5,by:{en:"David, Antwerp",hi:"डेविड, एंटवर्प"},txt:{en:"Lab certificate matched exactly. Rare to buy a coloured stone online with this trust.",hi:"प्रयोगशाला प्रमाणपत्र बिलकुल मेल खाया। इतने भरोसे से रंगीन पत्थर ऑनलाइन खरीदना दुर्लभ है।"}}],
+ p10:[{r:5,by:{en:"Sofia, Berlin",hi:"सोफ़िया, बर्लिन"},txt:{en:"The best afternoon of our Jaipur trip. We printed our own scarves with Sunita.",hi:"जयपुर यात्रा की सबसे अच्छी दोपहर। हमने सुनीता के साथ अपने दुपट्टे खुद छापे।"}}]
+};
+var COLLECTIONS=[
+ {id:"gi",label:{en:"GI-protected",hi:"GI-संरक्षित"},test:function(p){return p.gi;}},
+ {id:"natural",label:{en:"Natural & sustainable",hi:"प्राकृतिक व टिकाऊ"},test:function(p){return p.nat;}},
+ {id:"experience",label:{en:"Experiences",hi:"अनुभव"},test:function(p){return p.mod==="experience";}},
+ {id:"under2k",label:{en:"Under \u20b92,000",hi:"\u20b92,000 से कम"},test:function(p){return p.price<=2000;}}
+];
+var CATS=[["all","All","सभी","✦"],["handicraft","Handicraft","हस्तशिल्प","🏺"],["textile","Textiles","वस्त्र","🧵"],["jewellery","Jewellery","आभूषण","💍"],["gems","Gems","रत्न","💎"],["experience","Experiences","अनुभव","🎟️"]];
+var SORTS=[["featured","Featured","चुनिंदा"],["price_lo","Price: low to high","दाम: कम से ज़्यादा"],["price_hi","Price: high to low","दाम: ज़्यादा से कम"],["maker","Maker gets most","कारीगर को सबसे ज़्यादा"],["rated","Top rated","सबसे ज़्यादा सराहे"]];
+var curCat="all",curColl=null,query="",sortBy="featured",WISH=[],showWish=false;
+
+/* ===== logo ===== */
+function logoHTML(size){
+  var s=size||24, c=LOGO.colors||[];
+  var craft=c[3]||"#272247", tech=c[1]||"#A06B2C", gem=c[2]||"#2f4bd0";
+  return '<svg viewBox="0 0 48 44" width="'+s+'" height="'+Math.round(s*44/48)+'" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;overflow:visible">'+
+    '<circle cx="19" cy="22" r="13" stroke="'+craft+'" stroke-width="3.4"/>'+
+    '<circle cx="29" cy="22" r="13" stroke="'+tech+'" stroke-width="3.4"/>'+
+    '<path d="M19 9 A13 13 0 0 1 27 12.6" stroke="'+craft+'" stroke-width="3.4" stroke-linecap="round"/>'+
+    '<circle cx="24" cy="22" r="4.6" fill="'+gem+'"/>'+
+    '<circle cx="24" cy="22" r="4.6" stroke="'+tech+'" stroke-width="1.3"/>'+
+  '</svg>';
+}
+function renderLogos(){
+  ["navLogo","footLogo","logoPrevMark"].forEach(function(id){var el=$(id);if(el)el.outerHTML='<span id="'+id+'">'+logoHTML(id==="navLogo"?24:id==="footLogo"?22:26)+'</span>';});
+  // re-wrap: outerHTML replaced the element, refetch and set inner
+}
+function paintLogo(){
+  $("navLogo").innerHTML=logoHTML(24);$("footLogo").innerHTML=logoHTML(22);
+  if($("logoPrevMark"))$("logoPrevMark").innerHTML=logoHTML(26);
+}
+
+function applyI18n(){
+  document.querySelectorAll("[data-i18n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll("[data-i18n-html]").forEach(function(el){el.innerHTML=t(el.getAttribute("data-i18n-html"));});
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){el.setAttribute("placeholder",t(el.getAttribute("data-i18n-ph")));});
+  $("mTrade").innerHTML=TRADES.map(function(x){return '<option value="'+x[0]+'">'+(LANG==="hi"?x[2]:x[1])+'</option>';}).join("");
+  $("pAud").innerHTML=AUDS.map(function(x){return '<option value="'+x[0]+'">'+(LANG==="hi"?x[2]:x[1])+'</option>';}).join("");
+  renderTrades();renderChips();renderFilters();renderShop();renderCart();
+  homeProof($("hFee")?+$("hFee").value:5);fFee(+$("fFee").value);makerPay(+$("mPrice").value);buildDeck();if($("govImpactOut"))govImpact();renderPlans();renderProd();renderEngine();renderStudio();
+  if($("mOut").classList.contains("show"))draftListing(true);
+}
+function setLang(code){LANG=code;document.body.setAttribute("data-lang",code);document.documentElement.setAttribute("lang",code);$("langEn").classList.toggle("on",code==="en");$("langHi").classList.toggle("on",code==="hi");applyI18n();toast(code==="hi"?"भाषा बदली — पूरा पेज":"Language changed — whole page");}
+window.setLang=setLang;
+var founderUnlocked=false;
+var FOUNDER_PASS="nexus2025";
+function go(v){
+  if(v==="founder"&&!founderUnlocked){
+    var ua=(typeof navigator!=="undefined"&&navigator.userAgent)?navigator.userAgent:"";
+    var hsh=(typeof location!=="undefined"&&location.hash)?location.hash:"";
+    if(/Electron/i.test(ua)||hsh.indexOf("founder-key="+FOUNDER_PASS)>=0){ founderUnlocked=true; }
+    else{
+      var k=null;
+      try{ if(typeof prompt==="function")k=prompt(LANG==="hi"?"संस्थापक पासकोड दर्ज करें:":"Enter founder passcode:"); }catch(e){ k=null; }
+      if(k===FOUNDER_PASS){ founderUnlocked=true; }
+      else{
+        if(typeof toast==="function")toast(LANG==="hi"?"पासकोड चाहिए — पता के अंत में #founder-key=पासकोड जोड़ें":"Passcode needed — or add #founder-key=passcode to the URL");
+        return;
+      }
+    }
+  }document.querySelectorAll(".view").forEach(function(x){x.classList.remove("active");});$("v-"+v).classList.add("active");document.querySelectorAll(".navlinks button[data-v]").forEach(function(b){b.classList.toggle("active",b.dataset.v===v);});window.scrollTo({top:0,behavior:"smooth"});}
+window.go=go;
+
+var TR=[["Weaver","बुनकर","goods"],["Potter","कुम्हार","goods"],["Jeweller","सुनार","goods"],["Cobbler","मोची","service"],["Tailor","दर्जी","service"],["Leatherworker","चर्मकार","goods"],["Tour Guide","गाइड","experience"]];
+var MOD={goods:{en:"goods",hi:"सामान"},service:{en:"service",hi:"सेवा"},experience:{en:"experience",hi:"अनुभव"}};
+function renderTrades(){$("trades")&&($("trades").innerHTML=TR.map(function(x){return '<span class="trade">'+(LANG==="hi"?x[1]:x[0])+'<span class="m">'+MOD[x[2]][LANG]+'</span></span>';}).join(""));}
+
+/* shop */
+function pmaker(p){return MAKERS[p.mid]||{name:{en:"",hi:""},loc:{en:"",hi:""}};}
+function stars(r){var full=Math.round(r);return '<span class="stars">'+"★".repeat(full)+'<span class="se">'+"★".repeat(5-full)+'</span></span>';}
+function renderFilters(){$("filters").innerHTML=CATS.map(function(c){return '<button class="filter'+(c[0]===curCat?" on":"")+'" onclick="setCat(\''+c[0]+'\')"><span class="fico">'+(c[3]||"")+'</span>'+(LANG==="hi"?c[2]:c[1])+'</button>';}).join("");
+  $("shopSort").innerHTML=SORTS.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===sortBy?" selected":"")+'>'+(LANG==="hi"?o[2]:o[1])+'</option>';}).join("");
+  $("collrow").innerHTML=COLLECTIONS.map(function(c){return '<button class="coll'+(c.id===curColl?" on":"")+'" onclick="setColl(\''+c.id+'\')">'+c.label[LANG]+'</button>';}).join("");
+  $("wishLbl").textContent=t("shop.saved")+(WISH.length?" ("+WISH.length+")":"");
+  $("wishTog").classList.toggle("on",showWish);}
+function setCat(c){curCat=c;curColl=null;renderFilters();renderShop();}
+window.setCat=setCat;
+function setColl(c){curColl=curColl===c?null:c;curCat="all";renderFilters();renderShop();}
+window.setColl=setColl;
+function setQuery(q){query=(q||"").toLowerCase();renderShop();}
+window.setQuery=setQuery;
+function setSort(s){sortBy=s;renderShop();}
+window.setSort=setSort;
+function toggleWishView(){showWish=!showWish;renderFilters();renderShop();}
+window.toggleWishView=toggleWishView;
+function inWish(id){return WISH.indexOf(id)>=0;}
+function toggleWish(id,ev){if(ev)ev.stopPropagation();var i=WISH.indexOf(id);if(i>=0)WISH.splice(i,1);else WISH.push(id);renderFilters();renderShop();toast(t(i>=0?"shop.unsaved":"shop.savedToast"));}
+window.toggleWish=toggleWish;
+function shopList(){
+  var list=PRODUCTS.slice();
+  if(showWish)list=list.filter(function(p){return inWish(p.id);});
+  if(curColl){var col=COLLECTIONS.find(function(c){return c.id===curColl;});if(col)list=list.filter(col.test);}
+  if(curCat!=="all")list=list.filter(function(p){return p.cat===curCat;});
+  if(query)list=list.filter(function(p){var m=pmaker(p);return (p.name[LANG]+" "+p.name.en+" "+m.name[LANG]+" "+m.name.en+" "+(m.loc[LANG]||"")).toLowerCase().indexOf(query)>=0;});
+  if(sortBy==="price_lo")list.sort(function(a,b){return a.price-b.price;});
+  else if(sortBy==="price_hi")list.sort(function(a,b){return b.price-a.price;});
+  else if(sortBy==="maker")list.sort(function(a,b){return split(b.price,0.12).payout-split(a.price,0.12).payout;});
+  else if(sortBy==="rated")list.sort(function(a,b){return b.rating-a.rating;});
+  return list;
+}
+function renderShop(){
+  var list=shopList();
+  $("shopCount").textContent=list.length+" "+t(list.length===1?"shop.item":"shop.items");
+  $("shopEmpty").style.display=list.length?"none":"block";
+  $("shopEmpty").textContent=showWish?t("shop.nowish"):t("shop.noresults");
+  $("pgrid").innerHTML=list.map(function(p){
+    var mk=split(p.price,0.12).payout,m=pmaker(p);
+    return '<div class="pcard" onclick="openProduct(\''+p.id+'\')">'+
+      '<div class="pthumb" style="background:'+p.bg+'">'+p.emoji+
+        '<span class="pverify">✓ '+t("shop.verified")+'</span>'+(p.gi?'<span class="pgi">GI</span>':'')+(p.nat?'<span class="pnat" title="Natural & sustainable">🌿</span>':'')+(p.mod==="experience"?'<span class="pexp">'+t("shop.experience")+'</span>':'')+
+        '<button class="heart'+(inWish(p.id)?" on":"")+'" onclick="toggleWish(\''+p.id+'\',event)" aria-label="save">'+(inWish(p.id)?"♥":"♡")+'</button></div>'+
+      '<div class="pbody"><div class="pname">'+p.name[LANG]+'</div>'+
+      '<div class="pmaker">'+m.name[LANG]+' · '+m.loc[LANG]+'</div>'+
+      '<div class="prate">'+stars(p.rating)+'<span class="rn">'+p.rating.toFixed(1)+' ('+p.revs+')</span></div>'+
+      '<div class="pprice">'+inrR(p.price)+'</div></div></div>';
+  }).join("");
+}
+function openProduct(id){
+  var p=PRODUCTS.find(function(x){return x.id===id;});if(!p)return;var s=split(p.price,0.12),m=pmaker(p);
+  var revs=REVIEWS[p.id]||[];
+  var related=PRODUCTS.filter(function(x){return x.id!==p.id&&(x.cat===p.cat||x.mid===p.mid);}).slice(0,3);
+  $("pSheet").innerHTML='<div class="top"><div class="pic" style="background:'+p.bg+'">'+p.emoji+
+      '<button class="heart big'+(inWish(p.id)?" on":"")+'" onclick="toggleWish(\''+p.id+'\',event)">'+(inWish(p.id)?"♥":"♡")+'</button></div>'+
+    '<div class="info"><div class="eyebrow" style="margin-bottom:6px">'+(p.gi?'GI · ':'')+t("shop.verified")+'</div>'+
+    '<h2>'+p.name[LANG]+'</h2>'+
+    '<div class="prate" style="margin:4px 0 2px">'+stars(p.rating)+'<span class="rn">'+p.rating.toFixed(1)+' · '+p.revs+' '+t("shop.reviews")+'</span></div>'+
+    '<div class="makerlink" onclick="openMaker(\''+p.mid+'\')">'+t("shop.by")+' <b>'+m.name[LANG]+'</b> · '+m.loc[LANG]+' ›</div>'+
+    '<div class="price">'+inrR(p.price)+'</div><div class="split">'+t("prov.pay")+'</div>'+
+    '<div class="qtyrow"><span>'+t("shop.qty")+'</span><button onclick="bumpQty(-1)">−</button><b id="qtyVal">1</b><button onclick="bumpQty(1)">+</button></div>'+
+    '<button class="btn btn-primary" style="width:100%" onclick="addCart(\''+p.id+'\')">'+t(p.mod==="experience"?"shop.book":"shop.add")+'</button>'+
+    '<button class="btn btn-ghost" style="width:100%;margin-top:8px" onclick="msgMaker()">✉ '+t("cust.msgmaker")+'</button>'+
+    '<div class="prov"><h4>'+t("shop.provenance")+'</h4>'+
+      '<div class="provrow"><span class="ck">✓</span>'+t("prov.identity")+'</div>'+
+      (p.gi?'<div class="provrow"><span class="ck">✓</span>'+t("prov.gi")+'</div>':'')+
+      '<div class="provrow"><span class="ck">✓</span>'+t("prov.material")+': '+p.mat[LANG]+'</div>'+
+      '<div class="provrow"><span class="ck">✓</span>'+t("prov.made")+': '+m.loc[LANG]+'</div>'+
+    '</div>'+
+    tourPanel(p.mid)+
+    '<div class="prov"><h4>'+t("cust.title")+'</h4>'+
+      '<div class="provrow"><span class="ck">🎫</span>'+t("cust.passport")+'</div>'+
+      '<div class="provrow"><span class="ck">💬</span>'+t("cust.message")+'</div>'+
+      '<div class="provrow"><span class="ck">🛡</span>'+t("cust.protect")+'</div>'+
+      '<div class="provrow"><span class="ck">📦</span>'+t("cust.guarantee")+'</div>'+
+      '<div class="provrow"><span class="ck">📖</span>'+t("cust.care")+'</div>'+
+    '</div>'+
+    '<div class="prov"><h4>'+t("shop.reviews")+' <span class="sample">'+t("shop.sample")+'</span></h4>'+
+      (revs.length?revs.map(function(rv){return '<div class="review">'+stars(rv.r)+'<div class="rt">"'+rv.txt[LANG]+'"</div><div class="rb">— '+rv.by[LANG]+' · '+t("shop.verifiedbuy")+'</div></div>';}).join(""):'<div class="rb">'+t("shop.noreviews")+'</div>')+
+    '</div>'+
+    (related.length?'<div class="prov"><h4>'+t("shop.related")+'</h4><div class="relrow">'+related.map(function(r){return '<div class="relcard" onclick="openProduct(\''+r.id+'\')"><div class="relthumb" style="background:'+r.bg+'">'+r.emoji+'</div><div class="reln">'+r.name[LANG]+'</div><div class="relp">'+inrR(r.price)+'</div></div>';}).join("")+'</div></div>':'')+
+    '</div></div>';
+  curQty=1;curPid=p.id;
+  $("pModal").classList.add("show");
+}
+window.openProduct=openProduct;
+var curQty=1,curPid=null;
+function bumpQty(d){curQty=Math.max(1,Math.min(9,curQty+d));$("qtyVal").textContent=curQty;}
+window.bumpQty=bumpQty;
+function openMaker(mid){
+  var m=MAKERS[mid];if(!m)return;var theirs=PRODUCTS.filter(function(p){return p.mid===mid;});
+  $("mSheet").innerHTML='<div class="makerhero" style="background:'+m.bg+'"><div class="ma">'+m.emoji+'</div></div>'+
+    '<div class="info"><div class="eyebrow" style="margin-bottom:6px">✓ '+t("shop.verifiedmaker")+' · '+t("shop.since")+' '+m.since+'</div>'+
+    '<h2>'+m.name[LANG]+'</h2><div class="makerlink" style="cursor:default">'+m.craft[LANG]+' · '+m.loc[LANG]+'</div>'+
+    '<p class="makerstory">'+m.story[LANG]+'</p>'+
+    '<div class="prov"><h4>'+t("shop.theirwork")+' ('+theirs.length+')</h4><div class="relrow">'+
+      theirs.map(function(r){return '<div class="relcard" onclick="openMakerProduct(\''+r.id+'\')"><div class="relthumb" style="background:'+r.bg+'">'+r.emoji+'</div><div class="reln">'+r.name[LANG]+'</div><div class="relp">'+inrR(r.price)+'</div></div>';}).join("")+
+    '</div></div></div>';
+  $("pModal").classList.remove("show");
+  $("mModal").classList.add("show");
+}
+window.openMaker=openMaker;
+function openMakerProduct(id){$("mModal").classList.remove("show");openProduct(id);}
+window.openMakerProduct=openMakerProduct;
+function closeMaker(){$("mModal").classList.remove("show");}
+window.closeMaker=closeMaker;
+function closeProduct(){$("pModal").classList.remove("show");}
+window.closeProduct=closeProduct;
+function msgMaker(){toast(t("cust.msgsent"));}
+window.msgMaker=msgMaker;
+function addCart(id){var q=(id===curPid?curQty:1)||curQty||1;for(var k=0;k<q;k++)CART.push(id);updateCartCount();renderCart();toast(t("shop.added"));closeProduct();}
+window.addCart=addCart;
+function updateCartCount(){var c=$("cartCount");c.textContent=CART.length;c.classList.toggle("show",CART.length>0);}
+function renderCart(){
+  var box=$("cartBox");if(!box)return;
+  if(!CART.length){box.innerHTML='<div class="cartempty">'+t("cart.empty")+'</div>';return;}
+  var total=0,makerTotal=0;
+  var html=CART.map(function(id,i){var p=PRODUCTS.find(function(x){return x.id===id;});var m=pmaker(p);total+=p.price;makerTotal+=split(p.price,0.12).payout;
+    return '<div class="citem"><div class="ci" style="background:'+p.bg+'">'+p.emoji+'</div><div class="cn"><div class="t">'+p.name[LANG]+'</div><div class="m">'+m.name[LANG]+' · '+m.loc[LANG]+'</div></div><div class="cp">'+inrR(p.price)+'</div><button class="rm" onclick="rmCart('+i+')">×</button></div>';
+  }).join("");
+  html+='<div class="carttot"><span class="lab">'+t("cart.total")+'</span><span class="amt">'+inrR(total)+'</span></div>';
+  html+='<button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="checkout()">'+t("cart.checkout")+'</button>';
+  box.innerHTML=html;
+}
+function rmCart(i){CART.splice(i,1);updateCartCount();renderCart();toast(t("cart.removed"));}
+window.rmCart=rmCart;
+function checkout(){
+  if(!CART.length){toast(t("cart.empty"));return;}
+  var total=0,makerTotal=0;
+  CART.forEach(function(id){var p=PRODUCTS.find(function(x){return x.id===id;});if(p){total+=p.price;makerTotal+=split(p.price,0.12).payout;}});
+  var oid="NX-"+Date.now().toString(36).toUpperCase().slice(-6);
+  CART=[];updateCartCount();
+  var box=$("cartBox");
+  if(box){box.innerHTML='<div class="cartdone"><div class="cdok">✓</div><div class="cdh">'+t("cart.placed")+'</div>'+
+    '<div class="cdid">'+t("cart.order")+': <b>'+oid+'</b></div>'+
+    '<div class="cdrow"><span>'+t("cart.total")+'</span><span>'+inrR(total)+'</span></div>'+
+    '<div class="cdrow cdmk"><span>'+t("cart.makertotal")+'</span><span>'+inrR(makerTotal)+'</span></div>'+
+    '<div class="cdnote">'+t("cart.checkoutmsg")+'</div>'+
+    '<button class="btn btn-ghost" style="margin-top:14px" onclick="go(\'shop\')">'+t("cart.more")+'</button></div>';}
+  toast(t("cart.placed"));
+}
+window.checkout=checkout;
+
+/* home proof */
+function homeProof(p){if(!$("hFee"))return; var s=split(5000,p/100);$("hFeeLab").textContent=p.toFixed(2)+"%";$("hFee").style.setProperty("--fill",((p-2)/13*100)+"%");$("hMaker").textContent=inr(s.payout);
+  var L=LANG==="hi"?["कारीगर","प्लेटफ़ॉर्म","गेटवे","कर","दान"]:["Maker","Platform","Gateway","Tax","Charity"];
+  var seg=[[L[0],s.payout,"var(--gold)"],[L[1],s.com,"#2DD4BF"],[L[2],s.gw,"#9f98c8"],[L[3],s.gst+s.tcs+s.tds,"#5C5474"],[L[4],s.ch,"var(--saffron)"]];
+  $("hBar").innerHTML=seg.map(function(x){return '<i style="width:'+(x[1]/s.t*100)+'%;background:'+x[2]+'"></i>';}).join("");
+  $("hLeg").innerHTML=seg.map(function(x){return '<div class="l"><span class="nm"><span class="sw" style="background:'+x[2]+'"></span>'+x[0]+'</span><span class="a">'+inr(x[1])+'</span></div>';}).join("");}
+
+/* maker */
+var TRADES=[["potter","Potter","कुम्हार"],["weaver","Weaver (GI)","बुनकर (GI)"],["jeweller","Jeweller","सुनार"],["cobbler","Cobbler (service)","मोची (सेवा)"],["leatherworker","Leatherworker","चर्मकार"],["naturals_maker","Naturals maker","प्राकृतिक उत्पाद"]];
+var TRADE_LBL={en:{potter:"pottery",weaver:"handloom",jeweller:"jewellery",cobbler:"footwear",leatherworker:"leatherwork",naturals_maker:"natural goods"},hi:{potter:"मिट्टी की",weaver:"हथकरघा",jeweller:"आभूषण",cobbler:"जूता",leatherworker:"चमड़े की",naturals_maker:"प्राकृतिक"}};
+var CLAIM={en:["organic","eco","recycled","gi","handmade","natural","pure","sustainable","fair"],hi:["जैविक","ऑर्गेनिक","पर्यावरण","रीसाइकल","हस्तनिर्मित","हाथ से","प्राकृतिक","शुद्ध","टिकाऊ"]};
+function draftListing(keep){var trade=$("mTrade").value,phrase=($("mPhrase").value||"").trim();if(!phrase&&!keep){toast(t("maker.needphrase"),true);return;}if(!phrase)phrase=$("mPhrase").value||"";var tl=TRADE_LBL[LANG][trade]||trade,lc=phrase.toLowerCase();var claims=CLAIM[LANG].filter(function(c){return lc.indexOf(c)>=0;});var tags=[];phrase.split(/\s+/).forEach(function(w){if(w.length>2&&tags.length<5&&tags.indexOf(w)<0)tags.push(w);});var o=$("mOut");o.className="out show";o.innerHTML='<h3>'+t("maker.out.title")+' · '+phrase.split(/\s+/).slice(0,5).join(" ")+'</h3><div class="row">'+t("maker.out.desc",{trade:tl,phrase:phrase})+'</div><div class="tags">'+tags.map(function(x){return '<span class="tag">#'+x+'</span>';}).join("")+'</div><div class="row"><b>'+t("maker.out.photo")+'</b> '+t("maker.out.photoText")+'</div>'+(claims.length?'<div class="ev">'+t("maker.out.evidence",{claims:claims.join(", ")})+'</div>':'');}
+window.draftListing=draftListing;
+function micDemo(){toast(t("maker.micdemo"));}window.micDemo=micDemo;
+function makerPay(p){$("mPriceLab").textContent=(+p).toLocaleString("en-IN");$("mPayout").textContent=inr(split(p,0.12).payout);}
+
+/* founder */
+var liveFee=5;
+function fFee(p){var s=split(5000,p/100);$("fFeePct").textContent=p.toFixed(2);$("fFee").style.setProperty("--fill",((p-2)/28*100)+"%");$("fMakerPct").textContent=(s.payout/s.t*100).toFixed(1)+"%";var L=LANG==="hi"?["कारीगर","प्लेट","गेट","कर","दान"]:["Maker","Plat","Gw","Tax","Charity"];var seg=[[L[0],s.payout,"#34D399"],[L[1],s.com,"#2DD4BF"],[L[2],s.gw,"#818CF8"],[L[3],s.gst+s.tcs+s.tds,"#5E6F92"],[L[4],s.ch,"#F2792B"]];$("fBar").innerHTML=seg.map(function(x){return '<i style="width:'+(x[1]/s.t*100)+'%;background:'+x[2]+'"></i>';}).join("");$("fLeg").innerHTML=seg.map(function(x){return '<div><span style="color:'+x[2]+'">■</span> '+x[0]+' '+inr(x[1])+'</div>';}).join("");var g=$("fGuard");if(p<2){g.className="cguard bad";g.textContent=t("founder.guard.floor");}else if(p>30){g.className="cguard bad";g.textContent=t("founder.guard.cap");}else if(p>15){g.className="cguard bad";g.textContent=t("founder.guard.high");}else{g.className="cguard";g.textContent=t("founder.guard.safe");}}
+function applyFee(){var p=+$("fFee").value;if(p<2||p>30){toast(t("founder.fee.refused"),true);return;}liveFee=p;toast(t("founder.fee.applied",{p:p.toFixed(2)}));}
+window.applyFee=applyFee;
+var CMDS={en:{audit:["ai","Running invariant self-audit…\n✓ money reconciles ✓ child-safety ✓ verification ✓ no-greenwashing\nVERDICT: TRUSTWORTHY"],next:["ai","Your priority order: [you] lawyer + CA sign-off · [you] connect Razorpay · [you] run one pilot cluster · [ai] I source the first sellers."],govt:["ai","Formalises informal artisans — compliant, GI-protected, ONDC-ready. Lowers the state's cost of formalisation. (Honest: pre-revenue, pilot-ready.)"],register:["hu","That's a founder + CA task. I prepare the documents — I cannot incorporate an entity for you."],fee:["ai","Platform fee is 12%. On a ₹5,000 sale the maker keeps ₹4,067 (81.3%). A never-in-loss guard means nothing can be set to lose money."],payout:["ai","Payouts reach the maker's own bank in ~2 days via Razorpay Route. Any large payout pauses for your approval (HITL gate)."],consent:["ai","I auto-source prospects into the database first. A maker is never listed or sold until they grant the 5 required consents — the canSell gate enforces it."],pilot:["ai","Your single highest-leverage move: one government-partnered pilot in one ODOP cluster. It brings makers, demand and funding at once."],deploy:["ai","Website deploys free on Netlify Drop in ~2 min; backend on Render via render.yaml. Full steps are in DEPLOY-TODAY."],plans:["ai","Karigar ₹799 · Vyapari ₹3,999 · Niryatak ₹11,999/mo · Sansthan custom. No free tier; annual billing at launch."],exim:["ai","Exim is promoted and seamed (IEC, customs, GI/gem compliance) but not transacting end-to-end yet — a post-pilot engineering build."],shops:["ai","Shops & showrooms source verified craft and resell as their own — Vyapari tier, consignment, no inventory risk. See the Shops & Showrooms page."],tourism:["ai","Tourism is a full vertical: workshops, artisan visits and craft tours — safety-checked and maker-hosted."],kyc:["ai","KYC needs a DigiLocker requester approval (a government application). Until that's live, identity stays in mock mode."],security:["ai","AES-256 + PII masking, DPDP-aware. Before production, rotate AUTH_SECRET, FOUNDER_TOKEN and WEBHOOK_SECRET from the dev defaults."],photos:["ai","Product images are honest placeholders. Real photography needs cloud storage (S3/Cloudinary) — the genuine gap for live listings. I won't fake photos."],team:["ai","Your 10 AI CXOs (CFO, CRO, CMO, COO, CSO, CCO, CTO, CPO, Growth, Risk) read the business and recommend; you decide. See Today's briefing."],hitl:["ai","I pause for you on 6 gates: large payout, big price change, high fraud score, supplier contract, low GI-confidence, DGTR filing. You approve before I proceed."],verticals:["ai","One core covers handicraft, textiles, jewellery, gems, naturals and experiences — adding a vertical is a config entry, not new code."],metrics:["ai","Live snapshot (demo): sellers onboarding, orders flowing, GMV building, float at zero. In the full app this shows real KPIs — open Today’s briefing for the CXO read."],roadmap:["ai","Smart next builds: per-vertical GI storefronts with the provenance thread, a deeper Exim transaction flow, and multi-screen voice onboarding. I propose; you approve via change-control."],modify:["ai","To change a rule or config I use change-control: I classify it, check it against the protected invariants (never-in-loss, consent, child-safety, no-fabrication, honest-stage), and wait for your approval. Tell me what to change."],approve:["ai","Whatever I can’t do autonomously waits in your approval queue — large payouts, big price changes, fraud flags, supplier contracts. Approve or correct each from the cockpit."],schemes:["ai","NEXUS connects artisans to government schemes: PM Vishwakarma, PM MUDRA credit, e-Shram social security, ODOP & GeM market access, GI protection, ONDC, Udyam, SFURTI and export incentives (RoDTEP). We verify and formalise makers, so government can deliver to real beneficiaries — that’s how we earn government as a partner."],operate:["ai","To run this as a real business you need: 1) a registered entity, 2) Razorpay + a Postgres database, 3) a DigiLocker/KYC approval, 4) a lawyer + CA sign-off on the Merchant-of-Record + TCS model, and 5) one pilot cluster. Everything else you can do now with no money — collect free government data, build the consent-gated prospect database, and test the whole engine. The only paid-but-tiny part is ~₹500–2,000/mo of LLM."],collect:["ai","I collect authentic free government data — the GI registry (600+ products → clusters → producers), data.gov.in (pincodes, stats), ODOP districts and myScheme eligibility. No authorisation, no money. Each becomes a consent-gated prospect across every vertical. In the full app, ask the engine to run /api/agent/collect-data."],fallback:["ai","I don't have a saved answer for that yet — I'm the demo assistant, not the full engine. Honest priority right now: one pilot cluster, the lawyer sign-off, and the payment rail. Try asking about: fee, payout, consent, pilot, deploy, plans, exim, shops, KYC, security, the CXO team, or the HITL gates."]},hi:{audit:["ai","इनवेरिएंट स्व-ऑडिट…\n✓ पैसा मिलान ✓ बाल-सुरक्षा ✓ सत्यापन ✓ कोई-झूठा-दावा-नहीं\nनिर्णय: भरोसेमंद"],next:["ai","आपका क्रम: [आप] वकील + CA की मंज़ूरी · [आप] Razorpay जोड़ें · [आप] एक पायलट चलाएँ · [AI] मैं पहले विक्रेता खोजूँ।"],govt:["ai","अनौपचारिक कारीगरों को औपचारिक बनाता है — अनुपालन-युक्त, GI-संरक्षित, ONDC-तैयार। औपचारिकीकरण की सरकारी लागत घटाता है। (सच: पूर्व-राजस्व, पायलट-तैयार।)"],register:["hu","यह फ़ाउंडर + CA का काम है। मैं दस्तावेज़ तैयार करता हूँ — कंपनी पंजीकृत नहीं कर सकता।"],fee:["ai","प्लेटफ़ॉर्म शुल्क 12% है। ₹5,000 की बिक्री पर कारीगर ₹4,067 (81.3%) रखता है। 'कभी घाटे में नहीं' गारंटी से कुछ भी घाटे में सेट नहीं हो सकता।"],payout:["ai","भुगतान Razorpay Route से कारीगर के अपने बैंक में ~2 दिन में पहुँचता है। बड़ा भुगतान आपकी मंज़ूरी के लिए रुकता है (HITL गेट)।"],consent:["ai","मैं पहले प्रॉस्पेक्ट डेटाबेस में जोड़ता हूँ। कोई कारीगर तब तक सूचीबद्ध/बेचा नहीं जाता जब तक वह 5 ज़रूरी सहमतियाँ न दे — canSell गेट इसे लागू करता है।"],pilot:["ai","आपकी सबसे असरदार चाल: एक ODOP क्लस्टर में एक सरकार-साझेदार पायलट। यह कारीगर, माँग और फ़ंडिंग एक साथ लाता है।"],deploy:["ai","वेबसाइट Netlify Drop पर ~2 मिनट में मुफ़्त; बैकएंड Render पर render.yaml से। पूरे चरण DEPLOY-TODAY में हैं।"],plans:["ai","कारीगर ₹799 · व्यापारी ₹3,999 · निर्यातक ₹11,999/माह · संस्थान कस्टम। कोई मुफ़्त नहीं; लॉन्च पर वार्षिक बिलिंग।"],exim:["ai","Exim प्रचारित व सीम-युक्त है (IEC, कस्टम, GI/रत्न अनुपालन) पर अभी पूरी तरह लेन-देन नहीं — पायलट के बाद का निर्माण।"],shops:["ai","दुकानें व शोरूम प्रमाणित शिल्प लेकर अपने नाम से बेचते हैं — व्यापारी टियर, कंसाइनमेंट, बिना इन्वेंटरी जोखिम। शॉप्स पेज देखें।"],tourism:["ai","पर्यटन एक पूरा वर्टिकल है: कार्यशालाएँ, कारीगर-भेंट और शिल्प-यात्राएँ — सुरक्षा-जाँची व कारीगर-मेज़बान।"],kyc:["ai","KYC के लिए DigiLocker अनुरोधकर्ता स्वीकृति चाहिए (सरकारी आवेदन)। तब तक पहचान मॉक मोड में रहती है।"],security:["ai","AES-256 + PII मास्किंग, DPDP-तैयार। प्रोडक्शन से पहले AUTH_SECRET, FOUNDER_TOKEN और WEBHOOK_SECRET बदलें।"],photos:["ai","उत्पाद चित्र ईमानदार प्लेसहोल्डर हैं। असली फ़ोटो के लिए क्लाउड स्टोरेज (S3/Cloudinary) चाहिए — असली लिस्टिंग की असली कमी। मैं नकली फ़ोटो नहीं बनाता।"],team:["ai","आपके 10 AI CXO (CFO, CRO, CMO, COO, CSO, CCO, CTO, CPO, Growth, Risk) व्यवसाय पढ़कर सलाह देते हैं; फ़ैसला आपका। 'आज की ब्रीफ़िंग' देखें।"],hitl:["ai","मैं 6 गेट पर आपके लिए रुकता हूँ: बड़ा भुगतान, बड़ा मूल्य-परिवर्तन, ऊँचा धोखाधड़ी-स्कोर, सप्लायर अनुबंध, कम GI-विश्वास, DGTR फ़ाइलिंग। आपकी मंज़ूरी के बाद ही आगे।"],verticals:["ai","एक ही कोर हस्तशिल्प, वस्त्र, आभूषण, रत्न, प्राकृतिक व अनुभव संभालता है — नया वर्टिकल जोड़ना कॉन्फ़िग है, नया कोड नहीं।"],metrics:["ai","लाइव झलक (डेमो): विक्रेता जुड़ रहे, ऑर्डर चल रहे, GMV बढ़ रहा, फ़्लोट शून्य। पूरे ऐप में यह असली KPI दिखाता है — ‘आज की ब्रीफ़िंग’ खोलें।"],roadmap:["ai","अगले समझदार निर्माण: प्रति-वर्टिकल GI स्टोरफ़्रंट उद्गम-थ्रेड के साथ, गहरा Exim लेन-देन, व बहु-स्क्रीन आवाज़ पंजीकरण। मैं प्रस्ताव देता हूँ; आप change-control से मंज़ूरी देते हैं।"],modify:["ai","नियम/कॉन्फ़िग बदलने के लिए मैं change-control उपयोग करता हूँ: वर्गीकृत करता हूँ, संरक्षित इनवेरिएंट से जाँचता हूँ, और आपकी मंज़ूरी का इंतज़ार करता हूँ। बताइए क्या बदलना है।"],approve:["ai","जो मैं स्वायत्त रूप से नहीं कर सकता वह आपकी मंज़ूरी-कतार में रुकता है — बड़े भुगतान, बड़े मूल्य-परिवर्तन, धोखाधड़ी-संकेत, सप्लायर अनुबंध। कॉकपिट से हर एक मंज़ूर/सुधारें।"],schemes:["ai","NEXUS कारीगरों को सरकारी योजनाओं से जोड़ता है: पीएम विश्वकर्मा, पीएम मुद्रा ऋण, e-Shram सामाजिक सुरक्षा, ODOP व GeM बाज़ार-पहुँच, GI सुरक्षा, ONDC, उद्यम, SFURTI व निर्यात प्रोत्साहन (RoDTEP)। हम कारीगरों को सत्यापित व औपचारिक करते हैं, ताकि सरकार असली लाभार्थियों तक पहुँचे — इसी से सरकार हमारी साझेदार बनती है।"],operate:["ai","इसे असली व्यवसाय की तरह चलाने के लिए चाहिए: 1) पंजीकृत कंपनी, 2) Razorpay + पोस्टग्रेस डेटाबेस, 3) डिजीलॉकर/KYC स्वीकृति, 4) वकील + CA की MoR+TCS पर मंज़ूरी, और 5) एक पायलट क्लस्टर। बाक़ी सब अभी बिना पैसे कर सकते हैं — मुफ़्त सरकारी डेटा इकट्ठा करें, सहमति-गेटेड प्रॉस्पेक्ट डेटाबेस बनाएँ, पूरा इंजन परखें। केवल छोटा खर्च ~₹500–2,000/माह का LLM है।"],collect:["ai","मैं प्रामाणिक मुफ़्त सरकारी डेटा इकट्ठा करता हूँ — GI रजिस्ट्री (600+ उत्पाद → क्लस्टर → उत्पादक), data.gov.in (पिनकोड, आँकड़े), ODOP ज़िले व myScheme पात्रता। कोई अनुमति नहीं, कोई पैसा नहीं। हर एक हर वर्टिकल में सहमति-गेटेड प्रॉस्पेक्ट बनता है।"],fallback:["ai","इसका सहेजा उत्तर अभी मेरे पास नहीं — मैं डेमो सहायक हूँ, पूरा इंजन नहीं। अभी की ईमानदार प्राथमिकता: एक पायलट क्लस्टर, वकील की मंज़ूरी, और भुगतान-रेल। पूछें: शुल्क, भुगतान, सहमति, पायलट, डिप्लॉय, प्लान, exim, दुकानें, KYC, सुरक्षा, CXO टीम, या HITL गेट।"]}};
+var CHIPS={en:[["audit","audit the platform"],["next","what should I do next"],["fee","how does the fee work"],["pilot","why a pilot first"],["deploy","how do I deploy"],["govt","show the government pitch"],["register","register the company"]],hi:[["audit","प्लेटफ़ॉर्म का ऑडिट करो"],["next","आगे क्या करूँ"],["fee","शुल्क कैसे काम करता है"],["pilot","पहले पायलट क्यों"],["deploy","कैसे डिप्लॉय करूँ"],["govt","सरकारी पिच दिखाओ"],["register","कंपनी पंजीकृत करो"]]};
+function renderChips(){$("fChips").innerHTML=CHIPS[LANG].map(function(c){return '<span class="cchip" onclick="runCmd(\''+c[0]+'\',true)">'+c[1]+'</span>';}).join("");}
+function runCmd(raw,isKey){var safe=function(x){return(x||"").replace(/&/g,"&amp;").replace(/</g,"&lt;");};var input=(raw||"").trim(); if(!input)return;if(!isKey){var ec=input.toLowerCase();var act=(/resume|restart|फिर चालू|दुबारा/.test(ec)&&/engine|saas|इंजन/.test(ec))?"run":(/pause|रोक/.test(ec)&&/engine|saas|इंजन/.test(ec))?"pause":(/stop|halt|बंद/.test(ec)&&/engine|saas|इंजन/.test(ec))?"stop":null;if(act&&typeof engineToggle==="function"){engineToggle(act);var rr=$("fResp");rr.className="cresp show";rr.innerHTML+='<div class="cbub cu">'+input.replace(/</g,"&lt;")+'</div>';var done=LANG==="hi"?("इंजन "+(act==="run"?"फिर चालू कर दिया":act==="pause"?"रोक दिया":"बंद कर दिया")+"। ऊपर इंजन-पट्टी देखें।"):("Engine "+(act==="run"?"resumed":act==="pause"?"paused":"stopped")+". See the engine bar above.");rr.innerHTML+='<div class="cbub ca"><span class="cbtag">'+(LANG==="hi"?"AI ने किया":"AI did it")+'</span>'+done+'</div>';rr.scrollTop=rr.scrollHeight;if($("fCmd"))$("fCmd").value="";return;}}var key=isKey?raw:null;if(!key){var c=input.toLowerCase();key=/audit|ऑडिट/.test(c)?"audit":/next|आगे|क्या कर/.test(c)?"next":/govern|सरकार|govt/.test(c)?"govt":/regist|पंजीक|incorporat|कंपनी बना/.test(c)?"register":/fee|commission|शुल्क|कमीशन/.test(c)?"fee":/payout|payment|paid|earn|भुगतान|पेआउट|कमाई/.test(c)?"payout":/consent|onboard|sourc|upload|सहमति|जोड़|स्रोत/.test(c)?"consent":/pilot|पायलट/.test(c)?"pilot":/deploy|launch|host|डिप्लॉय|लॉन्च/.test(c)?"deploy":/plan|price|subscri|योजना|दाम|सदस्यता/.test(c)?"plans":/exim|export|import|निर्यात/.test(c)?"exim":/b2b2c|shop|showroom|retail|दुकान|शोरूम/.test(c)?"shops":/tour|experien|workshop|पर्यटन|कार्यशाला/.test(c)?"tourism":/kyc|digilocker|verif|identity|पहचान/.test(c)?"kyc":/secur|encrypt|dpdp|data|सुरक्षा|डेटा/.test(c)?"security":/photo|image|picture|फ़ोटो|तस्वीर|छवि/.test(c)?"photos":/cxo|executive|team|cfo|cmo|advis|टीम|अधिकारी/.test(c)?"team":/hitl|gate|approv|गेट|मंज़ूरी/.test(c)?"hitl":/vertical|categor|product|वर्टिकल|श्रेणी/.test(c)?"verticals":/metric|performance|how are we|\bkpi\b|प्रदर्शन/.test(c)?"metrics":/roadmap|upgrade|improve the|what to build|next build|अपग्रेड|सुधार/.test(c)?"roadmap":/modify|change a|update the|requirement|बदलाव|संशोधन/.test(c)?"modify":/approve|pending|queue|मंज़ूर|कतार/.test(c)?"approve":/scheme|vishwakarma|mudra|subsidy|odop|\bgem\b|benefit|योजना|सब्सिडी/.test(c)?"schemes":/operate|requirement|what do i need|what is required|setup|real business|launch checklist|चलाने|आवश्यकता|क्या चाहिए/.test(c)?"operate":/collect|gather data|free data|डेटा इकट्ठा|मुफ़्त डेटा/.test(c)?"collect":null;}var r=$("fResp"); r.className="cresp show";var userText=input; if(isKey){var ch=CHIPS[LANG].find(function(x){return x[0]===raw;}); if(ch)userText=ch[1];}r.innerHTML+='<div class="cbub cu">'+safe(userText)+'</div>';var hit=key&&CMDS[LANG][key]; var who,msg,tag;if(!hit){who="ai";msg=CMDS[LANG].fallback[1];tag="AI";}else{who=hit[0];msg=hit[1];tag=who==="ai"?(LANG==="hi"?"AI ने किया":"AI did it"):(LANG==="hi"?"→ आप":"→ you");}var cls=who==="hu"?"ch":"ca";r.innerHTML+='<div class="cbub '+cls+'"><span class="cbtag">'+tag+'</span>'+msg+'</div>';r.scrollTop=r.scrollHeight; if($("fCmd"))$("fCmd").value="";}
+window.runCmd=runCmd;
+function propose(){var target=($("fcTarget").value||"").toLowerCase(),o=$("fcOut");if(/never|loss|घाटा|consent|सहमति|child|बाल|verif|सत्यापन|invariant|fabric|fake|नकली|secret/.test(target)){o.className="cguard bad";o.textContent=t("founder.change.refused");return;}if(!target){o.className="cguard bad";o.textContent=t("founder.change.need");return;}o.className="cguard";o.style.color="var(--gold)";o.textContent=t("founder.change.gated");setTimeout(function(){o.style.color="#34D399";o.textContent=t("founder.change.applied");},1200);}
+window.propose=propose;
+
+/* logo builder */
+function setLogoType(ty){LOGO.type=ty;["seal","mono","symbol"].forEach(function(x){$("lt-"+x).classList.toggle("on",x===ty);});paintLogo();}
+window.setLogoType=setLogoType;
+function updateLogo(){LOGO.mark=$("logoMark").value||"N";paintLogo();}
+window.updateLogo=updateLogo;
+function renderSwatches(){$("swatches").innerHTML=LOGO.colors.map(function(c,i){return '<input type="color" value="'+c+'" onchange="setSwatch('+i+',this.value)">';}).join("");}
+function setSwatch(i,v){LOGO.colors[i]=v;paintLogo();}
+window.setSwatch=setSwatch;
+function setBrand(){var n=($("fBrand").value||"NEXUS").trim().slice(0,40)||"NEXUS";BRAND=n;$("brandNav").textContent=n;$("fBrandFoot").textContent=n;$("pBrand").value=n;if($("logoPrevName"))$("logoPrevName").textContent=n;paintLogo();buildDeck();toast(t("founder.brand.set"));}
+window.setBrand=setBrand;
+
+/* presentations */
+var AUDS=[["customer","Customer (buyer)","ग्राहक (खरीदार)"],["seller","Maker","कारीगर"],["government","Government","सरकार"],["investor","Investor","निवेशक"]];
+var DECK={en:{customer:{lbl:"Customer",h:"Buy real, verified craft — and know the maker was paid fairly.",pts:["Every maker and product is verified; provenance is visible.","Reviews come only from real, delivered purchases.","Most of what you pay reaches the maker."]},seller:{lbl:"Maker",h:"Keep your craft, your language, and almost all of your money.",pts:["Sell with no GST number — the platform carries it.","Paid to your bank in ~2 days; list by voice.","12% commission, not 20–40%."]},government:{lbl:"Government",h:"Formalise informal artisans — compliant, GI-protected, ONDC-ready.",pts:["Brings undocumented artisans into the tax + banking system.","Delivers schemes to real beneficiaries.","Hands you the outcome dashboard."]},investor:{lbl:"Investor",h:"A trust layer for a craft economy no marketplace serves.",pts:["~81% blended margin · 12% + subscriptions.","Compounding network + portable ONDC reputation = moat.","Serves the artisan who can't join Amazon."]},what:function(b){return b+" is the trust & compliance operating system for India's craft economy. A verified maker — even with no paperwork — sells to buyers anywhere, with the platform as Merchant of Record. The platform is never in loss; consent and child-safety are inviolable.";},whatT:"What it is",whyT:"Why it matters to you",honestE:"In good faith",honestT:"Where it stands today",honest:"Pre-revenue and pilot-ready: the engine is built and verified (3,898 tests), but no pilot has run yet. The next milestone is proof with real makers — not more features.",forL:"For "},
+ hi:{customer:{lbl:"ग्राहक",h:"असली, प्रमाणित शिल्प खरीदें — और जानें कि कारीगर को उचित भुगतान मिला।",pts:["हर कारीगर और उत्पाद प्रमाणित; उद्गम दृश्य।","समीक्षाएँ केवल असली, पहुँची खरीद से।","आप जो देते हैं उसका अधिकांश कारीगर तक।"]},seller:{lbl:"कारीगर",h:"अपना शिल्प, अपनी भाषा, और लगभग सारा पैसा रखें।",pts:["बिना GST नंबर बेचें — प्लेटफ़ॉर्म उठाता है।","~2 दिन में बैंक भुगतान; आवाज़ से सूची।","12% कमीशन, 20–40% नहीं।"]},government:{lbl:"सरकार",h:"अनौपचारिक कारीगरों को औपचारिक बनाएँ — अनुपालन-युक्त, GI-संरक्षित, ONDC-तैयार।",pts:["बिना दस्तावेज़ कारीगरों को कर + बैंकिंग में लाता है।","योजनाएँ असली लाभार्थियों तक।","परिणाम डैशबोर्ड देता है।"]},investor:{lbl:"निवेशक",h:"एक शिल्प अर्थव्यवस्था के लिए भरोसे की परत जिसे कोई मार्केटप्लेस नहीं देता।",pts:["~81% मिश्रित मार्जिन · 12% + सदस्यता।","चक्रवृद्धि नेटवर्क + पोर्टेबल ONDC प्रतिष्ठा = खाई।","उस कारीगर की सेवा जो Amazon में नहीं जुड़ सकता।"]},what:function(b){return b+" भारत की शिल्प अर्थव्यवस्था के लिए भरोसा और अनुपालन ऑपरेटिंग सिस्टम है। एक प्रमाणित कारीगर — बिना कागज़ात भी — कहीं भी बेचता है, प्लेटफ़ॉर्म मर्चेंट ऑफ़ रिकॉर्ड के रूप में। प्लेटफ़ॉर्म कभी घाटे में नहीं; सहमति और बाल-सुरक्षा अटल।";},whatT:"यह क्या है",whyT:"यह आपके लिए क्यों",honestE:"सच्चाई के साथ",honestT:"आज यह कहाँ है",honest:"पूर्व-राजस्व और पायलट-तैयार: इंजन बना और सत्यापित (3,898 टेस्ट), पर अभी कोई पायलट नहीं। अगला पड़ाव असली कारीगरों के साथ प्रमाण है — और सुविधाएँ नहीं।",forL:""}};
+var ACC={customer:"var(--teal)",seller:"var(--saffron)",government:"var(--gold)",investor:"#6366F1"};
+function buildDeck(){var brand=($("pBrand").value||"NEXUS").trim()||"NEXUS",aud=($("pAud").value)||"customer",D=DECK[LANG]||DECK.en,a=D[aud]||D.customer,ac=ACC[aud]||ACC.customer;var s=[];s.push('<div class="slide cover"><div class="eyebrow">'+D.forL+a.lbl+'</div><h2>'+brand+'</h2><div class="tg">'+a.h+'</div></div>');s.push('<div class="slide" style="--accent:'+ac+'"><div class="num">02</div><div class="eyebrow" style="color:'+ac+'">'+D.whatT+'</div><h2>'+a.lbl+'</h2><div class="body">'+D.what(brand)+'</div></div>');s.push('<div class="slide" style="--accent:'+ac+'"><div class="num">03</div><div class="eyebrow" style="color:'+ac+'">'+D.whyT+'</div><h2>'+a.h+'</h2><ul>'+a.pts.map(function(p){return '<li>'+p+'</li>';}).join("")+'</ul></div>');s.push('<div class="slide honest"><div class="num">04</div><div class="eyebrow">'+D.honestE+'</div><h2>'+D.honestT+'</h2><div class="body">'+D.honest+'</div></div>');$("deck").innerHTML=s.join("");}
+window.genDeck=function(){buildDeck();var aud=($("pAud").value)||"customer";var d=DECK[LANG]||DECK.en;var a=d[aud]||d.customer;toast(t("present.generated",{a:a.lbl}));};
+
+/* government — ports governmentAlignment.economicImpact + liaison */
+function govImpact(){
+  var n=Math.max(1,Math.min(1000000,parseInt($("govArtisans").value||"1000",10)));
+  var avgGmv=120000; // ₹/artisan/yr, matches backend default
+  var gmv=n*avgGmv, women=Math.round(n*0.55), uplift=Math.round(n*24000), tax=Math.round(gmv*0.02), exp=Math.round(gmv*0.15);
+  function rs(x){return "₹"+x.toLocaleString("en-IN");}
+  $("govImpactOut").innerHTML=
+    '<div class="gi"><b>'+n.toLocaleString("en-IN")+'</b><span>'+t("gov.formalised")+'</span></div>'+
+    '<div class="gi"><b>'+women.toLocaleString("en-IN")+'</b><span>'+t("gov.women")+'</span></div>'+
+    '<div class="gi"><b>'+rs(tax)+'</b><span>'+t("gov.exchequer")+'</span></div>'+
+    '<div class="gi"><b>'+rs(exp)+'</b><span>'+t("gov.exports")+'</span></div>'+
+    '<div class="gi"><b>'+rs(uplift)+'</b><span>'+t("gov.uplift")+'</span></div>';
+}
+window.govImpact=govImpact;
+function govEngage(){
+  var body=($("govBody").value||"").trim();if(!body){toast(t("founder.change.need"),true);return;}
+  var o=$("govEngageOut");o.className="govengage show";
+  var pitchEn="To "+body+": adopt NEXUS for your district cluster / SHG mission — we onboard your artisans, route payments to their banks, enable exports, and hand you the outcome dashboard.";
+  var pitchHi=body+" से: अपने ज़िला क्लस्टर / SHG मिशन के लिए NEXUS अपनाइए — हम आपके कारीगरों को जोड़ते हैं, भुगतान सीधे उनके बैंक तक पहुँचाते हैं, निर्यात सक्षम करते हैं, और आपको परिणाम डैशबोर्ड देते हैं।";
+  var stages=LANG==="hi"?["पहचाना","पैकेज तैयार","मसौदा संपर्क","संपर्क","बैठक","प्रस्ताव/MoU","लाइव"]:["identified","package prepared","outreach drafted","contacted","meeting","proposal/MoU","live"];
+  o.innerHTML='<div class="gpitch">"'+(LANG==="hi"?pitchHi:pitchEn)+'"</div>'+
+    '<div class="gstages">'+stages.map(function(st,i){return '<span class="gstage'+(i<2?" done":"")+'">'+(i<2?"✓ ":"")+st+'</span>';}).join('<span class="garrow">→</span>')+'</div>';
+  toast(t("gov.prepared",{b:body}));
+}
+window.govEngage=govEngage;
+
+/* plans — maker subscriptions, monthly + annual (annual at launch) */
+var PLANS=[
+ {id:"karigar",m:799,name:{en:"Karigar",hi:"कारीगर"},gl:{en:"Individual artisan",hi:"अकेला कारीगर"}},
+ {id:"vyapari",m:3999,name:{en:"Vyapari",hi:"व्यापारी"},gl:{en:"Workshop / trader",hi:"कार्यशाला / व्यापारी"}},
+ {id:"niryatak",m:11999,name:{en:"Niryatak",hi:"निर्यातक"},gl:{en:"Exporter",hi:"निर्यातक"}},
+ {id:"sansthan",m:null,name:{en:"Sansthan",hi:"संस्थान"},gl:{en:"Co-op / NGO / state",hi:"सहकारी / NGO / राज्य"}}
+];
+var billCycle="m";
+function setBill(c){billCycle=c;if($("billM"))$("billM").classList.toggle("on",c==="m");if($("billA"))$("billA").classList.toggle("on",c==="a");renderPlans();}
+window.setBill=setBill;
+function renderPlans(){
+  if(!$("plansGrid"))return;
+  $("plansGrid").innerHTML=PLANS.map(function(p){
+    var price;
+    if(p.m===null){price='<div class="pr">'+t("plans.custom")+'</div>';}
+    else if(billCycle==="m"){price='<div class="pr">₹'+p.m.toLocaleString("en-IN")+'<small>'+t("plans.permo")+'</small></div>';}
+    else{var yr=p.m*10;price='<div class="pr">₹'+yr.toLocaleString("en-IN")+'<small>'+t("plans.peryr")+'</small></div><div class="prsoon">'+t("plans.soon")+'</div>';}
+    return '<div class="plan"><div class="pat"></div><div class="nm">'+p.name[LANG]+'</div><div class="gl">'+p.gl[LANG]+'</div>'+price+'</div>';
+  }).join("");
+}
+window.renderPlans=renderPlans;
+
+/* go-live control — production needs, trackable in the cockpit (in-memory) */
+var PROD_NEEDS=[
+ {g:{en:"Payments & payouts",hi:"भुगतान व पेआउट"},env:"RAZORPAY_KEY_ID · SECRET · ROUTE_ENABLED",st:"mock",it:{en:"Razorpay account + Route payouts",hi:"रेज़रपे खाता + Route पेआउट"}},
+ {g:{en:"Database",hi:"डेटाबेस"},env:"DATABASE_URL · STORE_DRIVER=postgres",st:"file",it:{en:"Postgres (Neon / Supabase / RDS)",hi:"पोस्टग्रेस (Neon/Supabase/RDS)"}},
+ {g:{en:"Security",hi:"सुरक्षा"},env:"AUTH_SECRET · FOUNDER_TOKEN · WEBHOOK_SECRET",st:"dev",it:{en:"Rotate all secrets from dev defaults",hi:"सभी कुंजियाँ डेव डिफ़ॉल्ट से बदलें"}},
+ {g:{en:"Identity / KYC",hi:"पहचान / KYC"},env:"DigiLocker requester (govt application)",st:"todo",it:{en:"DigiLocker / UIDAI approval",hi:"डिजीलॉकर / UIDAI स्वीकृति"}},
+ {g:{en:"AI inference",hi:"AI"},env:"ANTHROPIC_API_KEY",st:"mock",it:{en:"Anthropic API key",hi:"Anthropic API कुंजी"}},
+ {g:{en:"Voice & language",hi:"आवाज़ व भाषा"},env:"BHASHINI_ENABLED · BHASHINI_API_KEY",st:"mock",it:{en:"Bhashini (13 languages)",hi:"भाषिणी (13 भाषाएँ)"}},
+ {g:{en:"Legal",hi:"कानूनी"},env:"lawyer + CA sign-off (MoR + TCS)",st:"todo",it:{en:"Legal sign-off on MoR + TCS",hi:"MoR + TCS पर कानूनी स्वीकृति"}},
+ {g:{en:"Final switch",hi:"अंतिम स्विच"},env:"COMPLIANCE_CONFIRMED=true · NODE_ENV=production",st:"todo",it:{en:"Confirm compliance, flip to production",hi:"अनुपालन पुष्टि कर प्रोडक्शन चालू करें"}}
+];
+var prodDone={};
+function prodToggle(i){prodDone[i]=!prodDone[i];renderProd();}
+window.prodToggle=prodToggle;
+function renderProd(){
+  if(!$("prodList"))return;
+  var total=PROD_NEEDS.length, done=0;
+  $("prodList").innerHTML=PROD_NEEDS.map(function(n,i){
+    var on=!!prodDone[i]; if(on)done++;
+    return '<div class="prodrow" onclick="prodToggle('+i+')"><div class="prodck'+(on?" on":"")+'">'+(on?"✓":"")+'</div>'+
+      '<div class="prodmain"><div class="prodg">'+n.g[LANG]+' · <span>'+n.it[LANG]+'</span></div><div class="prodenv">'+n.env+'</div></div>'+
+      '<span class="prodst st-'+(on?"done":n.st)+'">'+t("prod.st."+(on?"done":n.st))+'</span></div>';
+  }).join("");
+  if($("prodReady"))$("prodReady").textContent=t("prod.ready").replace("{d}",done).replace("{n}",total);
+  if($("prodFill"))$("prodFill").style.width=(total?Math.round(done/total*100):0)+"%";
+}
+window.renderProd=renderProd;
+
+/* engine stop / pause control — the founder's kill switch */
+var ENGINE="running";
+function engineToggle(a){ENGINE=(a==="pause")?"paused":(a==="stop")?"stopped":"running";renderEngine();}
+window.engineToggle=engineToggle;
+function renderEngine(){
+  var bar=$("engBar"); if(!bar)return;
+  bar.className="engbar eng-"+ENGINE;
+  if($("engLabel"))$("engLabel").textContent=t(ENGINE==="running"?"eng.running":ENGINE==="paused"?"eng.paused":"eng.stopped");
+  if($("engSub"))$("engSub").textContent=t(ENGINE==="running"?"eng.sub":ENGINE==="paused"?"eng.subp":"eng.subs");
+  var running=ENGINE==="running";
+  if($("engPause"))$("engPause").style.display=running?"":"none";
+  if($("engRun"))$("engRun").style.display=running?"none":"";
+  if($("engStop"))$("engStop").style.display=ENGINE==="stopped"?"none":"";
+}
+window.renderEngine=renderEngine;
+
+/* maker's creative studio — domain-expert idea agent, per vertical */
+var STUDIO_VERTS=[
+ {k:"textile",l:{en:"Textiles & weaving",hi:"वस्त्र व बुनाई"}},
+ {k:"handicraft",l:{en:"Handicraft & pottery",hi:"हस्तशिल्प व मिट्टी"}},
+ {k:"jewellery",l:{en:"Jewellery",hi:"आभूषण"}},
+ {k:"gems",l:{en:"Gems & gemstones",hi:"रत्न"}},
+ {k:"naturals",l:{en:"Natural & sustainable",hi:"प्राकृतिक व टिकाऊ"}},
+ {k:"sculpture",l:{en:"Stone & marble sculpture",hi:"पत्थर व संगमरमर मूर्तिकला"}},
+ {k:"experience",l:{en:"Experiences & tourism",hi:"अनुभव व पर्यटन"}}];
+var STUDIO={
+ textile:[
+  {i:"🎨",t:{en:"Offer 2–3 contemporary palettes",hi:"2–3 आधुनिक रंग-संयोजन दें"},b:{en:"Keep the traditional design, but add muted-earth, indigo-white and festive colourways. Overseas buyers choose by room decor.",hi:"पारंपरिक डिज़ाइन रखें, पर मद्धम-मिट्टी, नील-सफ़ेद व त्योहारी रंग जोड़ें। विदेशी ख़रीदार सजावट के अनुसार चुनते हैं।"}},
+  {i:"🧣",t:{en:"Extend one motif into many products",hi:"एक मोटिफ़ को कई उत्पादों में बदलें"},b:{en:"Your saree motif also becomes stoles, cushion covers and table runners — same loom, more price points.",hi:"आपकी साड़ी का मोटिफ़ स्टोल, कुशन कवर व टेबल रनर भी बन सकता है — वही करघा, ज़्यादा दाम-स्तर।"}},
+  {i:"♻️",t:{en:"Add a natural-dye / organic line",hi:"प्राकृतिक-रंग / जैविक श्रेणी जोड़ें"},b:{en:"A natural-dye, organic-cotton line can command 20–40% more and carries a real sustainability story.",hi:"प्राकृतिक-रंग, जैविक-कपास श्रेणी 20–40% अधिक दाम पा सकती है और टिकाऊपन की सच्ची कहानी कहती है।"}},
+  {i:"📖",t:{en:"Sell the time it takes",hi:"लगने वाला समय बेचें"},b:{en:"Film the loom and your hands. \u201cFifteen days, one saree\u201d is the premium — show it.",hi:"करघा और अपने हाथ फ़िल्माएँ। \u201cपंद्रह दिन, एक साड़ी\u201d ही प्रीमियम है — दिखाएँ।"}}],
+ handicraft:[
+  {i:"🏺",t:{en:"Add modern forms",hi:"आधुनिक रूप जोड़ें"},b:{en:"Same craft, new shapes: planters, tableware sets, lamp bases. Function sells alongside tradition.",hi:"वही कला, नए आकार: गमले, बर्तन-सेट, लैंप-बेस। उपयोगिता परंपरा के साथ बिकती है।"}},
+  {i:"🎁",t:{en:"Build festive gift sets",hi:"त्योहारी उपहार सेट बनाएँ"},b:{en:"Bundle a diya + bowl + box as a Diwali gift set — higher cart value, easy to gift abroad.",hi:"दीया + कटोरी + डिब्बा को दिवाली उपहार सेट बनाएँ — ज़्यादा कार्ट मूल्य, विदेश भेजना आसान।"}},
+  {i:"🎨",t:{en:"Vary glaze & finish",hi:"शीशा व फ़िनिश बदलें"},b:{en:"Two or three signature finishes give buyers a choice and let you charge for the premium one.",hi:"दो-तीन ख़ास फ़िनिश ख़रीदार को विकल्प देती हैं और प्रीमियम पर दाम लेने देती हैं।"}},
+  {i:"📦",t:{en:"Design breakage-safe packaging",hi:"न-टूटने वाली पैकिंग बनाएँ"},b:{en:"Fragile crafts need smart packing. Safe arrival = great reviews = more sales.",hi:"नाज़ुक शिल्प को समझदार पैकिंग चाहिए। सुरक्षित पहुँच = बढ़िया समीक्षाएँ = ज़्यादा बिक्री।"}}],
+ jewellery:[
+  {i:"💍",t:{en:"Split bridal vs daily-wear",hi:"दुल्हन बनाम रोज़ की दो श्रेणियाँ"},b:{en:"Add a lightweight, lower-price daily-wear line beside the bridal pieces — far more buyers.",hi:"दुल्हन वाली वस्तुओं के साथ हल्की, कम-दाम रोज़ की श्रेणी जोड़ें — कहीं ज़्यादा ख़रीदार।"}},
+  {i:"🏷️",t:{en:"Lead with hallmark + certificate",hi:"हॉलमार्क + प्रमाणपत्र सबसे आगे"},b:{en:"Make the BIS hallmark and metal purity the headline — it removes the buyer\u2019s biggest fear.",hi:"BIS हॉलमार्क व धातु शुद्धता को मुख्य बनाएँ — यह ख़रीदार का सबसे बड़ा डर मिटाता है।"}},
+  {i:"🎁",t:{en:"Offer personalisation",hi:"वैयक्तिकरण दें"},b:{en:"Initials, names or birthstones turn a product into a gift — and justify a premium.",hi:"आद्याक्षर, नाम या जन्म-रत्न उत्पाद को उपहार बनाते हैं — और प्रीमियम सही ठहराते हैं।"}},
+  {i:"🎨",t:{en:"Design a minimal export line",hi:"न्यूनतम निर्यात श्रेणी बनाएँ"},b:{en:"Contemporary, minimal pieces sell better overseas than heavy traditional sets. Keep both.",hi:"आधुनिक, सादे डिज़ाइन विदेश में भारी पारंपरिक सेट से बेहतर बिकते हैं। दोनों रखें।"}}],
+ gems:[
+  {i:"💎",t:{en:"List certified stones only",hi:"केवल प्रमाणित पत्थर सूचीबद्ध करें"},b:{en:"An independent lab certificate per stone is your trust engine. Never list an uncertified high-value stone.",hi:"हर पत्थर पर स्वतंत्र लैब प्रमाणपत्र आपका भरोसा-इंजन है। बिना-प्रमाणित महँगा पत्थर कभी न डालें।"}},
+  {i:"📏",t:{en:"Show a 4Cs spec sheet",hi:"4Cs विवरण-पत्र दिखाएँ"},b:{en:"Carat, colour, clarity, cut + macro photos. Buyers of value stones want data, not adjectives.",hi:"कैरेट, रंग, स्पष्टता, कटाई + मैक्रो फ़ोटो। महँगे पत्थर के ख़रीदार आँकड़े चाहते हैं, विशेषण नहीं।"}},
+  {i:"🪙",t:{en:"Offer calibrated sizes to jewellers",hi:"जौहरियों को कैलिब्रेटेड साइज़ दें"},b:{en:"Standard calibrated sizes open a steady B2B channel with jewellery makers (a Vyapari fit).",hi:"मानक कैलिब्रेटेड साइज़ जौहरियों के साथ स्थिर B2B चैनल खोलते हैं (व्यापारी के अनुकूल)।"}},
+  {i:"🛡️",t:{en:"Be transparent on treatment & origin",hi:"उपचार व उद्गम पर पारदर्शी रहें"},b:{en:"Stating treatment and origin openly builds the trust that lets you price honestly and high.",hi:"उपचार व उद्गम खुलकर बताना वह भरोसा बनाता है जो ईमानदारी से ऊँचा दाम लेने देता है।"}}],
+ naturals:[
+  {i:"♻️",t:{en:"Prove the supply chain",hi:"आपूर्ति-शृंखला साबित करें"},b:{en:"Eco claims need proof. Show the farm, the process and any certification — that\u2019s the whole value.",hi:"पर्यावरण-दावों को प्रमाण चाहिए। खेत, प्रक्रिया व प्रमाणन दिखाएँ — यही पूरी क़ीमत है।"}},
+  {i:"🌿",t:{en:"Offer refill / zero-waste formats",hi:"रिफ़िल / शून्य-कचरा रूप दें"},b:{en:"Refills and minimal packaging appeal to conscious buyers and lift repeat orders.",hi:"रिफ़िल व कम पैकिंग सजग ख़रीदारों को भाती है और दोबारा ऑर्डर बढ़ाती है।"}},
+  {i:"🎁",t:{en:"Curate wellness bundles",hi:"वेलनेस बंडल बनाएँ"},b:{en:"Group complementary naturals into a themed kit — higher value, easy gifting.",hi:"पूरक प्राकृतिक उत्पादों को थीम-किट में जोड़ें — ज़्यादा मूल्य, आसान उपहार।"}},
+  {i:"🏷️",t:{en:"Label ingredients fully",hi:"सामग्री पूरी तरह लिखें"},b:{en:"Full, honest ingredient lists win trust with health-conscious and overseas buyers.",hi:"पूरी, ईमानदार सामग्री-सूची स्वास्थ्य-सजग व विदेशी ख़रीदारों का भरोसा जीतती है।"}}],
+ sculpture:[
+  {i:"🗿",t:{en:"Offer three sizes",hi:"तीन आकार रखें"},b:{en:"Miniature, tabletop and statement pieces — shipping-friendly tiers open global buyers without freight pain.",hi:"लघु, मेज़-योग्य व बड़ी कृतियाँ — शिपिंग-अनुकूल स्तर बिना भाड़े की परेशानी के वैश्विक ख़रीदार खोलते हैं।"}},
+  {i:"📜",t:{en:"Certify the stone",hi:"पत्थर प्रमाणित करें"},b:{en:"A Makrana-grade / origin certificate with each piece lifts trust and price — provenance is your premium.",hi:"हर कृति के साथ मकराना-ग्रेड/उद्गम प्रमाणपत्र भरोसा व दाम बढ़ाता है — उद्गम ही आपका प्रीमियम है।"}},
+  {i:"🏛️",t:{en:"Serve institutions",hi:"संस्थानों को बेचें"},b:{en:"Temples, hotels and government commissions (via GeM) buy large works on contract — a steady B2B channel.",hi:"मंदिर, होटल व सरकारी कमीशन (GeM से) बड़ी कृतियाँ अनुबंध पर लेते हैं — स्थिर B2B चैनल।"}},
+  {i:"📦",t:{en:"Crate & insure",hi:"क्रेट व बीमा"},b:{en:"Museum-style crating and insured freight make heavy marble safe to ship — safe arrival earns reviews and repeat commissions.",hi:"संग्रहालय-शैली क्रेटिंग व बीमित भाड़ा भारी संगमरमर को सुरक्षित पहुँचाता है — सुरक्षित पहुँच समीक्षाएँ व दोबारा कमीशन दिलाती है।"}}],
+ experience:[
+  {i:"🎟️",t:{en:"Tier your experiences",hi:"अनुभव को स्तरों में बाँटें"},b:{en:"A 1-hour taster, a half-day workshop and a full immersion — three price points, more bookings.",hi:"1-घंटा झलक, आधा-दिन कार्यशाला व पूर्ण अनुभव — तीन दाम-स्तर, ज़्यादा बुकिंग।"}},
+  {i:"🌐",t:{en:"Bundle with a heritage tour",hi:"धरोहर-यात्रा के साथ जोड़ें"},b:{en:"Pair your workshop with nearby monuments and temples (NEXUS maps them) — sell a day, not an hour.",hi:"अपनी कार्यशाला को पास के स्मारकों व मंदिरों से जोड़ें (NEXUS उन्हें मैप करता है) — एक घंटा नहीं, पूरा दिन बेचें।"}},
+  {i:"📸",t:{en:"Give a keep-your-craft moment",hi:"\u2018अपना शिल्प साथ ले जाएँ\u2019 पल दें"},b:{en:"Guests keep what they make and share photos — that\u2019s your free marketing engine.",hi:"मेहमान अपना बनाया साथ ले जाएँ और फ़ोटो साझा करें — यही आपका मुफ़्त विपणन-इंजन है।"}},
+  {i:"🛡️",t:{en:"Lead with safety & comfort",hi:"सुरक्षा व आराम सबसे आगे"},b:{en:"State safety, hygiene, language support and timings up front — it converts hesitant family bookings.",hi:"सुरक्षा, स्वच्छता, भाषा-सहायता व समय पहले बताएँ — यह झिझकती पारिवारिक बुकिंग बदलता है।"}}]
+};
+function renderStudio(){
+  var sel=$("stVert"); if(!sel)return;
+  sel.innerHTML=STUDIO_VERTS.map(function(v){return '<option value="'+v.k+'">'+v.l[LANG]+'</option>';}).join("");
+}
+window.renderStudio=renderStudio;
+function makerIdeas(){
+  var sel=$("stVert"),out=$("stOut"); if(!sel||!out)return;
+  var k=sel.value||"textile", v=(STUDIO_VERTS.find(function(x){return x.k===k;})||STUDIO_VERTS[0]).l[LANG], ideas=STUDIO[k]||[];
+  out.innerHTML='<div class="stintro">'+t("studio.intro").replace("{v}",v)+'</div>'+
+    '<div class="stgrid">'+ideas.map(function(d){return '<div class="stcard"><div class="sti">'+d.i+'</div><div class="sth">'+d.t[LANG]+'</div><div class="stb">'+d.b[LANG]+'</div></div>';}).join("")+'</div>'+
+    '<div class="stnote">'+t("studio.note")+'</div>';
+  out.className="studioout show";
+}
+window.makerIdeas=makerIdeas;
+
+/* boot */
+renderSwatches();paintLogo();applyI18n();homeProof(5);makerPay(2500);fFee(12);govImpact();renderPlans();renderProd();renderEngine();renderStudio();updateCartCount();
+</script>
+</body>
+</html>

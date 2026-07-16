@@ -1,0 +1,19 @@
+# NEXUS — free deploy on Fly.io (Mumbai region). Safe mock mode for testing.
+app = "nexus-craft"
+primary_region = "bom"
+[build]
+  dockerfile = "Dockerfile"
+[env]
+  NODE_ENV = "development"   # safe mock mode; flip to production only after hardening
+  PAYMENTS_PROVIDER = "mock"
+  STORE_DRIVER = "file"
+[http_service]
+  internal_port = 4100
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+[[http_service.http_checks]]
+  path = "/health"
+  interval = "30s"
+  timeout = "4s"

@@ -1,0 +1,17 @@
+# NEXUS — free deploy on Render. Boots in safe mock mode (no real money/KYC).
+# Production hardening (real secrets/payment/DB/COMPLIANCE_CONFIRMED) is a later step.
+services:
+  - type: web
+    name: nexus
+    runtime: node
+    plan: free
+    buildCommand: "npm install --omit=dev || true"
+    startCommand: "node server.js"
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: development      # keeps the platform in safe mock mode for testing
+      - key: PAYMENTS_PROVIDER
+        value: mock
+      - key: STORE_DRIVER
+        value: file

@@ -1,0 +1,66 @@
+name: NEXUS CI
+
+# Runs the full backend test suite (110+ suites, 4,000+ tests) on every push and
+# pull request. Merge is blocked if any test fails. Zero dependencies = no install step.
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Syntax check every backend file
+        working-directory: backend
+        run: |
+          err=0
+          for f in server.js src/*.js; do
+            node --check "$f" || { echo "SYNTAX FAIL: $f"; err=1; }
+          done
+          exit $err
+
+      - name: Run all test suites
+        working-directory: backend
+        run: |
+          TOTAL=0; FAILED=0; FAILED_SUITES=""
+          # api-routes runs last, alone (binds a port)
+          # a suite that crashes or prints no summary counts as a failure
+          # (|| true keeps empty greps from killing the loop under bash -e)
+          for t in $(ls test*.js | grep -v test-api-routes.js); do
+            out=$(node "$t" 2>&1 | grep -oE '[0-9]+ passed, [0-9]+ failed' | tail -1 || true)
+            if [ -z "$out" ]; then FAILED=$((FAILED+1)); FAILED_SUITES="$FAILED_SUITES $t(no-output)"; continue; fi
+            p=$(echo "$out" | grep -oE '^[0-9]+' || true); fl=$(echo "$out" | grep -oE '[0-9]+ failed' | grep -oE '^[0-9]+' || true)
+            TOTAL=$((TOTAL+${p:-0})); FAILED=$((FAILED+${fl:-0}))
+            if [ "${fl:-0}" -gt 0 ]; then FAILED_SUITES="$FAILED_SUITES $t"; fi
+          done
+          sleep 2
+          out=$(node test-api-routes.js 2>&1 | grep -oE '[0-9]+ passed, [0-9]+ failed' | tail -1 || true)
+          if [ -z "$out" ]; then FAILED=$((FAILED+1)); FAILED_SUITES="$FAILED_SUITES test-api-routes.js(no-output)"; fi
+          p=$(echo "$out" | grep -oE '^[0-9]+' || true); fl=$(echo "$out" | grep -oE '[0-9]+ failed' | grep -oE '^[0-9]+' || true)
+          TOTAL=$((TOTAL+${p:-0})); FAILED=$((FAILED+${fl:-0}))
+          if [ "${fl:-0}" -gt 0 ]; then FAILED_SUITES="$FAILED_SUITES test-api-routes.js"; fi
+          echo "TESTS: $TOTAL passed, $FAILED failed"
+          [ -n "$FAILED_SUITES" ] && echo "FAILED SUITES:$FAILED_SUITES"
+          [ "$FAILED" -eq 0 ] || exit 1
+
+      - name: Boot smoke test
+        working-directory: backend
+        run: |
+          PORT=4999 RATE_LIMIT=off node server.js &
+          sleep 19
+          code=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:4999/health)
+          echo "health: $code"
+          [ "$code" = "200" ] || exit 1
