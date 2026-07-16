@@ -116,6 +116,12 @@ a{color:inherit}
   .lang-trigger{padding:8px 10px}
   .canvas .top{padding-top:60px;flex-wrap:wrap}
 }
+/* On larger screens the fixed pill bar floats over the topbar's right side,
+   so the topbar reserves the pill bar's actual width (set by JS on render
+   and resize — the width changes with locale). */
+@media(min-width:601px){
+  .canvas .top{padding-right:var(--pillbar-w,360px);flex-wrap:wrap}
+}
 .lang-trigger{display:flex;align-items:center;gap:6px;background:var(--ink);color:#cfc6b5;border:none;border-radius:11px;padding:9px 12px;box-shadow:var(--shadow-lg);font-weight:600;font-size:12px;cursor:pointer}
 .lang-trigger:hover{color:#fff}
 .lang-globe{font-size:14px}
@@ -1242,7 +1248,17 @@ function render(){
   // Hindi dictionary pass over the fresh DOM + the fixed chrome (pills)
   _applyHiDict(root);
   _applyHiDict(document.querySelector('.pillbar'));
+  _syncPillbarPad();
 }
+/* The topbar reserves space for the floating pill bar (width varies with
+   locale and viewport) — measured, not guessed. */
+function _syncPillbarPad(){
+  try{
+    const pb=document.querySelector('.pillbar');
+    if(pb)document.documentElement.style.setProperty('--pillbar-w',Math.ceil(pb.getBoundingClientRect().width+34)+'px');
+  }catch(e){}
+}
+window.addEventListener('resize',()=>_syncPillbarPad());
 window.render = render;
 
 /* ── Accessibility controls (customer-facing, persisted per device) ── */
