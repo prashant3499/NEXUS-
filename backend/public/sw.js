@@ -13,7 +13,7 @@
  * indefinitely.
  */
 
-const CACHE_VERSION = 'v2.97.7';
+const CACHE_VERSION = 'v2.97.8';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const DATA_CACHE  = `${CACHE_VERSION}-data`;
 
