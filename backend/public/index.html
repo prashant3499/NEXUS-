@@ -92,25 +92,26 @@ a{color:inherit}
 .slide{animation:slide .35s cubic-bezier(.2,.7,.3,1) both}.pop{animation:pop .3s ease both}
 
 /* ════ ROLE SWITCHER (demo aid — top-right floating) ════ */
-.roleswitch{position:fixed;top:14px;right:14px;z-index:500;display:flex;align-items:center;gap:6px;
+.pillbar{position:fixed;top:14px;right:14px;z-index:500;display:flex;align-items:stretch;gap:8px}
+.roleswitch{display:flex;align-items:center;gap:6px;
   background:var(--ink);color:#fff;border-radius:11px;padding:5px;box-shadow:var(--shadow-lg);font-size:12px}
 .roleswitch .lbl{padding:0 8px;color:#bdb3a0;font-weight:500;font-size:11px}
 .roleswitch button{background:none;border:none;color:#cfc6b5;padding:7px 12px;border-radius:8px;font-weight:600;font-size:12px}
 .roleswitch button.on{background:var(--saffron);color:#fff}
 @media(max-width:600px){
   .roleswitch .lbl{display:none}
-  .roleswitch{right:10px;padding:4px;gap:4px}
+  .pillbar{right:10px;gap:6px}
+  .roleswitch{padding:4px;gap:4px}
   .roleswitch button{padding:6px 9px;font-size:11px}
 }
 
-/* Language picker — sits to the left of the role switcher */
-.langswitch{position:fixed;top:14px;right:230px;z-index:500;font-size:12px}
+/* Language picker — flex sibling to the left of the role switcher (.pillbar) */
+.langswitch{position:relative;font-size:12px}
 /* On small screens the pill collapses to just the globe so it can never
    run into the (wider) role switcher pinned at the right edge. The in-flow
    topbar (breadcrumb, quick actions, home/util buttons) drops below the
    fixed pills so nothing floats over it. */
 @media(max-width:600px){
-  .langswitch{right:206px}
   #langCurrent{display:none}
   .lang-trigger{padding:8px 10px}
   .canvas .top{padding-top:60px;flex-wrap:wrap}
@@ -835,19 +836,21 @@ input[type=text],input[type=number],input[type=search],input[type=email],input[t
 </div>
 <div id="a11yAnnounce" aria-live="polite" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)"></div>
 
-<div class="roleswitch">
-  <span class="lbl">View as</span>
-  <button data-r="buyer" class="on">Buyer</button>
-  <button data-r="seller">Seller</button>
-  <button data-r="founder">Founder</button>
-</div>
-
-<div class="langswitch" id="langSwitch" title="Language">
-  <button id="langTrigger" class="lang-trigger">
-    <span class="lang-globe">🌐</span><span id="langCurrent">English</span><span class="lang-chev">▾</span>
-  </button>
-  <div class="lang-menu" id="langMenu" role="menu" aria-label="Language picker">
-    <!-- populated by JS -->
+<!-- One fixed flex bar holds both pills so they can never overlap at any width -->
+<div class="pillbar">
+  <div class="langswitch" id="langSwitch" title="Language">
+    <button id="langTrigger" class="lang-trigger">
+      <span class="lang-globe">🌐</span><span id="langCurrent">English</span><span class="lang-chev">▾</span>
+    </button>
+    <div class="lang-menu" id="langMenu" role="menu" aria-label="Language picker">
+      <!-- populated by JS -->
+    </div>
+  </div>
+  <div class="roleswitch">
+    <span class="lbl">View as</span>
+    <button data-r="buyer" class="on">Buyer</button>
+    <button data-r="seller">Seller</button>
+    <button data-r="founder">Founder</button>
   </div>
 </div>
 
