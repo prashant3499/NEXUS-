@@ -1078,6 +1078,75 @@ try{
     .then(()=>LOCALE!=='en'?loadLocaleStrings(LOCALE):null)
     .then(()=>{ if(typeof render==='function')render(); });
 }catch(e){}
+/* ── Hindi UI dictionary — render-time translation pass ──
+   Most view templates carry English labels directly (nav arrays, Shell
+   chrome, CTAs). Rather than rewriting every template, after each render
+   we walk the DOM and translate known strings when the locale is Hindi.
+   Coverage grows by adding entries here; templates stay untouched, and
+   switching back to English simply re-renders from the templates. */
+const HI_UI={
+  // Role pills + chrome
+  'View as':'इस रूप में देखें','Buyer':'खरीदार','Seller':'विक्रेता','Founder':'संस्थापक',
+  'Command Center /':'कमांड सेंटर /','Marketplace /':'बाज़ार /','Portal /':'पोर्टल /',
+  'Marketplace':'बाज़ार','Mode':'मोड','Preview as':'इस रूप में देखें','⌘ Quick actions':'⌘ त्वरित कार्य',
+  'Home':'घर','Alerts':'सूचनाएँ','Settings':'सेटिंग','Profile':'प्रोफ़ाइल','Sign out':'साइन आउट',
+  'Help & docs':'मदद और दस्तावेज़','Search':'खोजें','Console':'कंसोल','Seller Portal':'विक्रेता पोर्टल',
+  'Skip to main content':'मुख्य सामग्री पर जाएँ',
+  // Buyer — D2C
+  'Shop':'खरीदारी','Storefront':'दुकान','Browse':'देखें','Cart':'कार्ट','My orders':'मेरे ऑर्डर',
+  'Account':'खाता','Shopper':'खरीदार','You':'आप','Browsing as a shopper':'खरीदार के रूप में देख रहे हैं',
+  'Add to cart':'कार्ट में डालें','Pay with UPI':'UPI से भुगतान','Price':'दाम','Checkout':'भुगतान करें',
+  'Your cart is empty.':'आपका कार्ट खाली है।',
+  // Buyer — other modalities
+  'Procurement':'खरीद','Finance':'वित्त','Overview':'मुख्य पन्ना','Catalog':'कैटलॉग',
+  'Quotes / RFQ':'कोटेशन / RFQ','Orders':'ऑर्डर','Tax invoices':'कर चालान',
+  'Business buyer':'व्यापारिक खरीदार','Request quote':'कोटेशन माँगें',
+  'Integration':'एकीकरण','Product feed':'उत्पाद फ़ीड','API keys':'API कुंजियाँ','Webhooks':'वेबहुक',
+  'Revenue':'आय','Settlements':'निपटान','Reseller / Partner':'पुनर्विक्रेता / साझेदार','Reseller':'पुनर्विक्रेता',
+  'Import':'आयात','Compliance':'अनुपालन','Customs docs':'सीमा-शुल्क दस्तावेज़','Shipments':'खेप',
+  'Landed cost':'कुल लागत','Importer / Export buyer':'आयातक / निर्यात खरीदार',
+  'Sale':'बिक्री','Take payment':'भुगतान लें','Today':'आज','Amount':'राशि','Scan to pay':'स्कैन कर भुगतान',
+  'Charge':'भुगतान लें','In-person (POS)':'आमने-सामने (POS)',
+  'D2C — consumer':'D2C — उपभोक्ता','B2B — procurement':'B2B — खरीद','B2B2C — partner':'B2B2C — साझेदार',
+  'EXIM — importer':'EXIM — आयातक','POS — at-fair':'POS — मेले में',
+  // Seller
+  'Workspace':'कार्यक्षेत्र','My products':'मेरे उत्पाद','Products':'उत्पाद','Payouts':'पैसा मिला',
+  'Schemes':'योजनाएँ','Schemes & benefits':'योजनाएँ और लाभ','Grow':'बढ़त','Help':'मदद',
+  'Help & support':'मदद और सहायता','Support':'मदद','Experiences':'अनुभव','Members':'सदस्य',
+  'Listings':'सूचियाँ','Bookings':'बुकिंग','Merchant of Record':'मर्चेंट ऑफ़ रिकॉर्ड',
+  'Logged in as a seller':'विक्रेता के रूप में लॉग-इन',
+  // Founder rail
+  'Command':'कमांड','Trust Engine':'ट्रस्ट इंजन','Operations':'संचालन','Sourcing':'सोर्सिंग',
+  'Cockpit':'कॉकपिट','Approvals':'मंज़ूरी','AI Co-founder':'AI साथी','Verticals':'श्रेणियाँ',
+  'Audit trail':'निर्णय रिकॉर्ड','Onboard seller':'विक्रेता जोड़ें','Orders & pay':'ऑर्डर और भुगतान',
+  'Cooperatives':'सहकारी समितियाँ','Leads':'लीड','Funnel':'फ़नल','Outreach drafts':'संपर्क प्रारूप',
+  'Government':'सरकार','Watchdog':'निगरानी','Engine':'इंजन','Agents':'एजेंट','Agent controls':'एजेंट नियंत्रण',
+  'Full control':'पूर्ण नियंत्रण','Founder + AI co-founder only':'केवल संस्थापक + AI साथी',
+  'You (Founder)':'आप (संस्थापक)',
+  // Public landing chrome (buyer home)
+  'How it works':'यह कैसे काम करता है','Stories':'कहानियाँ','For makers':'कारीगरों के लिए',
+  'Investors':'निवेशक','About':'हमारे बारे में','Browse catalog':'कैटलॉग देखें',
+  'Browse the catalog':'कैटलॉग देखें',
+};
+function _applyHiDict(scope){
+  if(LOCALE!=='hi'||!scope)return;
+  try{
+    const w=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT);
+    let n;
+    while((n=w.nextNode())){
+      const raw=n.nodeValue,s=raw.trim();
+      if(!s)continue;
+      const tr=HI_UI[s];
+      if(tr)n.nodeValue=raw.replace(s,tr);
+    }
+    scope.querySelectorAll('[placeholder],[title],[aria-label]').forEach(el=>{
+      for(const a of ['placeholder','title','aria-label']){
+        const v=el.getAttribute(a);
+        if(v&&HI_UI[v.trim()])el.setAttribute(a,HI_UI[v.trim()]);
+      }
+    });
+  }catch(e){}
+}
 /* ── End i18n ── */
 
 /* ── Landing page handlers — wired to the CTAs on the designed landing ── */
@@ -1170,6 +1239,9 @@ function render(){
   if (!root) { console.error('render: #root missing'); return; }
   root.innerHTML=Shell();
   try { wire(); } catch (e) { console.error('wire() failed:', e); }
+  // Hindi dictionary pass over the fresh DOM + the fixed chrome (pills)
+  _applyHiDict(root);
+  _applyHiDict(document.querySelector('.pillbar'));
 }
 window.render = render;
 

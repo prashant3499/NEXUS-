@@ -226,6 +226,21 @@ sec('All inline-attribute-referenced functions are on window');
 }
 
 // ────────────────────────────────────────────────────────────
+// Hindi UI dictionary \u2014 render-time translation pass
+{
+  sec('Hindi UI dictionary');
+  const html = fs.readFileSync(path.join(PUBLIC, 'index.html'), 'utf8');
+  a(/const HI_UI\s*=\s*\{/.test(html), 'HI_UI dictionary declared');
+  const dictBlock = html.slice(html.indexOf('const HI_UI'), html.indexOf('function _applyHiDict'));
+  const pairs = dictBlock.match(/'([^']+)':'([^']*)'/g) || [];
+  a(pairs.length >= 90, `HI_UI has 90+ entries (found ${pairs.length})`);
+  a(/[\u0900-\u097f]/.test(dictBlock), 'Dictionary values contain Devanagari');
+  a(pairs.filter(p => /:''$/.test(p)).length === 0, 'No empty translations in HI_UI');
+  a(/function _applyHiDict\(/.test(html), '_applyHiDict function declared');
+  a(/_applyHiDict\(root\)/.test(html), 'render() applies the dictionary to the fresh DOM');
+  a(/_applyHiDict\(document\.querySelector\('\.pillbar'\)\)/.test(html), 'render() applies the dictionary to the fixed pill bar');
+}
+
 console.log('\n' + '\u2550'.repeat(50));
 console.log(`  RESULTS: ${pass} passed, ${fail} failed`);
 console.log('\u2550'.repeat(50));
