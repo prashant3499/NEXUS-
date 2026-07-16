@@ -479,7 +479,7 @@ async function waitForServer() {
         const e = r.json.audit[0];
         a(e.id && e.id.startsWith('ops_'),            'Audit entry has prefixed id');
         a(typeof e.at === 'number',                    'at is number');
-        a(['check','runbook_step','window_complete','profit_sweep','pnl_digest'].includes(e.action), 'action enum valid');
+        a(['check','runbook_step','window_complete','profit_sweep','pnl_digest','auto_source'].includes(e.action), 'action enum valid');
       }
     }
 

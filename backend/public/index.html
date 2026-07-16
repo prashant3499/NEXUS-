@@ -97,11 +97,24 @@ a{color:inherit}
 .roleswitch .lbl{padding:0 8px;color:#bdb3a0;font-weight:500;font-size:11px}
 .roleswitch button{background:none;border:none;color:#cfc6b5;padding:7px 12px;border-radius:8px;font-weight:600;font-size:12px}
 .roleswitch button.on{background:var(--saffron);color:#fff}
-@media(max-width:600px){.roleswitch .lbl{display:none}}
+@media(max-width:600px){
+  .roleswitch .lbl{display:none}
+  .roleswitch{right:10px;padding:4px;gap:4px}
+  .roleswitch button{padding:6px 9px;font-size:11px}
+}
 
 /* Language picker — sits to the left of the role switcher */
 .langswitch{position:fixed;top:14px;right:230px;z-index:500;font-size:12px}
-@media(max-width:600px){.langswitch{right:180px}}
+/* On small screens the pill collapses to just the globe so it can never
+   run into the (wider) role switcher pinned at the right edge. The in-flow
+   topbar (breadcrumb, quick actions, home/util buttons) drops below the
+   fixed pills so nothing floats over it. */
+@media(max-width:600px){
+  .langswitch{right:206px}
+  #langCurrent{display:none}
+  .lang-trigger{padding:8px 10px}
+  .canvas .top{padding-top:60px;flex-wrap:wrap}
+}
 .lang-trigger{display:flex;align-items:center;gap:6px;background:var(--ink);color:#cfc6b5;border:none;border-radius:11px;padding:9px 12px;box-shadow:var(--shadow-lg);font-weight:600;font-size:12px;cursor:pointer}
 .lang-trigger:hover{color:#fff}
 .lang-globe{font-size:14px}
