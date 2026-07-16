@@ -781,6 +781,11 @@ select.inp{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns
 .aisugg button{font-size:12px;background:var(--surface2);border:1px solid var(--hair2);border-radius:8px;padding:7px 11px;color:var(--ink2)}
 .aisugg button:hover{border-color:var(--indigo);color:var(--indigo)}
 .locked{text-align:center;padding:80px 20px;color:var(--ink3)}.locked .le{font-size:40px;margin-bottom:14px;opacity:.4}
+/* Pointer affordance — every interactive element shows a hand cursor,
+   disabled controls show not-allowed, text fields show the I-beam. */
+a,button,select,summary,label[for],[onclick],[role=button],[role=menuitem],[role=tab]{cursor:pointer}
+button:disabled,[disabled],[aria-disabled=true]{cursor:not-allowed}
+input[type=text],input[type=number],input[type=search],input[type=email],input[type=tel],input[type=password],textarea{cursor:text}
 </style>
 </head>
 <body>
@@ -1017,16 +1022,34 @@ function setLocale(code){
 }
 // Fetch a locale's complete string table from the backend (all 13 languages
 // live server-side). Cached after first load so switching is instant.
+// The inline tables above are only a boot-time subset — ALWAYS fetch the
+// server's full table once per locale and merge it over the inline one.
+// (Returning early on the partial inline table left most of the UI
+// untranslated after a language switch.)
+const I18N_FETCHED={};
 function loadLocaleStrings(code){
-  if(I18N_TABLES[code])return Promise.resolve(I18N_TABLES[code]);
+  if(I18N_FETCHED[code])return Promise.resolve(I18N_TABLES[code]);
   return fetch('/api/i18n/strings?locale='+encodeURIComponent(code))
     .then(r=>r.ok?r.json():null)
-    .then(d=>{ if(d&&d.strings){I18N_TABLES[code]=d.strings;} return I18N_TABLES[code]; })
-    .catch(()=>null);
+    .then(d=>{
+      if(d&&d.strings){
+        // Merge in place: I18N_TABLES.en === I18N_EN, which t() uses as its
+        // fallback — mutating keeps that fallback complete too.
+        I18N_TABLES[code]=Object.assign(I18N_TABLES[code]||{},d.strings);
+        I18N_FETCHED[code]=true;
+      }
+      return I18N_TABLES[code]||null;
+    })
+    .catch(()=>I18N_TABLES[code]||null);
 }
 window.setLocale=setLocale;
-// On boot, if a non-English locale is already chosen, fetch its full table.
-if(LOCALE!=='en'){ try{ loadLocaleStrings(LOCALE).then(()=>{ if(typeof render==='function')render(); }); }catch(e){} }
+// On boot, fetch the full English table (the inline one is a subset), plus
+// the chosen locale's table when it isn't English, then re-render once.
+try{
+  loadLocaleStrings('en')
+    .then(()=>LOCALE!=='en'?loadLocaleStrings(LOCALE):null)
+    .then(()=>{ if(typeof render==='function')render(); });
+}catch(e){}
 /* ── End i18n ── */
 
 /* ── Landing page handlers — wired to the CTAs on the designed landing ── */
