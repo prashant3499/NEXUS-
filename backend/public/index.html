@@ -865,7 +865,7 @@ select.inp{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns
 
 <script type="module">
 /* ════════ PROVEN ENGINE (verbatim) ════════ */
-const API_BASE='http://localhost:4100';let LIVE=false;
+const API_BASE=location.protocol==='file:'?'http://localhost:4100':'';let LIVE=false;
 const fmt=(p)=>'₹'+(p/100).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
 const inr=(n)=>'₹'+n.toLocaleString('en-IN');
 /* Compact "time ago" — used in conversation history list, etc. */
