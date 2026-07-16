@@ -48,6 +48,7 @@ const minorGuardian = require('./src/minorGuardian');
 const saasMetrics = require('./src/saasMetrics');
 const telecaller = require('./src/telecaller');
 const prospectDb = require('./src/prospectDb');
+const sourcingAgentSweep = require('./src/sourcingAgentSweep');
 const founderCommands = require('./src/founderCommands');
 const explainer = require('./src/explainer');
 const watchdog = require('./src/watchdog');
@@ -571,6 +572,36 @@ function runSchedulerSweep() {
       }));
     } catch (e) {
       console.error('P&L digest failed:', e.message);
+    }
+  }
+
+  // ─── Sourcing-agent sweep ───
+  // Daily: while the engine is running (not founder-paused), the sourcing
+  // agent pulls a fresh batch of auto-sourced candidates into the prospect
+  // pipeline (deduped). It fills the pipeline only — outreach and conversion
+  // stay founder-approved, and nobody can sell without full consent.
+  // Env: AUTO_SOURCE=off disables; AUTO_SOURCE_INTERVAL_MS / AUTO_SOURCE_LIMIT tune.
+  const AUTO_SOURCE_INTERVAL_MS = parseInt(process.env.AUTO_SOURCE_INTERVAL_MS || sourcingAgentSweep.DEFAULT_INTERVAL_MS, 10);
+  if (sourcingAgentSweep.isDue({
+    lastRunAt: SCHEDULER.lastAutoSource, now, intervalMs: AUTO_SOURCE_INTERVAL_MS,
+    force: SCHEDULER._forceAutoSource, disabled: process.env.AUTO_SOURCE === 'off',
+  })) {
+    SCHEDULER._forceAutoSource = false;
+    try {
+      const engineControl = require('./src/engineControl');
+      const r = sourcingAgentSweep.runSweep(
+        { autoSource, prospectDb, engineControl, operations },
+        { prospects },
+        { limit: parseInt(process.env.AUTO_SOURCE_LIMIT || sourcingAgentSweep.DEFAULT_LIMIT, 10), now },
+      );
+      if (r.ran) {
+        SCHEDULER.lastAutoSource = now;
+        SCHEDULER.lastAutoSourceResult = { sourced: r.sourced, added: r.added, refreshed: r.refreshed, total: r.total };
+        persistDomain('prospect_db');
+        if (r.audit) SCHEDULER.audit.unshift(r.audit);
+      }
+    } catch (e) {
+      console.error('Sourcing-agent sweep failed:', e.message);
     }
   }
 
