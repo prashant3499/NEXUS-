@@ -945,6 +945,18 @@ const root=document.getElementById('root');
 let ROLE='buyer';
 let route={buyer:'landing',seller:'overview',founder:'dashboard'};
 let MODALITY='d2c'; // d2c | b2b | b2b2c | exim | pos
+/* Deep links from the marketing landing (/landing): /?as=<role>&go=<view>
+   sets the initial role/view before the first render. */
+try{
+  const _dl=new URLSearchParams(location.search);
+  const _as=_dl.get('as');
+  if(_as&&['buyer','seller','founder'].includes(_as)){
+    ROLE=_as;
+    const _go=_dl.get('go');
+    if(_go&&/^[a-z-]+$/.test(_go))route[_as]=_go;
+    document.querySelectorAll('.roleswitch button').forEach(b=>b.classList.toggle('on',b.dataset.r===ROLE));
+  }
+}catch(e){}
 
 /* ── i18n (in-browser mirror of src/i18n.js — pilot: en + hi) ── */
 // Only locales with a real translation table are selectable. Offering 13
