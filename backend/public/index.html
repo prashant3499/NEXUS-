@@ -1259,6 +1259,15 @@ function _syncPillbarPad(){
   }catch(e){}
 }
 window.addEventListener('resize',()=>_syncPillbarPad());
+// The pill bar's width changes when web fonts finish loading (metrics swap)
+// and when the locale changes its labels — re-measure on ANY size change,
+// not just viewport resizes. Belt-and-braces: also after fonts settle.
+try{
+  const _pb=document.querySelector('.pillbar');
+  if(_pb&&typeof ResizeObserver==='function')new ResizeObserver(()=>_syncPillbarPad()).observe(_pb);
+}catch(e){}
+try{ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>_syncPillbarPad()); }catch(e){}
+window.addEventListener('load',()=>_syncPillbarPad());
 window.render = render;
 
 /* ── Accessibility controls (customer-facing, persisted per device) ── */
