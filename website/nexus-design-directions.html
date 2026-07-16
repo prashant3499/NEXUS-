@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEXUS — Website Directions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#15131f;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+/* chooser bar */
+.dirbar{position:sticky;top:0;z-index:100;background:#15131f;border-bottom:1px solid #2c2740;padding:14px 20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dirbar .lbl{color:#8a84a6;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-right:6px}
+.dirbar button{background:#211c33;border:1px solid #36304f;color:#cfc8de;font:inherit;font-size:13px;padding:9px 16px;border-radius:8px;cursor:pointer;transition:.15s}
+.dirbar button .nm{font-weight:700}.dirbar button .au{display:block;font-size:10.5px;color:#8a84a6;margin-top:1px}
+.dirbar button.on{background:#fff;color:#15131f;border-color:#fff}.dirbar button.on .au{color:#6b6580}
+.frame{max-width:1180px;margin:0 auto}
+/* ============ shared component skeleton (themed by --vars) ============ */
+.site{--r:12px;background:var(--bg);color:var(--ink);font-family:var(--fbody);min-height:90vh;transition:background .3s}
+.site .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.site header{position:sticky;top:74px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:10}
+.site .nav{display:flex;align-items:center;height:62px;gap:8px}
+.site .logo{display:flex;align-items:center;gap:9px;font-weight:800;color:var(--ink)}
+.site .logo .mk{width:22px;height:22px;border-radius:var(--lr,5px);background:var(--accent);display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
+.site .logo .nm{font-family:var(--fdisp);font-size:18px;letter-spacing:var(--lsp,.12em);text-transform:var(--ltt,uppercase)}
+.site nav.lnk{margin-left:auto;display:flex;gap:4px}
+.site nav.lnk a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;color:var(--ink2);font-size:10.5px;text-decoration:none;border-radius:8px}
+.site nav.lnk a svg{width:21px;height:21px}
+.site nav.lnk a.on{color:var(--accent)}
+.site .hero{padding:var(--hpad,72px) 0;position:relative;overflow:hidden}
+.site .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px;font-family:var(--fmono,inherit)}
+.site .hero h1{font-family:var(--fdisp);font-size:clamp(34px,6vw,68px);line-height:1.03;max-width:15ch;color:var(--ink);font-weight:var(--dw,600);letter-spacing:var(--dsp,-.01em)}
+.site .hero h1 em{color:var(--accent);font-style:var(--emst,italic)}
+.site .hero p{font-size:clamp(15px,2vw,19px);color:var(--ink2);max-width:50ch;margin-top:20px;line-height:1.6}
+.site .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.site .btn{font:inherit;font-size:14px;font-weight:600;padding:13px 26px;border-radius:var(--br,9px);cursor:pointer;border:0}
+.site .btn1{background:var(--accent);color:var(--onacc,#fff)}
+.site .btn2{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+.site section{padding:54px 0}
+.site .sh{font-family:var(--fdisp);font-size:clamp(22px,3.4vw,34px);color:var(--ink);margin-bottom:8px;font-weight:var(--dw,600)}
+.site .sub{color:var(--ink2);font-size:15px;margin-bottom:26px}
+.site .vrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:680px){.site .vrow{grid-template-columns:1fr}.site .pgrid{grid-template-columns:1fr 1fr!important}.site .plans{grid-template-columns:1fr 1fr!important}}
+.site .vcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.site .vcard .vi{font-size:26px;margin-bottom:10px}
+.site .vcard h3{font-family:var(--fdisp);font-size:19px;margin-bottom:6px;color:var(--ink)}
+.site .vcard p{font-size:13.5px;color:var(--ink2);line-height:1.55}
+.site .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.site .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .25s}
+.site .pcard:hover{transform:translateY(-4px)}
+.site .pthumb{height:150px;display:grid;place-items:center;font-size:48px;position:relative;border-bottom:1px solid var(--line)}
+.site .pv{position:absolute;top:10px;left:10px;font-size:10px;font-weight:700;background:var(--surface);color:var(--ok,#2e7d52);padding:4px 8px;border-radius:20px}
+.site .pgi{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:4px 8px;border-radius:20px}
+.site .pb{padding:16px}
+.site .pn{font-family:var(--fdisp);font-size:17px;color:var(--ink);font-weight:var(--dw,600)}
+.site .pm{font-size:12px;color:var(--ink3,#999);margin:3px 0 8px}
+.site .pp{font-family:var(--fmono,inherit);font-size:16px;color:var(--ink);font-weight:700}
+.site .plans{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.site .plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;text-align:center}
+.site .plan .nm{font-family:var(--fdisp);font-size:18px;color:var(--ink);font-weight:700}
+.site .plan .gl{font-size:11px;color:var(--ink3,#999);text-transform:uppercase;letter-spacing:.08em;margin:3px 0 10px}
+.site .plan .pr{font-family:var(--fmono,inherit);font-size:20px;color:var(--accent);font-weight:800}
+.site .plan .pr small{font-size:11px;color:var(--ink2);font-weight:400}
+.site .pat{height:6px;background:var(--accent)}
+.site footer{background:var(--foot,var(--ink));color:var(--bg);padding:40px 0;margin-top:30px}
+.site footer .fb{font-family:var(--fdisp);font-size:18px;font-weight:800;letter-spacing:var(--lsp,.12em);text-transform:var(--ltt,uppercase);margin-bottom:6px}
+.site footer p{font-size:13px;opacity:.7;max-width:46ch;line-height:1.6}
+/* ============ THEME A — ATELIER (heritage premium / Indie-Luxe) ============ */
+.site[data-theme=atelier]{--bg:#F4F0E8;--surface:#FCFAF4;--ink:#221C33;--ink2:#574F66;--ink3:#938BA1;--accent:#A06B2C;--onacc:#fff;--line:#E3DCCD;--ok:#5E6B4A;
+  --fdisp:"Bodoni 72","Didot","Hoefler Text",Georgia,serif;--fbody:"Helvetica Neue",-apple-system,sans-serif;--fmono:"DM Mono",monospace;--br:7px;--r:11px;--lr:5px;--lsp:.22em;--dw:600;--emst:italic;--hpad:84px;--foot:#272247}
+.site[data-theme=atelier] .hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 13px,rgba(160,107,44,.05) 13px 14px);-webkit-mask:linear-gradient(180deg,#000,transparent 70%);mask:linear-gradient(180deg,#000,transparent 70%)}
+.site[data-theme=atelier] .pat{background:linear-gradient(90deg,#A06B2C,#272247)}
+/* ============ THEME B — BAZAAR (warm community / movement) ============ */
+.site[data-theme=bazaar]{--bg:#FFF7EA;--surface:#fff;--ink:#2C1A10;--ink2:#7A5440;--ink3:#A98A74;--accent:#E0772B;--onacc:#fff;--line:#F1E1C9;--ok:#5B7B43;
+  --fdisp:"Arial Rounded MT Bold","SF Pro Rounded",Avenir,-apple-system,sans-serif;--fbody:"Avenir Next",-apple-system,sans-serif;--br:999px;--r:20px;--lr:50%;--lsp:.02em;--ltt:none;--dw:800;--emst:normal;--hpad:64px;--foot:#9C2A2A}
+.site[data-theme=bazaar] .hero{background:radial-gradient(700px 300px at 85% 0%,rgba(224,119,43,.16),transparent),radial-gradient(600px 300px at 0% 100%,rgba(91,123,67,.12),transparent)}
+.site[data-theme=bazaar] .hero h1 em{background:linear-gradient(120deg,#E0772B,#9C2A2A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.site[data-theme=bazaar] .pat{background:repeating-linear-gradient(45deg,#E0772B 0 12px,#9C2A2A 12px 24px,#5B7B43 24px 36px)}
+.site[data-theme=bazaar] .pv{color:#5B7B43}
+/* ============ THEME C — BHARAT (institutional / trust / government) ============ */
+.site[data-theme=bharat]{--bg:#F2F5F9;--surface:#fff;--ink:#13203B;--ink2:#46546E;--ink3:#8794AB;--accent:#1C4E8A;--onacc:#fff;--line:#DAE2EE;--ok:#0E7C5A;
+  --fdisp:"Helvetica Neue",-apple-system,system-ui,sans-serif;--fbody:-apple-system,system-ui,sans-serif;--fmono:"DM Mono",ui-monospace,monospace;--br:5px;--r:6px;--lr:4px;--lsp:.16em;--dw:700;--dsp:-.02em;--emst:normal;--hpad:60px;--foot:#13203B}
+.site[data-theme=bharat] .hero h1 em{color:var(--ok)}
+.site[data-theme=bharat] .pat{background:linear-gradient(90deg,#1C4E8A 33%,#fff 33% 66%,#0E7C5A 66%)}
+.site[data-theme=bharat] .eyebrow{font-family:"DM Mono",monospace}
+.site[data-theme=bharat] .trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.site[data-theme=bharat] .trust span{font-size:11px;font-family:"DM Mono",monospace;background:#fff;border:1px solid var(--line);color:var(--ink2);padding:6px 11px;border-radius:5px}
+.note{color:#6b6580;font-size:12.5px;text-align:center;padding:18px;font-family:-apple-system,sans-serif}
+</style></head>
+<body>
+<div class="dirbar">
+  <span class="lbl">Pick a direction</span>
+  <button data-t="atelier" class="on" onclick="setDir('atelier')"><span class="nm">Atelier</span><span class="au">Premium · global buyers</span></button>
+  <button data-t="bazaar" onclick="setDir('bazaar')"><span class="nm">Bazaar</span><span class="au">Community · mass-market</span></button>
+  <button data-t="bharat" onclick="setDir('bharat')"><span class="nm">Bharat</span><span class="au">Institutional · government</span></button>
+</div>
+<div class="frame">
+<div class="site" data-theme="atelier" id="site">
+  <header><div class="wrap nav">
+    <div class="logo"><span class="mk">N</span><span class="nm">NEXUS</span></div>
+    <nav class="lnk">
+      <a class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10.5 12 3l9 7.5M5 9.5V20h14V9.5"/></svg>Home</a>
+      <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8ZM9 8V6a3 3 0 0 1 6 0v2"/></svg>Shop</a>
+      <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>Makers</a>
+      <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h2l1.6 10.5h10L20 8H7"/><circle cx="9.5" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>Cart</a>
+    </nav>
+  </div></header>
+  <div class="hero"><div class="wrap">
+    <div class="eyebrow" id="eyb"></div>
+    <h1 id="h1"></h1>
+    <p id="hp"></p>
+    <div class="cta"><button class="btn btn1" id="c1"></button><button class="btn btn2" id="c2"></button></div>
+    <div class="trust" id="trust" style="display:none"><span>✓ DigiLocker verified</span><span>✓ e-Shram UAN</span><span>✓ GI-protected</span><span>✓ ONDC</span></div>
+  </div></div>
+  <section><div class="wrap">
+    <h2 class="sh">Everything a maker does — one platform</h2>
+    <div class="sub" id="vsub">Goods, services and experiences on a single verified identity.</div>
+    <div class="vrow">
+      <div class="vcard"><div class="vi">🪡</div><h3>Goods</h3><p>Handloom, pottery, jewellery, leather, metal — shipped with provenance.</p></div>
+      <div class="vcard"><div class="vi">🛠️</div><h3>Services</h3><p>Cobblers, tailors, blacksmiths — verified skill, booked locally.</p></div>
+      <div class="vcard"><div class="vi">🎟️</div><h3>Experiences</h3><p>Craft tours & workshops — safety-checked, hosted by makers.</p></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <h2 class="sh" id="psh">Verified craft, with proof</h2>
+    <div class="pgrid">
+      <div class="pcard"><div class="pthumb" style="background:#e0f2ee">🏺<span class="pv">✓ Verified</span><span class="pgi">GI</span></div><div class="pb"><div class="pn">Blue Pottery Vase</div><div class="pm">Ramvati Devi · Khurja</div><div class="pp">₹1,450</div></div></div>
+      <div class="pcard"><div class="pthumb" style="background:#e6f4ea">💎<span class="pv">✓ Lab-certified</span></div><div class="pb"><div class="pn">Certified Emerald</div><div class="pm">Imran Qureshi · Jaipur</div><div class="pp">₹24,000</div></div></div>
+      <div class="pcard"><div class="pthumb" style="background:#f0ecfa">🎟️<span class="pgi">Experience</span></div><div class="pb"><div class="pn">Block-Printing Workshop</div><div class="pm">Hari &amp; Sunita · Jaipur</div><div class="pp">₹1,200</div></div></div>
+    </div>
+  </div></section>
+  <section><div class="wrap">
+    <h2 class="sh">Plans for every kind of maker</h2>
+    <div class="sub">Names your customers recognise — from a single artisan to a state cooperative.</div>
+    <div class="plans">
+      <div class="plan"><div class="pat"></div><div class="nm">Karigar</div><div class="gl">Individual artisan</div><div class="pr">₹799<small>/mo</small></div></div>
+      <div class="plan"><div class="pat"></div><div class="nm">Vyapari</div><div class="gl">Workshop / trader</div><div class="pr">₹3,999<small>/mo</small></div></div>
+      <div class="plan"><div class="pat"></div><div class="nm">Niryatak</div><div class="gl">Exporter</div><div class="pr">₹11,999<small>/mo</small></div></div>
+      <div class="plan"><div class="pat"></div><div class="nm">Sansthan</div><div class="gl">Co-op / NGO / state</div><div class="pr">Custom</div></div>
+    </div>
+  </div></section>
+  <footer><div class="wrap"><div class="fb">NEXUS</div><p id="foot"></p></div></footer>
+</div>
+</div>
+<div class="note">This is a design chooser — same content, three directions. Pick one and I'll build it out fully (bilingual, all flows) into the working app.</div>
+<script>
+"use strict";
+var COPY={
+ atelier:{eyb:"A heritage craft house",h1:'One trust layer.<br>Every <em>maker</em>.',hp:"From a Banarasi weaver to a Jaipur cobbler — verified, paid fairly, and carried through every line of paperwork by the platform.",c1:"Explore the collection",c2:"Meet the makers",psh:"Verified craft, with proof",foot:"The trust & compliance house for India's craft economy.",trust:false},
+ bazaar:{eyb:"Join the movement",h1:'Real makers.<br>Real <em>craft</em>. Fair pay.',hp:"Buy straight from the artisan's hands — in your language, with their story, and most of the money going to them. No middlemen.",c1:"Shop the bazaar",c2:"Sell your craft",psh:"Straight from the maker",foot:"A movement to put India's makers online — and pay them fairly.",trust:false},
+ bharat:{eyb:"Trust & compliance infrastructure",h1:'Formalising India\u2019s <em>craft economy</em>.',hp:"A Merchant-of-Record platform that brings undocumented artisans into the tax, banking and welfare system — DigiLocker, e-Shram and ONDC, on one verified rail.",c1:"Partner with us",c2:"See the outcomes",psh:"Every order, verified and traceable",foot:"Public-grade infrastructure for the formalisation of India's informal craft economy.",trust:true}
+};
+function setDir(d){
+  document.getElementById("site").setAttribute("data-theme",d);
+  document.querySelectorAll(".dirbar button").forEach(function(b){b.classList.toggle("on",b.dataset.t===d);});
+  var c=COPY[d];
+  document.getElementById("eyb").textContent=c.eyb;
+  document.getElementById("h1").innerHTML=c.h1;
+  document.getElementById("hp").textContent=c.hp;
+  document.getElementById("c1").textContent=c.c1;
+  document.getElementById("c2").textContent=c.c2;
+  document.getElementById("psh").textContent=c.psh;
+  document.getElementById("foot").textContent=c.foot;
+  document.getElementById("trust").style.display=c.trust?"flex":"none";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+window.setDir=setDir;
+setDir("atelier");
+</script>
+</body></html>

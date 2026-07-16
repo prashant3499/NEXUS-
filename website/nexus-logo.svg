@@ -1,0 +1,43 @@
+<svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NEXUS logo">
+  <defs>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C79A4E"/><stop offset="1" stop-color="#A06B2C"/>
+    </linearGradient>
+    <linearGradient id="indigo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#39336A"/><stop offset="1" stop-color="#272247"/>
+    </linearGradient>
+    <linearGradient id="wm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#272247"/><stop offset="0.7" stop-color="#39336A"/><stop offset="1" stop-color="#A06B2C"/>
+    </linearGradient>
+    <radialGradient id="gem" cx="0.4" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#5b78e6"/><stop offset="0.6" stop-color="#2f4bd0"/><stop offset="1" stop-color="#1e2f8f"/>
+    </radialGradient>
+  </defs>
+
+  <!-- MARK: two interlocking rings = craft (indigo) × AI (brass), gem at the union -->
+  <g transform="translate(92,90)">
+    <!-- craft ring: indigo, with subtle weave ticks -->
+    <circle cx="-20" cy="0" r="42" fill="none" stroke="url(#indigo)" stroke-width="9"/>
+    <g stroke="#39336A" stroke-width="3" stroke-linecap="round" opacity="0.85">
+      <line x1="-20" y1="-42" x2="-20" y2="-34"/><line x1="-62" y1="0" x2="-54" y2="0"/>
+      <line x1="-20" y1="42" x2="-20" y2="34"/>
+    </g>
+    <!-- tech ring: brass, with subtle circuit nodes -->
+    <circle cx="20" cy="0" r="42" fill="none" stroke="url(#brass)" stroke-width="9"/>
+    <g fill="#C79A4E">
+      <circle cx="20" cy="-42" r="3.4"/><circle cx="62" cy="0" r="3.4"/><circle cx="20" cy="42" r="3.4"/>
+    </g>
+    <!-- re-draw a small arc of the indigo ring over the brass one → woven interlock -->
+    <path d="M -20 -42 A 42 42 0 0 1 8 -37" fill="none" stroke="url(#indigo)" stroke-width="9" stroke-linecap="round"/>
+    <!-- gem at the union -->
+    <g transform="translate(0,0)">
+      <circle r="12" fill="url(#gem)"/>
+      <circle r="12" fill="none" stroke="#C79A4E" stroke-width="2.5"/>
+      <circle cx="-3.5" cy="-3.5" r="2.6" fill="#cdd8ff" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="186" y="98" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" letter-spacing="2" fill="url(#wm)">NEXUS</text>
+  <text x="188" y="128" font-family="ui-monospace, 'Courier New', monospace" font-size="13.5" letter-spacing="3.5" fill="#A06B2C">EMPOWERING INDIAN CRAFT &amp; AI</text>
+</svg>

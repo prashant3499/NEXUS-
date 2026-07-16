@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- maskable: keep all content inside the safe area (inner 80% circle) -->
+  <rect width="192" height="192" fill="#c2410c"/>
+  <g transform="translate(96, 96)">
+    <!-- Two interlocking arcs — maker ↔ buyer connection -->
+    <path d="M -40 0 Q -40 -40, 0 -40 T 40 0" stroke="#fffdf9" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M 40 0 Q 40 40, 0 40 T -40 0" stroke="#fde7c8" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <circle cx="0" cy="0" r="8" fill="#fde7c8"/>
+  </g>
+</svg>

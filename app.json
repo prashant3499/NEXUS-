@@ -1,0 +1,3 @@
+{ "name": "nexus", "description": "NEXUS — trust & compliance engine for India's craft economy",
+  "env": { "NODE_ENV": { "value": "development" } },
+  "scripts": {}, "stack": "container" }

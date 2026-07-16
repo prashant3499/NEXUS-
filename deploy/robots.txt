@@ -1,0 +1,28 @@
+# NEXUS — AI crawlers welcome (Generative Engine Optimization)
+User-agent: *
+Allow: /
+
+# Explicitly allow major AI / answer-engine crawlers
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: CCBot
+Allow: /
+
+# AI-friendly content index
+# llms.txt: /llms.txt
