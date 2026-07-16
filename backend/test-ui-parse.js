@@ -82,14 +82,22 @@ sec('SPA script EXECUTES with a DOM stub (catches undefined references)');
     matchMedia: () => ({ matches: false, addEventListener: () => {} }),
     location: { hash: '', pathname: '/', protocol: 'http:', search: '' },
     localStorage: { getItem: () => null, setItem: () => {}, removeItem: () => {} },
-    navigator: { language: 'en', serviceWorker: { register: () => Promise.resolve({ addEventListener: () => {} }) } },
+    navigator: { language: 'en', serviceWorker: {
+      register: () => Promise.resolve({ addEventListener: () => {} }),
+      addEventListener: () => {}, controller: null,
+      ready: Promise.resolve({ addEventListener: () => {} }),
+    } },
     scrollTo: () => {}, setTimeout: setTimeout, clearTimeout: clearTimeout,
     setInterval: () => 0, clearInterval: () => {},
     fetch: () => Promise.resolve({ ok: true, json: () => Promise.resolve({}) }),
     alert: () => {}, confirm: () => true,
   };
   // Wire globals (some are read-only on Node 22+, so wrap each in try/catch)
-  const setGlobal = (k, v) => { try { global[k] = v; } catch (_) {} };
+  // Force-override getter-only built-in globals (e.g. `navigator`).
+  const setGlobal = (k, v) => {
+    try { Object.defineProperty(global, k, { value: v, configurable: true, writable: true }); }
+    catch (_) { try { global[k] = v; } catch (_) {} }
+  };
   setGlobal('document', doc);
   setGlobal('window', win);
   setGlobal('navigator', win.navigator);

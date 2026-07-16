@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [main, staging]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -34,17 +37,21 @@ jobs:
         run: |
           TOTAL=0; FAILED=0; FAILED_SUITES=""
           # api-routes runs last, alone (binds a port)
+          # a suite that crashes or prints no summary counts as a failure
+          # (|| true keeps empty greps from killing the loop under bash -e)
           for t in $(ls test*.js | grep -v test-api-routes.js); do
-            out=$(node "$t" 2>&1 | grep -oE '[0-9]+ passed, [0-9]+ failed' | tail -1)
-            p=$(echo "$out" | grep -oE '^[0-9]+'); fl=$(echo "$out" | grep -oE '[0-9]+ failed' | grep -oE '^[0-9]+')
+            out=$(node "$t" 2>&1 | grep -oE '[0-9]+ passed, [0-9]+ failed' | tail -1 || true)
+            if [ -z "$out" ]; then FAILED=$((FAILED+1)); FAILED_SUITES="$FAILED_SUITES $t(no-output)"; continue; fi
+            p=$(echo "$out" | grep -oE '^[0-9]+' || true); fl=$(echo "$out" | grep -oE '[0-9]+ failed' | grep -oE '^[0-9]+' || true)
             TOTAL=$((TOTAL+${p:-0})); FAILED=$((FAILED+${fl:-0}))
-            [ "${fl:-0}" -gt 0 ] && FAILED_SUITES="$FAILED_SUITES $t"
+            if [ "${fl:-0}" -gt 0 ]; then FAILED_SUITES="$FAILED_SUITES $t"; fi
           done
           sleep 2
-          out=$(node test-api-routes.js 2>&1 | grep -oE '[0-9]+ passed, [0-9]+ failed' | tail -1)
-          p=$(echo "$out" | grep -oE '^[0-9]+'); fl=$(echo "$out" | grep -oE '[0-9]+ failed' | grep -oE '^[0-9]+')
+          out=$(node test-api-routes.js 2>&1 | grep -oE '[0-9]+ passed, [0-9]+ failed' | tail -1 || true)
+          if [ -z "$out" ]; then FAILED=$((FAILED+1)); FAILED_SUITES="$FAILED_SUITES test-api-routes.js(no-output)"; fi
+          p=$(echo "$out" | grep -oE '^[0-9]+' || true); fl=$(echo "$out" | grep -oE '[0-9]+ failed' | grep -oE '^[0-9]+' || true)
           TOTAL=$((TOTAL+${p:-0})); FAILED=$((FAILED+${fl:-0}))
-          [ "${fl:-0}" -gt 0 ] && FAILED_SUITES="$FAILED_SUITES test-api-routes.js"
+          if [ "${fl:-0}" -gt 0 ]; then FAILED_SUITES="$FAILED_SUITES test-api-routes.js"; fi
           echo "TESTS: $TOTAL passed, $FAILED failed"
           [ -n "$FAILED_SUITES" ] && echo "FAILED SUITES:$FAILED_SUITES"
           [ "$FAILED" -eq 0 ] || exit 1
