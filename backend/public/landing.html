@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXUS — Verified Indian craft, carried with proof</title>
+<meta name="description" content="NEXUS is the trust & compliance engine for India's craft economy: verified artisans, documented provenance, GST and export compliance carried for every sale.">
+<link rel="icon" href="/icon-192.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; background: #F3EFE6; color: #201B2E; overflow-x: hidden; }
+  a { color: #C79A4E; }
+  a:hover { color: #A06B2C; }
+  ::selection { background: #A06B2C; color: #F3EFE6; }
+  @keyframes heroSpin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+  @keyframes fadeInOut { 0% { opacity: 0; } 8% { opacity: 1; } 25% { opacity: 1; } 33% { opacity: 0; } 100% { opacity: 0; } }
+  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(199,154,78,0.55); } 50% { box-shadow: 0 0 0 9px rgba(199,154,78,0); } }
+  @keyframes auroraDrift { 0%,100% { transform: translate(-4%,-2%) scale(1); } 50% { transform: translate(4%,3%) scale(1.08); } }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(39,34,71,0.55); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(199,154,78,0.25); transition: padding .3s ease, background .3s ease; }
+  .nav.scrolled { padding: 10px 40px; background: rgba(27,23,48,0.85); }
+  .nav .brand { font-family: 'Fraunces', serif; font-size: 18px; color: #F3EFE6; text-decoration: none; letter-spacing: .04em; }
+  .nav nav { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .nav nav a { text-decoration: none; color: #F3EFE6; font-size: 14px; font-weight: 500; opacity: .9; transition: opacity .2s, color .2s; }
+  .nav nav a:hover { opacity: 1; color: #C79A4E; }
+  .langtoggle { display: flex; border: 1px solid rgba(243,239,230,0.3); border-radius: 999px; overflow: hidden; min-height: 32px; }
+  .langtoggle button { border: none; cursor: pointer; padding: 6px 14px; font-size: 12px; font-weight: 600; background: transparent; color: #F3EFE6; }
+  .langtoggle button.hi { font-family: 'Noto Sans Devanagari', sans-serif; }
+  .langtoggle button.on { background: #C79A4E; color: #272247; }
+
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #272247; overflow: hidden; }
+  .aurora { position: absolute; inset: -10%; background: radial-gradient(circle at 30% 25%, rgba(57,51,106,0.9), transparent 55%), radial-gradient(circle at 75% 70%, rgba(160,107,44,0.35), transparent 50%), radial-gradient(circle at 20% 80%, rgba(199,154,78,0.2), transparent 45%); animation: auroraDrift 22s ease-in-out infinite; }
+  .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 48px; max-width: 1240px; width: 100%; padding: 140px 40px 80px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid rgba(199,154,78,0.4); border-radius: 999px; color: #C79A4E; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: 56px; line-height: 1.08; font-weight: 500; color: #F3EFE6; margin: 0 0 22px; max-width: 620px; }
+  .hero .sub { font-size: 18px; line-height: 1.6; color: rgba(243,239,230,0.78); max-width: 520px; margin: 0 0 36px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .cta-row a { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 10px; text-decoration: none; font-size: 15px; transition: transform .15s ease-out; }
+  .cta-primary { background: #C79A4E; color: #272247 !important; font-weight: 700; border: none; }
+  .cta-ghost { border: 1px solid rgba(243,239,230,0.4); background: transparent; color: #F3EFE6 !important; font-weight: 600; }
+  .cta-gold { border: 1px solid rgba(199,154,78,0.35); background: transparent; color: #C79A4E !important; font-weight: 600; }
+  .hero-stage { position: relative; height: 420px; perspective: 1200px; }
+  .hero-glow { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgba(199,154,78,0.35), transparent 65%); filter: blur(10px); }
+  .spinner3d { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; animation: heroSpin 30s linear infinite; }
+  .shape { position: absolute; left: 50%; top: 50%; opacity: 0; animation: fadeInOut 24s ease-in-out infinite backwards; }
+  .scrollhint { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: rgba(243,239,230,0.55); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+
+  .story { position: relative; height: 420vh; background: #39336A; }
+  .story-sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; }
+  .story-grid { max-width: 1100px; margin: 0 auto; width: 100%; padding: 0 40px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+  .story-orb, .story-text { position: absolute; inset: 0; transition: opacity .6s ease, transform .6s ease; opacity: 0; }
+  .story-orb { display: flex; align-items: center; justify-content: center; }
+  .story-orb > div { width: 220px; height: 220px; border-radius: 50%; box-shadow: 0 0 50px rgba(199,154,78,0.35); }
+  .story-step { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #C79A4E; margin-bottom: 14px; }
+  .story-text h3 { font-family: 'Fraunces', serif; font-size: 34px; font-weight: 500; color: #F3EFE6; margin: 0 0 14px; }
+  .story-text p { font-size: 16px; line-height: 1.6; color: rgba(243,239,230,0.75); max-width: 440px; margin: 0; }
+  .story-dots { position: absolute; bottom: 56px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+  .story-dots div { width: 8px; height: 8px; border-radius: 50%; background: rgba(243,239,230,0.25); transition: background .3s; }
+  .story-dots div.on { background: #C79A4E; }
+
+  .section { padding: 120px 40px; }
+  .section-head { max-width: 560px; margin: 0 auto 56px; text-align: center; }
+  .kicker { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+  .section h2 { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 500; margin: 0 0 16px; }
+  .cards7 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 1240px; margin: 0 auto; }
+  .vcard { position: relative; border-radius: 20px; padding: 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end; color: #F3EFE6; overflow: hidden; transition: transform .15s ease-out; animation: floatY 6s ease-in-out infinite; will-change: transform; }
+  .vcard .vic { position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; box-shadow: 0 0 22px rgba(199,154,78,0.4); }
+  .vcard h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin: 0 0 8px; }
+  .vcard p { font-size: 14px; line-height: 1.5; opacity: .82; margin: 0; }
+  .vseal { display: flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #C79A4E; }
+  .vseal i { width: 6px; height: 6px; border-radius: 50%; background: #C79A4E; animation: pulseDot 2.4s ease-in-out infinite; }
+
+  .doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 1240px; margin: 0 auto; }
+  .door { position: relative; padding: 44px 28px 32px; border-radius: 160px 160px 20px 20px; background: linear-gradient(180deg, rgba(199,154,78,0.14), rgba(57,51,106,0.5)); border: 1px solid rgba(199,154,78,0.3); text-align: center; transition: transform .15s ease-out; min-height: 340px; display: flex; flex-direction: column; align-items: center; text-decoration: none; }
+  .door .dic { width: 64px; height: 64px; border-radius: 50%; margin-bottom: 22px; box-shadow: 0 0 30px rgba(199,154,78,0.4); }
+  .door h3 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; color: #F3EFE6; margin: 0 0 10px; }
+  .door p { font-size: 14px; line-height: 1.6; color: rgba(243,239,230,0.75); margin: 0 0 20px; }
+  .door .dcta { margin-top: auto; font-size: 13px; font-weight: 700; color: #C79A4E; }
+
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 56px; }
+  .chips span { padding: 10px 20px; border: 1px solid #DED5C2; border-radius: 999px; font-size: 13px; font-weight: 600; color: #272247; background: #fff; }
+  .morflow { display: flex; align-items: center; justify-content: center; margin-bottom: 64px; flex-wrap: wrap; }
+  .morflow .node { padding: 20px 26px; border-radius: 14px; background: #272247; color: #F3EFE6; font-size: 14px; font-weight: 600; min-width: 150px; text-align: center; }
+  .morflow .node.mid { background: #A06B2C; font-weight: 700; min-width: 190px; }
+  .morflow .link { width: 56px; height: 2px; background: #C79A4E; }
+  .counters { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1160px; margin: 0 auto; }
+  .counter { text-align: center; padding: 28px; border-radius: 16px; background: #fff; border: 1px solid #DED5C2; }
+  .counter b { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; color: #272247; display: block; }
+  .counter span { font-size: 13px; color: #6b6480; margin-top: 6px; display: block; }
+  .honesty { text-align: center; font-size: 12px; color: #8a8298; margin-top: 22px; }
+
+  .mapgrid { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .mapbox { position: relative; height: 420px; border-radius: 24px; border: 1px solid rgba(199,154,78,0.25); overflow: hidden; background: #1f1b3a; }
+  .india { position: absolute; top: 8%; left: 20%; width: 60%; height: 86%; clip-path: polygon(48% 0%, 68% 8%, 78% 22%, 74% 34%, 84% 40%, 80% 55%, 66% 62%, 58% 88%, 50% 100%, 44% 86%, 30% 60%, 20% 42%, 26% 26%, 20% 14%, 34% 6%); background: repeating-linear-gradient(135deg, rgba(199,154,78,0.1) 0 10px, rgba(199,154,78,0.16) 10px 20px); }
+  .cluster { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #C79A4E; border: 2px solid #F3EFE6; cursor: pointer; animation: pulseDot 2.4s ease-in-out infinite; z-index: 2; padding: 0; }
+  .clustercard { padding: 18px 20px; border-radius: 14px; background: rgba(199,154,78,0.12); border: 1px solid rgba(199,154,78,0.35); min-height: 96px; }
+  .clustercard .cc-k { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #C79A4E; margin-bottom: 6px; }
+  .clustercard .cc-n { font-family: 'Fraunces', serif; font-size: 20px; color: #F3EFE6; margin-bottom: 4px; }
+  .clustercard .cc-m { font-size: 13px; color: rgba(243,239,230,0.7); }
+
+  .teaser { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .queue { border-radius: 18px; border: 1px solid rgba(199,154,78,0.2); background: #14112380; padding: 24px; }
+  .queue .qrow { height: 38px; border-radius: 8px; background: rgba(243,239,230,0.05); margin-top: 10px; }
+
+  footer { padding: 48px 40px; background: #1B1730; border-top: 1px solid rgba(199,154,78,0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: center; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.shown { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .hero-grid, .story-grid, .mapgrid, .teaser { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 38px; }
+    .hero-stage { height: 300px; }
+    .section { padding: 80px 20px; }
+    .nav { padding: 12px 16px; } .nav.scrolled { padding: 8px 16px; }
+    .nav nav { gap: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .aurora, .spinner3d, .vcard, .cluster, .vseal i { animation: none !important; }
+    .shape { opacity: 1 !important; animation: none !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="brand" href="/landing">NEXUS</a>
+  <nav>
+    <a href="/?as=buyer&go=browse">Shop</a>
+    <a href="#makers">Makers</a>
+    <a href="#institutions">Institutions</a>
+    <a href="/?as=founder">Cockpit</a>
+    <div class="langtoggle">
+      <button id="langEn" class="on" onclick="setLang('en')">EN</button>
+      <button id="langHi" class="hi" onclick="setLang('hi')">हिं</button>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="aurora"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Trust &amp; Compliance Engine</div>
+      <h1 id="heroH1">Sell verified Indian craft to the world — we carry the compliance.</h1>
+      <p class="sub" id="heroSub">Verified artisans, documented provenance, and ~81% to the maker — with full GST and export compliance carried by NEXUS.</p>
+      <div class="cta-row">
+        <a class="cta-primary" data-magnet href="/?as=seller" id="cta1">Start as an artisan</a>
+        <a class="cta-ghost" data-magnet href="/?as=buyer&go=browse" id="cta2">Browse verified craft</a>
+        <a class="cta-gold" data-magnet href="#institutions" id="cta3">Partner with NEXUS</a>
+      </div>
+    </div>
+    <div class="hero-stage">
+      <div class="hero-glow"></div>
+      <div class="spinner3d">
+        <div class="shape" style="width:200px;height:240px;margin:-120px 0 0 -100px;animation-delay:0s;">
+          <div style="width:110px;height:110px;border-radius:50%;margin:0 auto;background:radial-gradient(circle at 35% 30%,#fdfbf6,#d9d2c2 65%,#b7ab8f);box-shadow:inset -10px -10px 22px rgba(0,0,0,0.18),0 0 30px rgba(199,154,78,0.5);"></div>
+          <div style="width:170px;height:130px;border-radius:50% 50% 40% 40%/60% 60% 40% 40%;margin:-10px auto 0;background:linear-gradient(160deg,#fdfbf6,#c9beac 70%);box-shadow:inset 0 -14px 26px rgba(0,0,0,0.16),0 0 34px rgba(199,154,78,0.35);"></div>
+        </div>
+        <div class="shape" style="width:180px;height:220px;margin:-110px 0 0 -90px;animation-delay:6s;">
+          <div style="width:100%;height:100%;border-radius:22px;background:repeating-linear-gradient(115deg,#7a2b2b 0 8px,#a83f2f 8px 16px,#C79A4E 16px 20px);box-shadow:0 0 40px rgba(199,154,78,0.5),inset 0 0 30px rgba(0,0,0,0.25);"></div>
+        </div>
+        <div class="shape" style="width:170px;height:170px;margin:-85px 0 0 -85px;animation-delay:12s;">
+          <div style="width:100%;height:100%;clip-path:polygon(50% 0%,90% 30%,78% 100%,22% 100%,10% 30%);background:linear-gradient(145deg,#4a6fd1,#1a2a63 55%,#0d1533);box-shadow:0 0 46px rgba(80,110,220,0.55),inset 0 0 20px rgba(199,154,78,0.3);"></div>
+        </div>
+        <div class="shape" style="width:150px;height:230px;margin:-115px 0 0 -75px;animation-delay:18s;">
+          <div style="width:100%;height:100%;border-radius:50% 50% 45% 45%/28% 28% 55% 55%;background:radial-gradient(circle at 40% 25%,#eaf3fb,#4c86b8 60%,#1f4a72);box-shadow:0 0 40px rgba(76,134,184,0.45),inset -8px -10px 24px rgba(0,0,0,0.2);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scrollhint" id="scrollHint">Scroll to follow the provenance thread ↓</div>
+</section>
+
+<!-- SCROLL STORYTELLING -->
+<section class="story" id="story">
+  <div class="story-sticky">
+    <div class="story-grid">
+      <div style="position:relative;height:320px;" id="storyOrbs"></div>
+      <div style="position:relative;height:220px;" id="storyTexts"></div>
+    </div>
+    <div class="story-dots" id="storyDots"></div>
+  </div>
+</section>
+
+<!-- VERTICAL SHOWCASE -->
+<section id="shop" class="section reveal" style="background:#F3EFE6;">
+  <div class="section-head">
+    <div class="kicker" style="color:#A06B2C;">Seven verticals, one standard of trust</div>
+    <h2 style="color:#272247;">Every craft, carried with proof</h2>
+    <a href="/?as=buyer&go=browse" style="text-decoration:none;font-size:14px;font-weight:700;color:#A06B2C;">Browse the full shop →</a>
+  </div>
+  <div class="cards7" id="showcase"></div>
+</section>
+
+<!-- AUDIENCE CHOOSER -->
+<section class="section reveal" style="background:#272247;">
+  <div class="section-head">
+    <div class="kicker" style="color:#C79A4E;">Choose your door</div>
+    <h2 style="color:#F3EFE6;margin:0;">Built for three journeys</h2>
+  </div>
+  <div class="doors" id="doors"></div>
+</section>
+
+<!-- TRUST STRIP / INSTITUTIONS -->
+<section id="institutions" class="section reveal" style="background:#F3EFE6;border-top:1px solid #DED5C2;border-bottom:1px solid #DED5C2;padding:100px 40px;">
+  <div style="max-width:1160px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="kicker" style="color:#A06B2C;">For government &amp; institutions</div>
+      <h2 style="color:#272247;font-size:34px;margin:0 0 14px;">A sober compliance posture, verified at every step</h2>
+      <p style="max-width:640px;margin:0 auto 14px;font-size:16px;color:#4A4460;line-height:1.6;">NEXUS operates as Merchant of Record for every transaction — carrying GST, export documentation and payout obligations so schemes can measure real outcomes.</p>
+    </div>
+    <div class="chips">
+      <span>ONDC</span><span>DigiLocker</span><span>UPI</span><span>e-Shram</span><span>GeM</span>
+    </div>
+    <div class="morflow">
+      <div class="node">Global Buyer</div>
+      <div class="link"></div>
+      <div class="node mid">NEXUS — Merchant of Record<br><span style="font-weight:400;font-size:12px;opacity:.85;">GST · export docs · payout</span></div>
+      <div class="link"></div>
+      <div class="node">Verified Maker</div>
+    </div>
+    <div class="counters" id="counters">
+      <div class="counter"><b id="countA">0</b><span>Real GI crafts in the verified registry</span></div>
+      <div class="counter"><b id="countB">0</b><span>Pilot craft clusters mapped, with named crafts</span></div>
+      <div class="counter"><b><span id="countC">0</span>%</b><span>Of each sale to the maker — our pricing model</span></div>
+    </div>
+    <div class="honesty">Pilot stage: these are the platform's real coverage numbers today — not sales claims. Outcome metrics will be published as the pilot runs.</div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="makers" class="section reveal" style="background:#272247;">
+  <div class="mapgrid">
+    <div>
+      <div class="kicker" style="color:#C79A4E;">GI cluster map</div>
+      <h2 style="color:#F3EFE6;font-size:32px;">Provenance you can point to on a map</h2>
+      <p style="font-size:15px;line-height:1.7;color:rgba(243,239,230,0.72);margin:0 0 22px;">Hover a cluster to see the craft of that region. Verified makers join here during the pilot.</p>
+      <div class="clustercard" id="clusterCard" hidden>
+        <div class="cc-k" id="ccCraft"></div>
+        <div class="cc-n" id="ccName"></div>
+        <div class="cc-m">Verified makers onboard here during the pilot.</div>
+      </div>
+    </div>
+    <div class="mapbox">
+      <div class="india"></div>
+      <div style="position:absolute;top:10px;left:14px;font-family:monospace;font-size:11px;color:rgba(243,239,230,0.4);">india outline — placeholder geodata</div>
+      <div id="clusterPins"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COCKPIT TEASER -->
+<section id="cockpit" class="section reveal" style="background:#1B1730;padding:100px 40px;">
+  <div class="teaser">
+    <div>
+      <div class="kicker" style="color:#C79A4E;">Founder cockpit</div>
+      <h2 style="color:#F3EFE6;font-size:32px;">A calm command center, not a dashboard</h2>
+      <p style="font-size:15px;line-height:1.7;color:rgba(243,239,230,0.65);margin:0 0 24px;max-width:440px;">Daily briefing, human-in-the-loop approvals, spend caps, and a full audit log — built for a founder who needs control without noise.</p>
+      <a href="/?as=founder" style="text-decoration:none;font-size:14px;font-weight:700;color:#C79A4E;">Explore the cockpit →</a>
+    </div>
+    <div class="queue">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <span style="font-size:13px;color:rgba(243,239,230,0.6);">Approval queue</span>
+        <span style="font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(199,154,78,0.18);color:#C79A4E;">founder-gated</span>
+      </div>
+      <div class="qrow"></div><div class="qrow"></div><div class="qrow"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span style="font-family:'Fraunces',serif;font-size:16px;color:#F3EFE6;">NEXUS</span>
+  <span style="font-size:13px;color:rgba(243,239,230,0.45);">The trust engine for India's craft economy</span>
+</footer>
+
+<script>
+'use strict';
+var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── i18n (hero copy mirrors the app's EN/HI pilot languages) ── */
+var COPY = {
+  en: {
+    h1: 'Sell verified Indian craft to the world — we carry the compliance.',
+    sub: 'Verified artisans, documented provenance, and ~81% to the maker — with full GST and export compliance carried by NEXUS.',
+    cta1: 'Start as an artisan', cta2: 'Browse verified craft', cta3: 'Partner with NEXUS',
+    hint: 'Scroll to follow the provenance thread ↓'
+  },
+  hi: {
+    h1: 'दुनिया को भारतीय शिल्प बेचिए — अनुपालन हम संभालते हैं',
+    sub: 'सत्यापित कारीगर, प्रलेखित उद्गम, और ~81% निर्माता को — पूर्ण GST व निर्यात अनुपालन के साथ।',
+    cta1: 'कारीगर के रूप में शुरू करें', cta2: 'प्रमाणित शिल्प देखें', cta3: 'NEXUS के साथ साझेदारी',
+    hint: 'उद्गम की डोर के साथ नीचे स्क्रॉल करें ↓'
+  }
+};
+function setLang(l) {
+  var c = COPY[l] || COPY.en;
+  document.getElementById('heroH1').textContent = c.h1;
+  document.getElementById('heroSub').textContent = c.sub;
+  document.getElementById('cta1').textContent = c.cta1;
+  document.getElementById('cta2').textContent = c.cta2;
+  document.getElementById('cta3').textContent = c.cta3;
+  document.getElementById('scrollHint').textContent = c.hint;
+  document.getElementById('langEn').classList.toggle('on', l === 'en');
+  document.getElementById('langHi').classList.toggle('on', l === 'hi');
+  document.documentElement.setAttribute('lang', l);
+  try { localStorage.setItem('nexusLocale', l); } catch (e) {}
+}
+try { var saved = localStorage.getItem('nexusLocale'); if (saved === 'hi') setLang('hi'); } catch (e) {}
+
+/* ── Nav scroll state ── */
+var nav = document.getElementById('nav');
+addEventListener('scroll', function () { nav.classList.toggle('scrolled', scrollY > 40); }, { passive: true });
+
+/* ── Scroll storytelling ── */
+var STAGES = [
+  { n: 1, title: "The maker's hands", copy: 'Every listing begins at the loom, the wheel, the workbench — documented at the source, not staged for the camera.', bg: 'radial-gradient(circle at 35% 30%, #C79A4E, #6b4a1f 70%)' },
+  { n: 2, title: 'The GI cluster', copy: 'We pin the exact cluster — Banaras, Jaipur, Makrana — so provenance is a place, not a claim.', bg: 'radial-gradient(circle at 35% 30%, #7d92e0, #272247 70%)' },
+  { n: 3, title: 'The verification seal', copy: 'Hallmarks, lab certificates, and GI marks are checked and sealed before anything ships.', bg: 'radial-gradient(circle at 35% 30%, #f0e6d2, #A06B2C 70%)' },
+  { n: 4, title: "The buyer's doorstep", copy: 'Compliant, insured, and documented — landing exactly as promised, anywhere in the world.', bg: 'radial-gradient(circle at 35% 30%, #d9d2c2, #39336A 70%)' }
+];
+var orbs = document.getElementById('storyOrbs'), texts = document.getElementById('storyTexts'), dots = document.getElementById('storyDots');
+STAGES.forEach(function (s, i) {
+  var o = document.createElement('div'); o.className = 'story-orb';
+  o.innerHTML = '<div style="background:' + s.bg + '"></div>'; orbs.appendChild(o);
+  var t = document.createElement('div'); t.className = 'story-text'; t.style.transform = 'translateY(12px)';
+  t.innerHTML = '<div class="story-step">Step ' + s.n + ' of 4</div><h3></h3><p></p>';
+  t.querySelector('h3').textContent = s.title; t.querySelector('p').textContent = s.copy;
+  texts.appendChild(t);
+  var d = document.createElement('div'); dots.appendChild(d);
+});
+var story = document.getElementById('story'), activeStage = -1;
+function updateStage() {
+  var r = story.getBoundingClientRect();
+  var total = r.height - innerHeight;
+  var scrolled = Math.min(Math.max(-r.top, 0), Math.max(total, 1));
+  var stage = Math.min(3, Math.max(0, Math.floor((total > 0 ? scrolled / total : 0) * 4)));
+  if (stage === activeStage) return;
+  activeStage = stage;
+  for (var i = 0; i < 4; i++) {
+    orbs.children[i].style.opacity = i === stage ? 1 : 0;
+    texts.children[i].style.opacity = i === stage ? 1 : 0;
+    texts.children[i].style.transform = i === stage ? 'translateY(0)' : 'translateY(12px)';
+    dots.children[i].classList.toggle('on', i === stage);
+  }
+}
+addEventListener('scroll', updateStage, { passive: true });
+updateStage();
+
+/* ── Vertical showcase ── */
+var SHOWCASE = [
+  { title: 'Handicraft', copy: 'Wood, lac and metalwork from certified craft clusters.', bg: 'linear-gradient(160deg,#8a4a2a,#4a2415)', ic: '#C79A4E', r: '10px', d: '0s' },
+  { title: 'Textiles', copy: 'Handloom weaves with thread-level provenance.', bg: 'linear-gradient(160deg,#7a2b2b,#39150f)', ic: '#e0b56a', r: '50%', d: '.4s' },
+  { title: 'Jewellery', copy: 'Hallmarked gold and silver, maker-verified.', bg: 'linear-gradient(160deg,#2a2417,#0f0d08)', ic: '#ffe08a', r: '4px', d: '.8s' },
+  { title: 'Gemstones', copy: 'Lab-certified cut stones, sourced and sealed.', bg: 'linear-gradient(160deg,#12213f,#050912)', ic: '#5c86ff', r: '2px', d: '1.2s' },
+  { title: 'Naturals', copy: 'Botanical and artisanal goods, traceable to source.', bg: 'linear-gradient(160deg,#3d4a2c,#1b2115)', ic: '#a9c98a', r: '50%', d: '1.6s' },
+  { title: 'Sculpture', copy: 'Marble and stone work from Makrana to Mamallapuram.', bg: 'linear-gradient(160deg,#4a4a52,#232227)', ic: '#e9e6df', r: '50%', d: '2s' },
+  { title: 'Experiences', copy: 'Visit the workshop where your piece was made.', bg: 'linear-gradient(160deg,#4a2f45,#231522)', ic: '#d98fae', r: '10px', d: '2.4s' }
+];
+var sc = document.getElementById('showcase');
+SHOWCASE.forEach(function (it) {
+  var el = document.createElement('div');
+  el.className = 'vcard'; el.style.background = it.bg; el.style.animationDelay = it.d;
+  el.innerHTML = '<div class="vic" style="border-radius:' + it.r + ';background:' + it.ic + '"></div><h3></h3><p></p><div class="vseal"><i></i>NEXUS protected</div>';
+  el.querySelector('h3').textContent = it.title; el.querySelector('p').textContent = it.copy;
+  sc.appendChild(el);
+});
+
+/* ── Doors ── */
+var DOORS = [
+  { title: 'Artisan', copy: 'Sell globally, get paid fast, keep ~81% of every sale.', cta: 'Start selling', ic: 'radial-gradient(circle,#C79A4E,#7a5424)', href: '/?as=seller' },
+  { title: 'Buyer', copy: 'Shop verified craft with full provenance, delivered and insured.', cta: 'Browse the shop', ic: 'radial-gradient(circle,#7d92e0,#2a3670)', href: '/?as=buyer&go=browse' },
+  { title: 'Institution', copy: 'Measure scheme outcomes with a compliant, auditable rail.', cta: 'Partner with us', ic: 'radial-gradient(circle,#e9e6df,#8a8574)', href: '#institutions' }
+];
+var doorsEl = document.getElementById('doors');
+DOORS.forEach(function (d) {
+  var a = document.createElement('a');
+  a.className = 'door'; a.href = d.href;
+  a.innerHTML = '<div class="dic" style="background:' + d.ic + '"></div><h3></h3><p></p><div class="dcta"></div>';
+  a.querySelector('h3').textContent = d.title; a.querySelector('p').textContent = d.copy;
+  a.querySelector('.dcta').textContent = d.cta + ' →';
+  doorsEl.appendChild(a);
+});
+
+/* ── Tilt + magnetic buttons ── */
+function addTilt(el) {
+  el.addEventListener('mousemove', function (e) {
+    if (REDUCED) return;
+    var r = el.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = 'perspective(900px) rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 14) + 'deg) translateY(-4px)';
+  });
+  el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+}
+document.querySelectorAll('.vcard, .door').forEach(addTilt);
+document.querySelectorAll('[data-magnet]').forEach(function (el) {
+  el.addEventListener('mousemove', function (e) {
+    if (REDUCED) return;
+    var r = el.getBoundingClientRect();
+    el.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * 0.18) + 'px,' + ((e.clientY - r.top - r.height / 2) * 0.28) + 'px)';
+  });
+  el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+});
+
+/* ── Honest counters — real coverage numbers, not sales claims ── */
+var counted = false;
+function animateCounts() {
+  if (counted) return; counted = true;
+  var T = { a: 54, b: 7, c: 81 }, dur = 1600, start = performance.now();
+  function step(t) {
+    var p = Math.min(1, (t - start) / dur), e = 1 - Math.pow(1 - p, 3);
+    document.getElementById('countA').textContent = Math.round(T.a * e);
+    document.getElementById('countB').textContent = Math.round(T.b * e);
+    document.getElementById('countC').textContent = Math.round(T.c * e);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+new IntersectionObserver(function (es) {
+  es.forEach(function (en) { if (en.isIntersecting) animateCounts(); });
+}, { threshold: 0.4 }).observe(document.getElementById('counters'));
+
+/* ── GI cluster map — real GI crafts and places ── */
+var CLUSTERS = [
+  { name: 'Banaras', craft: 'Banarasi weave', top: '30%', left: '58%' },
+  { name: 'Jaipur', craft: 'Gemstone cutting & blue pottery', top: '42%', left: '32%' },
+  { name: 'Makrana', craft: 'Marble sculpture', top: '38%', left: '28%' },
+  { name: 'Mamallapuram', craft: 'Stone sculpture', top: '82%', left: '52%' },
+  { name: 'Konark', craft: 'Temple stone carving', top: '58%', left: '72%' },
+  { name: 'Bidar', craft: 'Bidriware metalwork', top: '62%', left: '44%' },
+  { name: 'Khurja', craft: 'Pottery & ceramics', top: '24%', left: '46%' }
+];
+var pins = document.getElementById('clusterPins'), card = document.getElementById('clusterCard');
+CLUSTERS.forEach(function (c) {
+  var b = document.createElement('button');
+  b.className = 'cluster'; b.title = c.name; b.style.top = c.top; b.style.left = c.left;
+  b.setAttribute('aria-label', c.name + ' — ' + c.craft);
+  function show() {
+    card.hidden = false;
+    document.getElementById('ccCraft').textContent = c.craft;
+    document.getElementById('ccName').textContent = c.name;
+  }
+  b.addEventListener('mouseenter', show);
+  b.addEventListener('focus', show);
+  pins.appendChild(b);
+});
+
+/* ── Reveal on scroll ── */
+if (REDUCED) {
+  document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('shown'); });
+} else {
+  var ro = new IntersectionObserver(function (es) {
+    es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('shown'); ro.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    if (el.getBoundingClientRect().top < innerHeight) el.classList.add('shown');
+    else ro.observe(el);
+  });
+}
+</script>
+</body>
+</html>

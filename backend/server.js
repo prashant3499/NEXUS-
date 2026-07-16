@@ -738,6 +738,18 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const p = url.pathname;
   try {
+    // Marketing landing (designed page) — served at /landing
+    if ((p === '/landing' || p === '/landing.html') && req.method === 'GET') {
+      const fs = require('fs');
+      const path = require('path');
+      const file = path.join(__dirname, 'public', 'landing.html');
+      if (fs.existsSync(file)) {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(fs.readFileSync(file, 'utf8'));
+      }
+      return json(res, 404, { error: 'not_found', path: p });
+    }
+
     // Serve the frontend UI at root
     if (p === '/' && req.method === 'GET') {
       const fs = require('fs');
