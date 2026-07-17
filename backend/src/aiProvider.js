@@ -5,12 +5,25 @@
  * (DPDP), Indian-language strength, INR cost, and sovereign-AI optics. No provider is
  * hardcoded; keys stay server-side. If no key is set, callers use the built-in fallback.
  *
- * Set: AI_PROVIDER=krutrim|sarvam|anthropic  AI_API_KEY=...  (optional AI_BASE_URL, AI_MODEL)
+ * Set: AI_PROVIDER=anthropic|openai|zai|krutrim|sarvam|custom  AI_API_KEY=...
+ * (optional AI_BASE_URL, AI_MODEL — `custom` REQUIRES AI_BASE_URL and accepts
+ * any OpenAI-compatible endpoint, so every other provider cloud plugs in
+ * without a code change.)
  */
 const PROVIDERS = {
   anthropic: {
     label: 'Anthropic Claude', kind: 'anthropic',
     baseUrl: 'https://api.anthropic.com/v1/messages', model: 'claude-sonnet-4-6',
+    residency: 'global',
+  },
+  openai: {
+    label: 'OpenAI', kind: 'openai',
+    baseUrl: 'https://api.openai.com/v1/chat/completions', model: 'gpt-4o-mini',
+    residency: 'global',
+  },
+  zai: {
+    label: 'Z.ai (GLM)', kind: 'openai',
+    baseUrl: 'https://api.z.ai/api/paas/v4/chat/completions', model: 'glm-4.6',
     residency: 'global',
   },
   krutrim: {
@@ -22,6 +35,11 @@ const PROVIDERS = {
     label: 'Sarvam AI (India)', kind: 'openai',
     baseUrl: 'https://api.sarvam.ai/v1/chat/completions', model: 'sarvam-m',
     residency: 'india', langs: 'Indian languages + voice',
+  },
+  custom: {
+    label: 'Custom (any OpenAI-compatible endpoint via AI_BASE_URL)', kind: 'openai',
+    baseUrl: null, model: 'set AI_MODEL',
+    residency: 'depends on host',
   },
 };
 
@@ -69,7 +87,7 @@ function parseResponse(name, data) {
 async function chat(messages, opts) {
   opts = opts || {};
   const c = config(opts.provider);
-  if (!c.key) return null;                     // no key → caller uses fallback
+  if (!c.key || !c.baseUrl) return null;       // no key/endpoint → caller uses fallback
   if (typeof fetch !== 'function') return null;
   const cache = require('./cache');
   const cacheKey = cache.keyOf('ai', c.name, c.model, messages);
@@ -108,7 +126,7 @@ function chain() {
 /** One provider call (network). Separated so it can be timed + breaker-guarded + stubbed in tests. */
 async function _call(provider, messages, opts) {
   const c = config(provider);
-  if (!c.key || typeof fetch !== 'function') throw new Error('unconfigured:' + provider);
+  if (!c.key || !c.baseUrl || typeof fetch !== 'function') throw new Error('unconfigured:' + provider);
   const req = buildRequest(messages, Object.assign({}, opts, { provider }));
   const r = await fetch(req.url, { method: 'POST', headers: req.headers, body: JSON.stringify(req.body) });
   if (!r.ok) throw new Error('http ' + r.status + ':' + provider);
