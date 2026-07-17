@@ -10,11 +10,14 @@
 
 const http = require('http');
 const { Platform } = require('./src/platform');
-const { FileStore } = require('./src/store');
 const { sliceTransaction } = require('./src/slicer');
 const { config, productionReadiness, NON_CODE_GATES } = require('./src/config');
 
-const store = new FileStore(config.dataDir ? require('path').join(config.dataDir, 'nexus-store.json') : undefined);
+// One persistence seam: file store by default; STORE_DRIVER=postgres +
+// DATABASE_URL makes the same document durable (hydrate at boot,
+// write-through on every save). Falls back to file with an honest reason.
+const { makeStore } = require('./src/pgStore');
+const store = makeStore(config);
 const plat = new Platform(store);
 
 // Sourcing + returns are direct-on-store domains, separate from Platform's
@@ -4055,7 +4058,7 @@ if (require.main === module) {
     process.exit(1);
   }
   server.listen(PORT, () => {
-    console.log(`NEXUS API on http://localhost:${PORT}  [env=${config.env} payments=${config.payments.provider} store=${config.store} auth=${config.auth.mode}]`);
+    console.log(`NEXUS API on http://localhost:${PORT}  [env=${config.env} payments=${config.payments.provider} store=${store.kind || config.store}${store.durable ? '(durable)' : ''}${store.fallback_reason ? ' (FALLBACK: ' + store.fallback_reason + ')' : ''} auth=${config.auth.mode}]`);
     const r = productionReadiness(config);
     if (!r.ready) {
       console.warn('NOT production-ready. Missing:');

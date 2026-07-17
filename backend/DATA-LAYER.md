@@ -2,18 +2,28 @@
 
 Verified state of the three data questions you asked about.
 
-## Relational database — ✅ seam ready, not yet switched on
-- The store lives behind **one adapter** (`src/dbAdapter.js`): `FileAdapter` (default) and `PostgresAdapter`, chosen by `makeAdapter`.
-- It **lazily loads `pg`** and degrades gracefully: with no driver it returns a safe `postgres-unavailable` stub instead of crashing (verified).
-- **Active now:** file store (fine for dev/pilot; not for production scale).
+## Relational database — ✅ BUILT and verified (STORE_DRIVER=postgres)
+- The whole platform state persists through one store seam. `src/pgStore.js` makes it durable:
+  **hydrate from Postgres at boot** (short-lived child process, so the synchronous state
+  init reads warm data) and **write-through on every save** (debounced, last-write-wins,
+  retries on failure). One row (`nexus_state`) holds the state document — simple and
+  atomic at pilot scale; the relational DDL in docs/BACKEND-SCHEMA.md remains the
+  scale-up path.
+- `pg` is the single sanctioned dependency (CLAUDE.md rule 2), lazily required only when
+  configured. Missing driver or DATABASE_URL → file store with an honest reason in the
+  boot line (`store=file (FALLBACK: …)`), never a crash.
+- Also fixed here: `store.save()` used to silently drop `prospect_db`, `ops_control`,
+  `guardian_arrangements`, `watchdog_history`, `grievance_log`, `charity_fund`, `reviews`
+  — CRM stages and agent controls reset on every restart. All domains now round-trip
+  (regression-tested in `test-store-postgres.js`).
 
-**Switch to Postgres (3 steps, in a real environment):**
+**Switch on (Render):** create a Postgres instance, then set
 ```bash
-npm install pg                       # the driver (blocked in this sandbox; installs fine on a real host)
-export DATABASE_URL=postgres://USER:PASS@HOST:5432/nexus   # Neon / Supabase / RDS all work
-export STORE_DRIVER=postgres
+STORE_DRIVER=postgres
+DATABASE_URL=postgres://USER:PASS@HOST:5432/nexus
 ```
-Then `PostgresAdapter` activates automatically — no code change. (`productionGuard` already *requires* `DATABASE_URL` before it will boot in production, so this is enforced, not optional.)
+Build command runs `npm install --omit=dev` (installs only `pg`). Verified end-to-end:
+seller + consents + an advanced CRM stage survived kill → disk wipe → reboot.
 
 ## Vector database — ❌ not built, and not needed yet (honest)
 - There is **no vector DB** (no Pinecone/FAISS/Weaviate/Qdrant), and that's the right call for this stage.

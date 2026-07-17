@@ -64,9 +64,19 @@ sec('DB adapter — file live, Postgres ready-to-activate');
   a(fa.get('orders:2') === null, 'Delete works');
   // No DATABASE_URL → file adapter chosen
   a(D.makeAdapter({}).kind === 'file', 'No URL → file adapter');
-  // DATABASE_URL but pg not installed → file fallback with honest reason
+  // DATABASE_URL: with pg installed (the sanctioned store dependency) the
+  // postgres adapter is chosen; without it, file fallback with honest reason.
+  let pgInstalled = true; try { require('pg'); } catch (e) { pgInstalled = false; }
   const fallback = D.makeAdapter({ databaseUrl: 'postgres://x', file: '/tmp/nexus-test-fb.json' });
-  a(fallback.kind === 'file' && /pg not installed/i.test(fallback.fallback_reason || ''), 'pg missing → file fallback, honest reason');
+  if (pgInstalled) {
+    a(fallback.kind === 'postgres' && fallback.durable === true, 'pg installed → postgres adapter chosen (durable)');
+    // Bogus URL: swallow the async bootstrap failure and close the pool so
+    // the test process exits cleanly.
+    try { fallback.ready().catch(() => {}); } catch (e) {}
+    try { fallback.pool.end().catch(() => {}); } catch (e) {}
+  } else {
+    a(fallback.kind === 'file' && /pg not installed/i.test(fallback.fallback_reason || ''), 'pg missing → file fallback, honest reason');
+  }
 }
 
 sec('Founder advisor — what to do + who does it');
