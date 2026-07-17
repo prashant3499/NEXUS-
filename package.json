@@ -2,9 +2,14 @@
   "name": "nexus",
   "version": "3.0.0",
   "private": true,
-  "description": "NEXUS — trust & compliance engine for India's craft economy",
+  "description": "NEXUS \u2014 trust & compliance engine for India's craft economy",
   "scripts": {
     "start": "node backend/server.js"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
 }

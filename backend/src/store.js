@@ -45,6 +45,16 @@ class FileStore {
         platform_settings: data.platform_settings || null,
         launch_approvals: data.launch_approvals || {},
         seller_consents: data.seller_consents || {},
+        // Plain-JSON domains persistDomain writes — previously dropped by
+        // save(), so CRM stage progress, agent controls, grievances etc.
+        // silently reset on every restart.
+        guardian_arrangements: data.guardian_arrangements || {},
+        prospect_db: data.prospect_db || null,
+        ops_control: data.ops_control || null,
+        watchdog_history: data.watchdog_history || null,
+        grievance_log: data.grievance_log || null,
+        charity_fund: data.charity_fund || null,
+        reviews: data.reviews || null,
         ledger: data.ledger || [],
         _id: data._id || 1,
       };
@@ -71,6 +81,13 @@ class FileStore {
       platform_settings: state.platform_settings || null,
       launch_approvals: state.launch_approvals || {},
       seller_consents: state.seller_consents || {},
+      guardian_arrangements: state.guardian_arrangements || {},
+      prospect_db: state.prospect_db || null,
+      ops_control: state.ops_control || null,
+      watchdog_history: state.watchdog_history || null,
+      grievance_log: state.grievance_log || null,
+      charity_fund: state.charity_fund || null,
+      reviews: state.reviews || null,
       ledger: state.ledger,
       _id: state._id,
       saved_at: new Date().toISOString(),

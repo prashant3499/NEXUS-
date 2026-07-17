@@ -3,3 +3,4 @@ appengine-generated/
 
 # runtime file-store state (regenerated at boot)
 backend/data/nexus-store.json
+node_modules/
